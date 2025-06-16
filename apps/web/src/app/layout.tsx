@@ -1,6 +1,8 @@
+import "@/public/styles/tokens.css";
+import "@/public/styles/variables.css";
+import "@/public/styles/index.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "../index.css";
 
 const roboto = Roboto({
 	weight: ["400", "700"],
@@ -19,7 +21,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${roboto.className} antialiased`}>{children}</body>
+			<body className={`${roboto.className}`}>{children}</body>
 		</html>
 	);
 }

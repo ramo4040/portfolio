@@ -1,5 +1,9 @@
-"use client";
+import { TopNavbar } from "@/widgets/top-navbar/top-navbar";
 
 export default function Home() {
-	return <div>hhhhh</div>;
+	return (
+		<main>
+			<TopNavbar />
+		</main>
+	);
 }

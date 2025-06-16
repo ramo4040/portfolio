@@ -1,0 +1,38 @@
+#top-navbar-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	padding-block: var(--spacing-48);
+	padding-inline: var(--spacing-64);
+	font-size: var(--spacing-14);
+	font-weight: 600;
+
+	> div {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-16);
+
+		.live-badge {
+			position: relative;
+			background: #16a34a;
+			border-radius: 100vmin;
+			height: var(--spacing-6);
+			aspect-ratio: 1;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: -1;
+				background: rgba(22, 163, 74, 0.4);
+				border-radius: 100vmin;
+				height: var(--spacing-16);
+				aspect-ratio: 1;
+				animation: pulse 1s infinite;
+			}
+		}
+	}
+}
