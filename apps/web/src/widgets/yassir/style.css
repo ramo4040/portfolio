@@ -1,0 +1,13 @@
+#name-container {
+	margin-top: 12rem;
+	width: fit-content;
+	margin-inline: auto;
+	display: flex;
+	user-select: none;
+	justify-content: center;
+
+	h1 {
+		font-size: 6rem;
+		text-transform: uppercase;
+	}
+}

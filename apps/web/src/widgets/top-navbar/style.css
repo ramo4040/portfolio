@@ -7,6 +7,7 @@
 	padding-inline: var(--spacing-64);
 	font-size: var(--spacing-14);
 	font-weight: 600;
+	user-select: none;
 
 	> div {
 		display: flex;
