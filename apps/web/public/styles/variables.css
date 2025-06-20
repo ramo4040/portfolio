@@ -1,0 +1,16 @@
+@layer colors {
+	:root {
+		--bg-primary: #0f0f0f;
+		--default-card-bg: #fff;
+		--primary-text-color: #fff;
+		--secondary-text-color: #000;
+		--badge-bg: #dfdfdf;
+
+		--black-70: rgba(0, 0, 0, 0.7);
+		--black-60: rgba(0, 0, 0, 0.6);
+		--black-50: rgba(0, 0, 0, 0.5);
+		--black-40: rgba(0, 0, 0, 0.4);
+		--black-30: rgba(0, 0, 0, 0.3);
+		--black-20: rgba(0, 0, 0, 0.2);
+	}
+}

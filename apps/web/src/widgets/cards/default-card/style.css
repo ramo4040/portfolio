@@ -1,10 +1,12 @@
 #default-card {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	background: var(--default-card-bg);
 	color: var(--secondary-text-color);
 	padding: var(--spacing-32);
 	font-size: larger;
+	overflow: hidden;
 
 	#card-badge {
 		margin-inline: auto;
