@@ -78,3 +78,67 @@ h6 {
 #__next {
 	isolation: isolate;
 }
+
+.container {
+	width: 100%;
+	margin-inline: auto;
+}
+
+/* Small screens and up (640px+) */
+@media (min-width: 640px) {
+	.container {
+		max-width: 640px;
+	}
+}
+
+/* Medium screens and up (768px+) */
+@media (min-width: 768px) {
+	.container {
+		max-width: 768px;
+	}
+}
+
+/* Large screens and up (1024px+) */
+@media (min-width: 1024px) {
+	.container {
+		max-width: 1024px;
+	}
+}
+
+/* Extra large screens and up (1280px+) */
+@media (min-width: 1280px) {
+	.container {
+		max-width: 1280px;
+	}
+}
+
+/* 2X large screens and up (1536px+) */
+@media (min-width: 1536px) {
+	.container {
+		max-width: 1420px;
+	}
+}
+
+/* Utility classes for more flexibility */
+.col-span-1 {
+	grid-column: span 1;
+}
+.col-span-2 {
+	grid-column: span 2;
+}
+.col-span-3 {
+	grid-column: span 3;
+}
+.col-span-4 {
+	grid-column: span 4;
+}
+
+.row-span-1 {
+	grid-row: span 1;
+}
+.row-span-2 {
+	grid-row: span 2;
+}
+.row-span-3 {
+	grid-row: span 3;
+}

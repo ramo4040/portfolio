@@ -1,0 +1,4 @@
+.card {
+	border-radius: var(--radius-xl);
+	user-select: none;
+}
