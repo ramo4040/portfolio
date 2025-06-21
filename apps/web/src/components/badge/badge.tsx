@@ -1,8 +1,8 @@
-import "./style.css";
-import type { ComponentProps, FC } from "react";
+import './style.css'
+import type { ComponentProps, FC } from 'react'
 
-type BadgeProps = ComponentProps<"div"> & {};
+type BadgeProps = ComponentProps<'div'> & {}
 
 export const Badge: FC<BadgeProps> = ({ children }) => {
-	return <div id="badge">{children}</div>;
-};
+	return <div id='badge'>{children}</div>
+}

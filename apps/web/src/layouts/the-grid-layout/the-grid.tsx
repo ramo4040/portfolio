@@ -1,10 +1,10 @@
-import { DefaultCard, LocationCard, ProjectCard } from "@/widgets/cards";
-import "./style.css";
+import { DefaultCard, LocationCard, ProjectCard } from '@/widgets/cards'
+import './style.css'
 
 export const TheGridLayout = () => {
 	return (
-		<section id="the-grid" className="container">
-			<DefaultCard className="col-span-2 row-span-1">
+		<section id='the-grid' className='container'>
+			<DefaultCard className='col-span-2 row-span-1'>
 				<p>
 					Fullstack Web Developer based in Morocco, originally from Casablanca.
 					where I build and optimize web applications to deliver seamless user
@@ -18,17 +18,17 @@ export const TheGridLayout = () => {
 			</DefaultCard>
 
 			<ProjectCard
-				className="col-span-2 row-span-2"
-				theme="#fff"
-				color="#000"
-				imageAlt="Mindsprint Project"
-				imageSrc="/images/projects/mindsprint/mindsprint-bg.png"
-				href="#"
-				title="Mindsprint"
-				description="MindSprint is an AI-powered online learning platform designed to empower developers with personalized, interactive learning experiences."
+				className='col-span-2 row-span-2'
+				theme='#fff'
+				color='#000'
+				imageAlt='Mindsprint Project'
+				imageSrc='/images/projects/mindsprint/mindsprint-bg.png'
+				href='#'
+				title='Mindsprint'
+				description='MindSprint is an AI-powered online learning platform designed to empower developers with personalized, interactive learning experiences.'
 			/>
 
 			<LocationCard />
 		</section>
-	);
-};
+	)
+}

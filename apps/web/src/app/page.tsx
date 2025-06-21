@@ -1,6 +1,6 @@
-import { TheGridLayout } from "@/layouts/the-grid-layout/the-grid";
-import { TopNavbar } from "@/widgets/top-navbar/top-navbar";
-import { Yassir } from "@/widgets/yassir/yassir";
+import { TheGridLayout } from '@/layouts/the-grid-layout/the-grid'
+import { TopNavbar } from '@/widgets/top-navbar/top-navbar'
+import { Yassir } from '@/widgets/yassir/yassir'
 
 export default function Home() {
 	return (
@@ -9,5 +9,5 @@ export default function Home() {
 			<Yassir />
 			<TheGridLayout />
 		</main>
-	);
+	)
 }

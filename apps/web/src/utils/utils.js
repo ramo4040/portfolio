@@ -1,27 +1,27 @@
 export const getDay = () => {
-	const now = new Date();
+	const now = new Date()
 
 	// Get weekday name
-	const weekday = now.toLocaleString("en-US", { weekday: "long" });
+	const weekday = now.toLocaleString('en-US', { weekday: 'long' })
 
 	// Get day number
-	const day = now.getDate();
+	const day = now.getDate()
 
 	// Get ordinal suffix (st, nd, rd, th)
 	function getOrdinal(n) {
-		if (n > 3 && n < 21) return `${n}th`;
+		if (n > 3 && n < 21) return `${n}th`
 		switch (n % 10) {
 			case 1:
-				return `${n}st`;
+				return `${n}st`
 			case 2:
-				return `${n}nd`;
+				return `${n}nd`
 			case 3:
-				return `${n}rd`;
+				return `${n}rd`
 			default:
-				return `${n}th`;
+				return `${n}th`
 		}
 	}
 
-	const formatted = `${weekday} ${getOrdinal(day)}`;
-	return formatted;
-};
+	const formatted = `${weekday} ${getOrdinal(day)}`
+	return formatted
+}

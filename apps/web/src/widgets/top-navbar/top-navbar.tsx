@@ -1,12 +1,12 @@
-import "./style.css";
+import './style.css'
 
 export const TopNavbar = () => {
 	return (
-		<header id="top-navbar-container">
+		<header id='top-navbar-container'>
 			<div>
-				<span className="live-badge" />
+				<span className='live-badge' />
 				<p>Turning Ideas into Digital Reality</p>
 			</div>
 		</header>
-	);
-};
+	)
+}
