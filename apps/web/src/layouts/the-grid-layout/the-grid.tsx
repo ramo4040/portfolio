@@ -1,7 +1,5 @@
-import { DefaultCard } from "@/widgets/cards";
+import { DefaultCard, LocationCard, ProjectCard } from "@/widgets/cards";
 import "./style.css";
-import { ProjectCard } from "@/widgets/cards/project-card/project-card";
-import Image from "next/image";
 
 export const TheGridLayout = () => {
 	return (
@@ -30,9 +28,7 @@ export const TheGridLayout = () => {
 				description="MindSprint is an AI-powered online learning platform designed to empower developers with personalized, interactive learning experiences."
 			/>
 
-			<DefaultCard className="col-span-1 row-span-1">
-				<Image src="/images/my-location.png" fill alt="My location" />
-			</DefaultCard>
+			<LocationCard />
 		</section>
 	);
 };
