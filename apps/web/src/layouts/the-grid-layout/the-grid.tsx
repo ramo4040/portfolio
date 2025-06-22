@@ -1,5 +1,6 @@
 import {
 	DefaultCard,
+	EmailMeCard,
 	LocationCard,
 	ProjectCard,
 	SocialAccountCard,
@@ -24,13 +25,13 @@ export const TheGridLayout = () => {
 
 			<ProjectCard
 				className='col-span-2 row-span-2'
-				theme='#fff'
-				color='#000'
-				imageAlt='Mindsprint Project'
-				imageSrc='/images/projects/mindsprint/mindsprint-bg.png'
+				theme='#242a38'
+				color='#fff'
+				imageAlt='Car Rental Project'
+				imageSrc='/images/projects/car-rental/car-rental-bg.png'
 				href='#'
-				title='Mindsprint'
-				description='MindSprint is an AI-powered online learning platform designed to empower developers with personalized, interactive learning experiences.'
+				title='RH CAR'
+				description='Is an efficient car rental platform designed to streamline reservations and fleet management through a seamless and secure user experience.'
 			/>
 
 			<LocationCard />
@@ -47,6 +48,8 @@ export const TheGridLayout = () => {
 				title='Mindsprint'
 				description='MindSprint is an AI-powered online learning platform designed to empower developers with personalized, interactive learning experiences.'
 			/>
+
+			<EmailMeCard />
 
 			<DefaultCard className='col-span-4 row-span-4'> </DefaultCard>
 		</section>
