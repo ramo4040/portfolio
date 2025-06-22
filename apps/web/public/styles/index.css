@@ -142,3 +142,11 @@ h6 {
 .row-span-3 {
 	grid-row: span 3;
 }
+
+.row-span-3 {
+	grid-row: span 3;
+}
+
+.row-span-4 {
+	grid-row: span 4;
+}

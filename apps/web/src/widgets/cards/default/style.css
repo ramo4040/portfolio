@@ -9,6 +9,13 @@
 	overflow: hidden;
 
 	#card-badge {
+		margin-top: var(--spacing-10);
 		margin-inline: auto;
+	}
+
+	&:has(#card-badge) {
+		padding-inline: var(--spacing-32);
+		padding-bottom: var(--spacing-32);
+		padding-block: 0;
 	}
 }

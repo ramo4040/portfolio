@@ -4,6 +4,19 @@
 	overflow: hidden;
 	text-decoration: none;
 	text-decoration-line: none;
+
+	/* responsive design for project card that has row-span-1 */
+	&.row-span-1 {
+		#project-card {
+			&:hover .image {
+				height: 45%;
+			}
+
+			.description {
+				padding-bottom: 0;
+			}
+		}
+	}
 }
 
 #project-card {
