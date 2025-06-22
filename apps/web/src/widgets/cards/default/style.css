@@ -16,7 +16,7 @@
 
 	&:has(#card-badge) {
 		padding-inline: var(--spacing-32);
-		padding-bottom: var(--spacing-32);
 		padding-block: 0;
+		padding-bottom: var(--spacing-32);
 	}
 }

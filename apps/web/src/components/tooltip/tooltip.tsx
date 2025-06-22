@@ -37,12 +37,7 @@ const TooltipTrigger: FC<PropsWithChildren> = ({ children, ...props }) => {
 	}, [hovering])
 
 	return (
-		<div
-			ref={ref}
-			y-tooltip-trigger=''
-			aria-describedby='t-description'
-			{...props}
-		>
+		<div ref={ref} y-tooltip-trigger='' {...props}>
 			{children}
 		</div>
 	)
@@ -52,7 +47,7 @@ const TooltipContent: FC<PropsWithChildren> = ({ children, ...props }) => {
 	const { isOpen } = useTooltip()
 
 	return (
-		<div role='tooltip' aria-hidden={isOpen} id='t-description' {...props}>
+		<div role='tooltip' aria-hidden={!isOpen} {...props}>
 			{children}
 		</div>
 	)
