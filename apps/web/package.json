@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@ridemountainpig/svgl-react": "^1.0.8",
 		"@sglara/cn": "^1.0.0",
 		"@uidotdev/usehooks": "^2.4.1",
 		"lottie-react": "^2.4.1",

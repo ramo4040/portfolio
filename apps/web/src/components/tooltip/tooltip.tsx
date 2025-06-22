@@ -14,17 +14,21 @@ type TooltipProps = ComponentProps<'div'> & {
 	direction?: 'top' | 'bottom' | 'left' | 'right'
 }
 
-const Tooltip: FC<TooltipProps> = ({ children, direction = 'top' }) => {
+const Tooltip: FC<TooltipProps> = ({
+	children,
+	direction = 'top',
+	...props
+}) => {
 	return (
 		<ToolTipProvider>
-			<div y-tooltip='' data-side={direction}>
+			<div y-tooltip='' data-side={direction} {...props}>
 				{children}
 			</div>
 		</ToolTipProvider>
 	)
 }
 
-const TooltipTrigger: FC<PropsWithChildren> = ({ children }) => {
+const TooltipTrigger: FC<PropsWithChildren> = ({ children, ...props }) => {
 	const [ref, hovering] = useHover()
 	const { handleToggleTooltip } = useTooltip()
 
@@ -33,17 +37,22 @@ const TooltipTrigger: FC<PropsWithChildren> = ({ children }) => {
 	}, [hovering])
 
 	return (
-		<div ref={ref} y-tooltip-trigger='' aria-describedby='t-description'>
+		<div
+			ref={ref}
+			y-tooltip-trigger=''
+			aria-describedby='t-description'
+			{...props}
+		>
 			{children}
 		</div>
 	)
 }
 
-const TooltipContent: FC<PropsWithChildren> = ({ children }) => {
+const TooltipContent: FC<PropsWithChildren> = ({ children, ...props }) => {
 	const { isOpen } = useTooltip()
 
 	return (
-		<div role='tooltip' aria-hidden={isOpen} id='t-description'>
+		<div role='tooltip' aria-hidden={isOpen} id='t-description' {...props}>
 			{children}
 		</div>
 	)
