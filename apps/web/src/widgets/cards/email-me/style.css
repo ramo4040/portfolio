@@ -1,0 +1,14 @@
+#email-me-container {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	display: grid;
+	place-content: center;
+	height: 100%;
+	width: 100%;
+
+	> div {
+		width: 8rem;
+		aspect-ratio: 1;
+	}
+}

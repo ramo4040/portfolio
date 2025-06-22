@@ -1,4 +1,5 @@
 import './style.css'
+export { EmailMeCard } from './email-me/email-me-card'
 export { LocationCard } from './location/location-card'
 export { ProjectCard } from './project/project-card'
 export { DefaultCard } from './default/default-card'
