@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@sglara/cn": "^1.0.0",
+		"@uidotdev/usehooks": "^2.4.1",
 		"lottie-react": "^2.4.1",
 		"lucide-react": "^0.487.0",
 		"next": "15.3.0",

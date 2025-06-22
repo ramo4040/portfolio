@@ -6,6 +6,7 @@ import {
 	SocialAccountCard,
 } from '@/widgets/cards'
 import './style.css'
+import { SkillsCard } from '@/widgets/cards/skill/skill-card'
 
 export const TheGridLayout = () => {
 	return (
@@ -50,6 +51,8 @@ export const TheGridLayout = () => {
 			/>
 
 			<EmailMeCard />
+
+			<SkillsCard />
 
 			<DefaultCard className='col-span-4 row-span-4'> </DefaultCard>
 		</section>
