@@ -1,4 +1,9 @@
-import { DefaultCard, LocationCard, ProjectCard } from '@/widgets/cards'
+import {
+	DefaultCard,
+	LocationCard,
+	ProjectCard,
+	SocialAccountCard,
+} from '@/widgets/cards'
 import './style.css'
 
 export const TheGridLayout = () => {
@@ -29,6 +34,21 @@ export const TheGridLayout = () => {
 			/>
 
 			<LocationCard />
+
+			<SocialAccountCard />
+
+			<ProjectCard
+				className='col-span-2 row-span-1'
+				theme='#fff'
+				color='#000'
+				imageAlt='Mindsprint Project'
+				imageSrc='/images/projects/mindsprint/mindsprint-bg.png'
+				href='#'
+				title='Mindsprint'
+				description='MindSprint is an AI-powered online learning platform designed to empower developers with personalized, interactive learning experiences.'
+			/>
+
+			<DefaultCard className='col-span-4 row-span-4'> </DefaultCard>
 		</section>
 	)
 }

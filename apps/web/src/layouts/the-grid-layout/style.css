@@ -1,8 +1,9 @@
 #the-grid {
 	min-height: 100vh;
 	margin-top: var(--spacing-128);
+	padding-bottom: var(--spacing-32);
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(3, 20.5rem);
+	grid-template-rows: repeat(5, 20.5rem);
 	gap: var(--spacing-24);
 }

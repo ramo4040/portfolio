@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import './style.css'
+import { cn } from '@sglara/cn'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ComponentProps, FC } from 'react'
@@ -27,7 +28,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 	...props
 }) => {
 	return (
-		<Link href={href} id='project-card-link' className={`${className} card`}>
+		<Link href={href} id='project-card-link' className={cn('card', className)}>
 			<div
 				id='project-card'
 				style={{ backgroundColor: theme, color: color, ...style }}
