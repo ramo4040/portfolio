@@ -1,9 +1,15 @@
 'use client'
 
-import { Dailydev, Discord, GitHub, LinkedIn } from '@/components/icons'
 import { DefaultCard } from '../default/default-card'
 import './style.css'
 import Link from 'next/link'
+
+import {
+	DailydevLight,
+	Discord,
+	GitHubLight,
+	LinkedIn,
+} from '@ridemountainpig/svgl-react'
 
 const accounts = [
 	{
@@ -18,12 +24,12 @@ const accounts = [
 	},
 	{
 		name: 'daily.dev',
-		icon: <Dailydev />,
+		icon: <DailydevLight />,
 		url: 'https://app.daily.dev/your-profile',
 	},
 	{
 		name: 'GitHub',
-		icon: <GitHub />,
+		icon: <GitHubLight />,
 		url: 'https://github.com/your-profile',
 	},
 ]

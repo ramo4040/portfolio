@@ -6,6 +6,7 @@ import {
 	SocialAccountCard,
 } from '@/widgets/cards'
 import './style.css'
+import { SkillsCard } from '@/widgets/cards/skill/skill-card'
 
 export const TheGridLayout = () => {
 	return (
@@ -40,7 +41,7 @@ export const TheGridLayout = () => {
 
 			<ProjectCard
 				className='col-span-2 row-span-1'
-				theme='#fff'
+				theme='#e8f9ff'
 				color='#000'
 				imageAlt='Mindsprint Project'
 				imageSrc='/images/projects/mindsprint/mindsprint-bg.png'
@@ -50,6 +51,8 @@ export const TheGridLayout = () => {
 			/>
 
 			<EmailMeCard />
+
+			<SkillsCard />
 
 			<DefaultCard className='col-span-4 row-span-4'> </DefaultCard>
 		</section>

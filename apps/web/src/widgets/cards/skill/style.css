@@ -1,0 +1,14 @@
+#skills-container {
+	gap: .5rem;
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 40px);
+	grid-template-rows: repeat(auto-fill, 40px);
+	justify-content: center;
+	align-items: center;
+	align-content: space-evenly;
+
+	.icon {
+		aspect-ratio: 1;
+	}
+}
