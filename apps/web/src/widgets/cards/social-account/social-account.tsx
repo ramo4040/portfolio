@@ -15,22 +15,22 @@ const accounts = [
 	{
 		name: 'LinkedIn',
 		icon: <LinkedIn />,
-		url: 'https://www.linkedin.com/in/your-profile',
+		url: 'https://www.linkedin.com/in/yassir-rouane/',
 	},
 	{
 		name: 'Discord',
 		icon: <Discord />,
-		url: 'https://discord.com/users/your-profile',
+		url: 'discord://discordapp.com/users/1248684034209484874',
 	},
 	{
 		name: 'daily.dev',
 		icon: <DailydevLight />,
-		url: 'https://app.daily.dev/your-profile',
+		url: 'https://app.daily.dev/yassir_rouane',
 	},
 	{
 		name: 'GitHub',
 		icon: <GitHubLight />,
-		url: 'https://github.com/your-profile',
+		url: 'https://github.com/ramo4040',
 	},
 ]
 
@@ -42,7 +42,9 @@ export const SocialAccountCard = () => {
 				{accounts.map((account) => {
 					return (
 						<div key={account.name}>
-							<Link href={account.url}>{account.icon}</Link>
+							<Link href={account.url} target='_blank'>
+								{account.icon}
+							</Link>
 						</div>
 					)
 				})}
