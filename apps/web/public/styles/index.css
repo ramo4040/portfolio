@@ -23,6 +23,7 @@ body {
 	background-color: var(--bg-primary);
 	height: 100vh;
 	min-height: 100vh;
+	overflow-x: hidden;
 	/* 4. Add accessible line-height */
 	line-height: 1.5;
 	/* 5. Improve text rendering */

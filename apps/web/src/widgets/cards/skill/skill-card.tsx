@@ -14,7 +14,7 @@ export const SkillsCard = () => {
 			<div id='skills-container'>
 				{list.map((e) => {
 					return (
-						<Tooltip key={e.title} direction='left'>
+						<Tooltip key={e.title} direction='top'>
 							<TooltipTrigger>
 								<div className='icon'>
 									<e.icon />

@@ -8,6 +8,7 @@
 	font-size: var(--spacing-14);
 	font-weight: 600;
 	user-select: none;
+	position: relative;
 
 	> div {
 		display: flex;

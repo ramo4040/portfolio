@@ -74,10 +74,39 @@ const TooltipTrigger: FC<TooltipTriggerProps> = ({ children, ...props }) => {
 					break
 			}
 
+			const viewportWidth = window.innerWidth
+			const viewportHeight = window.innerHeight
+			const containerLeft = containerRect.left
+			const containerTop = containerRect.top
+
+			// Adjust position if tooltip goes out of viewport
+
+			// from the left
+			if (containerLeft + left < 0) {
+				left = -containerLeft + offset
+			}
+			// from the right
+			if (containerLeft + left + tooltipRect.width > viewportWidth) {
+				left = viewportWidth - containerLeft - tooltipRect.width - offset * 3 // *3 for scrollbar
+			}
+
+			// from the top
+			if (
+				containerTop + top < 0 &&
+				direction === 'top' &&
+				containerTop + triggerRect.height + tooltipRect.height + offset <
+					viewportHeight
+			) {
+				top = triggerRect.height + offset
+			}
+
 			tooltip.style.transform = `translate(${left}px, ${top}px)`
 
-			console.log(direction)
-			console.log('content:', trigger?.textContent)
+			console.log('viewportWidth:', viewportWidth)
+			console.log('viewportHeight:', viewportHeight)
+			console.log('containerLeft:', containerLeft)
+			console.log('containerTop:', containerTop)
+
 			console.log('Container Rect:', containerRect)
 			console.log('Trigger Rect:', triggerRect)
 			console.log('Tooltip Rect:', tooltipRect)

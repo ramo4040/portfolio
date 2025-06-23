@@ -10,7 +10,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-shrink: 0;
+	font: var(--font-body-lg);
 	font-weight: 500;
-	font-size: 17px;
 	user-select: none;
 }
