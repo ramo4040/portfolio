@@ -41,7 +41,7 @@ export const TheGridLayout = () => {
 
 			<ProjectCard
 				className='col-span-2 row-span-1'
-				theme='#fff'
+				theme='#e8f9ff'
 				color='#000'
 				imageAlt='Mindsprint Project'
 				imageSrc='/images/projects/mindsprint/mindsprint-bg.png'

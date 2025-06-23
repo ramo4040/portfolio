@@ -33,6 +33,9 @@
 			"correctness": {
 				"useExhaustiveDependencies": "off"
 			},
+			"a11y": {
+				"noNoninteractiveTabindex": "off"
+			},
 			"nursery": {
 				"useSortedClasses": {
 					"level": "warn",

@@ -7,18 +7,18 @@
 	[y-tooltip-trigger]:hover + [role="tooltip"],
 	[y-tooltip-trigger]:focus + [role="tooltip"] {
 		opacity: 1;
-		scale: 1;
 		visibility: visible;
 	}
 
 	[role="tooltip"] {
 		position: absolute;
+		top: 0;
+		left: 0;
 		display: grid;
 		place-content: center;
 		width: max-content;
 		max-width: 300px;
 		font: var(--font-body-md);
-		scale: 0.9;
 		opacity: 0;
 		z-index: 999;
 		min-height: 24px;
@@ -29,31 +29,5 @@
 		white-space: nowrap;
 		transition: var(--transition-standard-slow-effects);
 		pointer-events: none;
-	}
-}
-
-/* tooltip content position */
-[y-tooltip] {
-	&[data-side="top"] [role="tooltip"] {
-		top: -100%;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	&[data-side="bottom"] [role="tooltip"] {
-		top: 100%;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	&[data-side="right"] [role="tooltip"] {
-		top: 50%;
-		left: 100%;
-		transform: translateY(-50%);
-	}
-	&[data-side="left"] [role="tooltip"] {
-		top: 50%;
-		right: 100%;
-		transform: translateY(-50%);
 	}
 }
