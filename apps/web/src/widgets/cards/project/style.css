@@ -1,13 +1,14 @@
-#project-card-link {
+#project-card {
+	--badgeColor: var(--black-20);
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	text-decoration: none;
-	text-decoration-line: none;
+	position: relative;
+	padding: var(--spacing-18);
 
 	/* responsive design for project card that has row-span-1 */
 	&.row-span-1 {
-		#project-card {
+		#project-card-link {
 			&:hover .image {
 				height: 45%;
 			}
@@ -19,15 +20,12 @@
 	}
 }
 
-#project-card {
-	--badgeColor: var(--black-20);
+#project-card-link {
+	text-decoration: none;
+	text-decoration-line: none;
+	color: inherit;
+	display: block;
 	height: 100%;
-	position: relative;
-	padding: var(--spacing-18);
-
-	article {
-		height: 100%;
-	}
 
 	.link {
 		z-index: 99;
@@ -85,7 +83,7 @@
 		padding-bottom: var(--spacing-72);
 		height: 100%;
 
-		h1 {
+		h2 {
 			font-size: 3em;
 		}
 

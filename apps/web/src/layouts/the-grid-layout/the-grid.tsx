@@ -3,12 +3,16 @@ import {
 	EmailMeCard,
 	LocationCard,
 	ProjectCard,
+	ProjectsBannerContainer,
 	SocialAccountCard,
 } from '@/widgets/cards'
 import './style.css'
+import { listProject } from '@/data/projects-list'
 import { SkillsCard } from '@/widgets/cards/skill/skill-card'
 
 export const TheGridLayout = () => {
+	const carRentalProject = listProject[0]
+	const mindsprintProject = listProject[1]
 	return (
 		<section id='the-grid' className='container'>
 			<DefaultCard className='col-span-2 row-span-1'>
@@ -23,38 +27,19 @@ export const TheGridLayout = () => {
 					always building—for today’s challenges and tomorrow’s innovations.
 				</p>
 			</DefaultCard>
-
 			<ProjectCard
 				className='col-span-2 row-span-2'
-				theme='#242a38'
-				color='#fff'
-				imageAlt='Car Rental Project'
-				imageSrc='/images/projects/car-rental/car-rental-bg.png'
-				href='#'
-				title='RH CAR'
-				description='Is an efficient car rental platform designed to streamline reservations and fleet management through a seamless and secure user experience.'
+				project={carRentalProject}
 			/>
-
 			<LocationCard />
-
 			<SocialAccountCard />
-
 			<ProjectCard
 				className='col-span-2 row-span-1'
-				theme='#e8f9ff'
-				color='#000'
-				imageAlt='Mindsprint Project'
-				imageSrc='/images/projects/mindsprint/mindsprint-bg.png'
-				href='#'
-				title='Mindsprint'
-				description='MindSprint is an AI-powered online learning platform designed to empower developers with personalized, interactive learning experiences.'
+				project={mindsprintProject}
 			/>
-
 			<EmailMeCard />
-
 			<SkillsCard />
-
-			<DefaultCard className='col-span-4 row-span-4'> </DefaultCard>
+			<ProjectsBannerContainer />
 		</section>
 	)
 }
