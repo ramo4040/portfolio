@@ -1,57 +1,53 @@
 import { ArrowUpRight } from 'lucide-react'
 import './style.css'
+import type { Project } from '@/types'
 import { cn } from '@sglara/cn'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ComponentProps, FC } from 'react'
 
 type ProjectCardProps = ComponentProps<'div'> & {
-	theme?: string
-	color?: string
-	title?: string
-	description?: string
-	imageSrc: string
-	imageAlt: string
-	href: string
+	project: Project
 }
 
 export const ProjectCard: FC<ProjectCardProps> = ({
-	theme,
+	project,
 	className,
 	style,
-	color,
-	imageSrc,
-	imageAlt,
-	href,
-	title,
-	description,
 	...props
 }) => {
+	const { theme, color, imageSrc, imageAlt, href, title, description } = project
+
 	return (
-		<Link href={href} id='project-card-link' className={cn('card', className)}>
-			<div
-				id='project-card'
-				style={{ backgroundColor: theme, color: color, ...style }}
-				{...props}
+		<article
+			id='project-card'
+			className={cn('card', className)}
+			style={{ backgroundColor: theme, color: color, ...style }}
+			{...props}
+		>
+			<Link
+				href={href}
+				id='project-card-link'
+				aria-label={`View ${title} project details`}
 			>
-				<article>
-					<div className='link'>
-						<div className='description'>Open Project</div>
-						<div className='icon'>
-							<ArrowUpRight size='30px' />
-						</div>
+				<header className='link'>
+					<span className='description' aria-hidden='true'>
+						Open Project
+					</span>
+					<div className='icon' aria-hidden='true'>
+						<ArrowUpRight size='30px' />
 					</div>
+				</header>
 
-					<div className='image'>
-						<Image src={imageSrc} alt={imageAlt} fill />
-					</div>
+				<figure className='image' role='img' aria-label={imageAlt}>
+					<Image src={imageSrc} alt={imageAlt} fill />
+				</figure>
 
-					<div className='description'>
-						<h1>{title}</h1>
-						<p>{description}</p>
-					</div>
-				</article>
-			</div>
-		</Link>
+				<section className='description'>
+					<h2>{title}</h2>
+					<p>{description}</p>
+				</section>
+			</Link>
+		</article>
 	)
 }

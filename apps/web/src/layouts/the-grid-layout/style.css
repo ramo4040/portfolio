@@ -5,5 +5,5 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 20.5rem);
-	gap: var(--spacing-24);
+	gap: var(--spacing-18);
 }

@@ -13,6 +13,7 @@ import {
 	ReactLight,
 	Redis,
 	Redux,
+	ShadcnUiLight,
 	TailwindCSS,
 	TypeScript,
 } from '@ridemountainpig/svgl-react'
@@ -45,6 +46,10 @@ export const list = [
 		icon: Redux,
 	},
 	// Styling
+	{
+		title: 'Shadcn UI',
+		icon: ShadcnUiLight,
+	},
 	{
 		title: 'Tailwind CSS',
 		icon: TailwindCSS,

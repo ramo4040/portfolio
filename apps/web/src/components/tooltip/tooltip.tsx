@@ -36,6 +36,7 @@ const TooltipTrigger: FC<TooltipTriggerProps> = ({ children, ...props }) => {
 		if (isOpen && containerRef.current) {
 			const trigger = containerRef.current
 			const container = trigger.closest('[y-tooltip]')
+			// tooltip content
 			const tooltip = container?.querySelector(
 				"[role='tooltip']",
 			) as HTMLElement
@@ -101,15 +102,6 @@ const TooltipTrigger: FC<TooltipTriggerProps> = ({ children, ...props }) => {
 			}
 
 			tooltip.style.transform = `translate(${left}px, ${top}px)`
-
-			console.log('viewportWidth:', viewportWidth)
-			console.log('viewportHeight:', viewportHeight)
-			console.log('containerLeft:', containerLeft)
-			console.log('containerTop:', containerTop)
-
-			console.log('Container Rect:', containerRect)
-			console.log('Trigger Rect:', triggerRect)
-			console.log('Tooltip Rect:', tooltipRect)
 		}
 	}, [isOpen])
 
