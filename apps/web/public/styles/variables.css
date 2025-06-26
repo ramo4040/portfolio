@@ -1,7 +1,7 @@
 @layer colors {
 	:root {
 		--bg-primary: #0f0f0f;
-		--default-card-bg: #fff;
+		--default-card-bg: #ebebeb;
 		--primary-text-color: #fff;
 		--secondary-text-color: #000;
 		--badge-bg: #dfdfdf;
