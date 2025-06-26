@@ -25,13 +25,3 @@ export const getDay = () => {
 	const formatted = `${weekday} ${getOrdinal(day)}`
 	return formatted
 }
-
-export const getUniqueRandomDegrees = (count) => {
-	const degrees = new Set()
-	while (degrees.size < count) {
-		const randomDeg =
-			(Math.floor(Math.random() * 4) + 1) * (Math.random() > 0.5 ? 1 : -1)
-		degrees.add(randomDeg)
-	}
-	return Array.from(degrees)
-}

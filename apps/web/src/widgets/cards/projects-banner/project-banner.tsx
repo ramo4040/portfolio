@@ -5,27 +5,16 @@ import type { ComponentProps, FC } from 'react'
 
 export type ProjectBannerProps = ComponentProps<'article'> & {
 	project: Project
-	degree: number
 }
 
 export const ProjectBanner: FC<ProjectBannerProps> = ({
 	project,
-	degree,
 	...props
 }) => {
 	const { title, href, imageAlt, imageBannerSrc } = project
 
 	return (
-		<article
-			className='project-banner-card'
-			style={
-				{
-					'--project-banner-bg': project.theme,
-					'--project-banner-rotate': `${degree}deg`,
-				} as React.CSSProperties
-			}
-			{...props}
-		>
+		<article className='project-banner-card' {...props}>
 			<Link href={href}>
 				<Image src={imageBannerSrc} fill alt={imageAlt} />
 				<h1>{title}</h1>

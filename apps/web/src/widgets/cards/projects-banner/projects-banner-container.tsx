@@ -4,9 +4,6 @@ import { useState } from 'react'
 import { DefaultCard } from '../default/default-card'
 import { ProjectBanner } from './project-banner'
 import './style.css'
-import { getUniqueRandomDegrees } from '@/utils/utils'
-
-const randomDeg = getUniqueRandomDegrees(listProject.length)
 
 export const ProjectsBannerContainer = () => {
 	const [hoveredTheme, setHoveredTheme] = useState<string | null>(null)
@@ -28,11 +25,17 @@ export const ProjectsBannerContainer = () => {
 
 			<div id='projects-list-container'>
 				{listProject.map((project, i) => {
+					const degrees = [-2, 3, -1, 4, 3]
 					return (
 						<ProjectBanner
 							key={project.id}
 							project={project}
-							degree={randomDeg[i]}
+							style={
+								{
+									'--project-banner-bg': project.theme,
+									'--project-banner-rotate': `${degrees[i]}deg`,
+								} as React.CSSProperties
+							}
 							onMouseEnter={() => setHoveredTheme(project.theme)}
 							onMouseLeave={() => setHoveredTheme(null)}
 						/>
