@@ -30,6 +30,9 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"suspicious": {
+				"noArrayIndexKey": "off"
+			},
 			"correctness": {
 				"useExhaustiveDependencies": "off"
 			},

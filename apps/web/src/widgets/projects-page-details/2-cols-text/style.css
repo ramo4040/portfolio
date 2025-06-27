@@ -1,0 +1,23 @@
+#project-2-cols-text {
+	width: 70vw;
+	text-wrap: balance;
+	margin-inline: auto;
+	display: flex;
+	gap: 4rem;
+	color: #fff;
+
+	.paragraph-container {
+		display: grid;
+		gap: 1rem;
+
+		flex: 1;
+
+		p {
+			font-size: 18px;
+		}
+
+		h1 {
+			font: var(--font-headline-sm);
+		}
+	}
+}

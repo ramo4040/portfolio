@@ -1,0 +1,6 @@
+#project-details-elements {
+	display: flex;
+	flex-direction: column;
+	gap: 6rem;
+	padding-block: 5rem;
+}

@@ -1,0 +1,7 @@
+#project-headline {
+	max-width: 80vw;
+	margin-inline: auto;
+	text-align: center;
+	font: var(--font-display-lg);
+	line-height: 0.9;
+}
