@@ -2,7 +2,10 @@ import {
 	type ProjectDetailsEntries,
 	projectPageDetails,
 } from '@/data/project-page-details'
-import { ProjectHeaderPreview } from '@/widgets/projects-page-details'
+import {
+	ProjectHeaderPreview,
+	ProjectHeadline,
+} from '@/widgets/projects-page-details'
 import { type FC, use } from 'react'
 
 type ProjectPageProps = {
@@ -28,6 +31,10 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 							src={value}
 						/>
 					)
+				}
+
+				if (key === 'headline') {
+					return <ProjectHeadline key={value} title={value} />
 				}
 			})}
 		</>
