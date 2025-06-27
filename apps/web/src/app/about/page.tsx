@@ -3,6 +3,7 @@ import {
 	EmailMeCard,
 	LocationCard,
 	MyImages,
+	ResumeCard,
 	SocialAccountCard,
 } from '@/widgets/cards'
 import './style.css'
@@ -39,6 +40,8 @@ export default function AboutPage() {
 			<EmailMeCard />
 
 			<MusicListeningCard />
+
+			<ResumeCard />
 		</GridLayout>
 	)
 }
