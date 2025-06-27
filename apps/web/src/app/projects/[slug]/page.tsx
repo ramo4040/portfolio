@@ -1,8 +1,8 @@
+import './style.css'
+import { projectPageDetails } from '@/data/project-page-details'
+import type { ProjectDetailsEntries } from '@/types'
 import {
-	type ProjectDetailsEntries,
-	projectPageDetails,
-} from '@/data/project-page-details'
-import {
+	Project2ColsText,
 	ProjectHeaderPreview,
 	ProjectHeadline,
 } from '@/widgets/projects-page-details'
@@ -22,21 +22,24 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 
 	return (
 		<>
-			{projectEnteries.map(([key, value]) => {
-				if (key === 'header-preview') {
-					return (
-						<ProjectHeaderPreview
-							key={crypto.randomUUID()}
-							alt={project.headline}
-							src={value}
-						/>
-					)
-				}
+			<ProjectHeaderPreview
+				alt={project.headline}
+				src={project['header-preview']}
+			/>
 
-				if (key === 'headline') {
-					return <ProjectHeadline key={value} title={value} />
-				}
-			})}
+			<div id='project-details-elements'>
+				{projectEnteries.map(([key, value]) => {
+					if (key === 'headline') {
+						return <ProjectHeadline key={value} title={value} />
+					}
+
+					if (key === '2-cols-text') {
+						return (
+							<Project2ColsText key={crypto.randomUUID()} details={value} />
+						)
+					}
+				})}
+			</div>
 		</>
 	)
 }
