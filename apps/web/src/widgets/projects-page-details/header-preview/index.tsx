@@ -5,7 +5,7 @@ import type { FC } from 'react'
 type HeaderPreviewProps = {
 	src: string
 	alt: string
-	isVideo?: true
+	isVideo?: boolean
 }
 
 export const ProjectHeaderPreview: FC<HeaderPreviewProps> = ({
@@ -15,8 +15,20 @@ export const ProjectHeaderPreview: FC<HeaderPreviewProps> = ({
 }) => {
 	return (
 		<header id='project-header-preview'>
-			{!isVideo && (
-				<Image src={src} alt={alt} fill sizes='100%' objectFit='cover' />
+			{isVideo ? (
+				<video
+					src={src}
+					autoPlay
+					muted
+					loop
+					style={{
+						width: '100%',
+						height: '100%',
+						objectFit: 'cover',
+					}}
+				/>
+			) : (
+				<Image src={src} alt={alt} fill objectFit='cover' priority />
 			)}
 		</header>
 	)

@@ -1,4 +1,7 @@
-import { projectPageDetails } from '@/data/project-page-details'
+import {
+	type ProjectDetailsEntries,
+	projectPageDetails,
+} from '@/data/project-page-details'
 import { ProjectHeaderPreview } from '@/widgets/projects-page-details'
 import { type FC, use } from 'react'
 
@@ -12,12 +15,21 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 
 	if (!project) return null
 
+	const projectEnteries = Object.entries(project) as ProjectDetailsEntries
+
 	return (
 		<>
-			<ProjectHeaderPreview
-				alt={project.headline}
-				src={project['header-preview']}
-			/>
+			{projectEnteries.map(([key, value]) => {
+				if (key === 'header-preview') {
+					return (
+						<ProjectHeaderPreview
+							key={crypto.randomUUID()}
+							alt={project.headline}
+							src={value}
+						/>
+					)
+				}
+			})}
 		</>
 	)
 }

@@ -1,17 +1,23 @@
 import { CSS, HTML5, ReactLight } from '@ridemountainpig/svgl-react'
 import type { ComponentType } from 'react'
 
-export type ProjectDetails = {
+type TechStackType = { title: string; icon: ComponentType }[]
+
+export type ProjectDetailsTypes = {
 	slug: string
 	'header-preview': string
 	headline: string
-	'tech-stack': {
-		title: string
-		icon: ComponentType
-	}[]
-}[]
+	'tech-stack': TechStackType
+}
 
-export const projectPageDetails: ProjectDetails = [
+export type ProjectDetailsEntries = [
+	['slug', string],
+	['header-preview', string],
+	['headline', string],
+	['tech-stack', TechStackType],
+]
+
+export const projectPageDetails: ProjectDetailsTypes[] = [
 	{
 		slug: 'rh-car-rental',
 		'header-preview': '/images/projects/car-rental/car-rental-bg.png',
