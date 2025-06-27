@@ -1,4 +1,6 @@
 import './style.css'
+export { ResumeCard } from './resume'
+export { MyImages } from './my-images/my-images'
 export { EmailMeCard } from './email-me/email-me-card'
 export { LocationCard } from './location/location-card'
 export { ProjectCard } from './project/project-card'

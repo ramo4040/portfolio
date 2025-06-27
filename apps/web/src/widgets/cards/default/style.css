@@ -11,6 +11,7 @@
 
 	#card-badge {
 		position: relative;
+		z-index: 99;
 		margin-top: var(--spacing-10);
 		margin-inline: auto;
 	}

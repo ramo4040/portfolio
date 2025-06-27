@@ -1,0 +1,8 @@
+.resume-card {
+	overflow: hidden;
+	cursor: pointer;
+
+	img {
+		z-index: 1;
+	}
+}

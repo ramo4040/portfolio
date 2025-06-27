@@ -1,18 +1,18 @@
 import { cn } from '@sglara/cn'
 import './style.css'
+import type { ComponentProps } from 'react'
 
-interface GridLayoutProps {
-	children: React.ReactNode
+type GridLayoutProps = ComponentProps<'div'> & {
 	rows: number
 	cols: number
-	className?: string
 }
 
 export const GridLayout = ({
 	children,
 	rows,
 	cols,
-	className = '',
+	className,
+	...props
 }: GridLayoutProps) => {
 	return (
 		<section
@@ -23,6 +23,7 @@ export const GridLayout = ({
 					'--grid-cols': cols,
 				} as React.CSSProperties
 			}
+			{...props}
 		>
 			{children}
 		</section>
