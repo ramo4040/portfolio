@@ -1,4 +1,5 @@
 import './style.css'
+export { MyImages } from './my-images/my-images'
 export { EmailMeCard } from './email-me/email-me-card'
 export { LocationCard } from './location/location-card'
 export { ProjectCard } from './project/project-card'

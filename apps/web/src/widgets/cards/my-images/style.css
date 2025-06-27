@@ -1,0 +1,7 @@
+.my-iamge {
+	transition: var(--transition-expressive-slow-effects);
+
+	&.hide-my-image {
+		opacity: 0;
+	}
+}
