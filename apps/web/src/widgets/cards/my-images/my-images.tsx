@@ -14,7 +14,7 @@ export const MyImages = () => {
 			setCurrentImage((prev) => {
 				return prev === 3 ? 1 : prev + 1
 			})
-		}, 5000)
+		}, 4000)
 
 		return () => clearInterval(interval)
 	}, [])

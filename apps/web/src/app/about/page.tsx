@@ -7,7 +7,9 @@ import {
 } from '@/widgets/cards'
 import './style.css'
 import { GridLayout } from '@/layouts/grid-layout'
+import { MusicListeningCard } from '@/widgets/cards/music-listening'
 import { SkillsCard } from '@/widgets/cards/skill/skill-card'
+import { Music } from 'lucide-react'
 
 export default function AboutPage() {
 	return (
@@ -35,6 +37,8 @@ export default function AboutPage() {
 			<SkillsCard />
 
 			<EmailMeCard />
+
+			<MusicListeningCard />
 		</GridLayout>
 	)
 }

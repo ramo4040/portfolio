@@ -27,8 +27,11 @@ const navItems = [
 ]
 
 export const BottomNavbar = () => {
-	const [bgXposition, setBgXPosition] = useState('0%')
 	const pathname = usePathname()
+	const [bgXposition, setBgXPosition] = useState(
+		`${navItems.findIndex((item) => item.href === pathname) * 100}%`,
+	)
+	console.log(pathname)
 
 	return (
 		<nav id='bottom-navbar' aria-label='Main navigation'>
