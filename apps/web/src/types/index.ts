@@ -19,13 +19,18 @@ export type ProjectDetailsTechStackType = {
 	icon: ComponentType
 }[]
 
+export type ProjectDetails2ColsImageType = {
+	alt: string
+	src: string
+}[]
+
 export type ProjectDetailsTypes = {
 	slug: string
 	'header-preview': string
 	headline: string
 	'2-cols-text': string[]
 	'tech-stack': ProjectDetailsTechStackType
-	'2-cols-image': string[]
+	'2-cols-image': ProjectDetails2ColsImageType
 }
 
 export type ProjectDetailsEntries = [
@@ -33,6 +38,6 @@ export type ProjectDetailsEntries = [
 	['header-preview', string],
 	['headline', string],
 	['2-cols-text', string[]],
-	['2-cols-image', string[]],
+	['2-cols-image', ProjectDetails2ColsImageType],
 	['tech-stack', ProjectDetailsTechStackType],
 ]

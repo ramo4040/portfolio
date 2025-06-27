@@ -2,6 +2,7 @@ import './style.css'
 import { projectPageDetails } from '@/data/project-page-details'
 import type { ProjectDetailsEntries } from '@/types'
 import {
+	Project2ColsImage,
 	Project2ColsText,
 	ProjectHeaderPreview,
 	ProjectHeadline,
@@ -28,15 +29,17 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 			/>
 
 			<div id='project-details-elements'>
-				{projectEnteries.map(([key, value]) => {
+				{projectEnteries.map(([key, value], i) => {
 					if (key === 'headline') {
-						return <ProjectHeadline key={value} title={value} />
+						return <ProjectHeadline key={i} title={value} />
 					}
 
 					if (key === '2-cols-text') {
-						return (
-							<Project2ColsText key={crypto.randomUUID()} details={value} />
-						)
+						return <Project2ColsText key={i} details={value} />
+					}
+
+					if (key === '2-cols-image') {
+						return <Project2ColsImage key={i} images={value} />
 					}
 				})}
 			</div>

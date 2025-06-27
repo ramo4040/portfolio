@@ -10,10 +10,8 @@ export const Project2ColsText: FC<Props> = ({ details }) => {
 		<div id='project-2-cols-text'>
 			{details.map((e, i) => {
 				return (
-					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 					<div key={i} className='paragraph-container'>
 						{e.split('\n').map((e, i) => {
-							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 							return <p key={i}>{e}</p>
 						})}
 					</div>
