@@ -1,3 +1,4 @@
+import { cn } from '@sglara/cn'
 import './style.css'
 
 interface GridLayoutProps {
@@ -15,7 +16,7 @@ export const GridLayout = ({
 }: GridLayoutProps) => {
 	return (
 		<section
-			className={`grid-layout container ${className}`}
+			className={cn('grid-layout container', className)}
 			style={
 				{
 					'--grid-rows': rows,
