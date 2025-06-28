@@ -1,0 +1,243 @@
+---
+title: Custom Components
+description: Guide to using and understanding the custom MDX components in the portfolio
+---
+
+## Available Components
+
+The portfolio includes several custom React components specifically designed for use within MDX project files. These components ensure consistent styling and layout across all project pages.
+
+## Component Library
+
+### ProjectHeadline
+Creates styled section headings within project pages.
+
+#### Usage
+```mdx
+<ProjectHeadline title="Section Title" />
+```
+
+#### Props
+- `title` (string): The headline text to display
+
+#### Example
+```mdx
+<ProjectHeadline title="Project Overview" />
+<ProjectHeadline title="Technology Stack" />
+<ProjectHeadline title="Key Features" />
+```
+
+### Project2ColsText
+Displays text content in a flexible two-column layout. Can be used for single column text or actual two-column layouts.
+
+#### Usage
+```mdx
+<Project2ColsText 
+  details={{
+    hasTitle: boolean,
+    content: string[]
+  }} 
+/>
+```
+
+#### Props
+- `details.hasTitle` (boolean, optional): If true, first content item is treated as a title
+- `details.content` (string[]): Array of text content, supports markdown formatting
+
+#### Examples
+
+**Single Column with Title:**
+```mdx
+<Project2ColsText 
+  details={{
+    hasTitle: true,
+    content: [
+      'Key Features',
+      '• AI-powered personalized learning paths\n• Interactive coding challenges\n• Real-time progress tracking'
+    ]
+  }} 
+/>
+```
+
+**Two Column Description:**
+```mdx
+<Project2ColsText 
+  details={{
+    content: [
+      'This project demonstrates modern web development practices using React, Next.js, and TypeScript.',
+      'The architecture follows clean code principles with separation of concerns and modular component design.'
+    ]
+  }} 
+/>
+```
+
+**Single Column:**
+```mdx
+<Project2ColsText 
+  details={{
+    content: [
+      'This is a single column of text that will span the full width of the content area.'
+    ]
+  }} 
+/>
+```
+
+### Project2ColsImage
+Displays images in flexible layouts - single images, side-by-side, or galleries.
+
+#### Usage
+```mdx
+<Project2ColsImage 
+  data={{
+    direction: 'row' | 'column',
+    content: Array<{
+      alt: string,
+      src: string
+    }>
+  }} 
+/>
+```
+
+#### Props
+- `data.direction` (string): Layout direction - 'row' for side-by-side, 'column' for stacked
+- `data.content` (array): Array of image objects with alt text and source path
+
+#### Examples
+
+**Side-by-Side Images:**
+```mdx
+<Project2ColsImage 
+  data={{
+    direction: 'row',
+    content: [
+      {
+        alt: 'Desktop view of the application',
+        src: '/images/projects/my-project/desktop-view.png'
+      },
+      {
+        alt: 'Mobile view of the application',
+        src: '/images/projects/my-project/mobile-view.png'
+      }
+    ]
+  }} 
+/>
+```
+
+**Single Image:**
+```mdx
+<Project2ColsImage 
+  data={{
+    direction: 'row',
+    content: [
+      {
+        alt: 'Application dashboard overview',
+        src: '/images/projects/my-project/dashboard.png'
+      }
+    ]
+  }} 
+/>
+```
+
+**Stacked Images:**
+```mdx
+<Project2ColsImage 
+  data={{
+    direction: 'column',
+    content: [
+      {
+        alt: 'First feature screenshot',
+        src: '/images/projects/my-project/feature-1.png'
+      },
+      {
+        alt: 'Second feature screenshot',
+        src: '/images/projects/my-project/feature-2.png'
+      }
+    ]
+  }} 
+/>
+```
+
+### ProjectTechStack
+Displays the technology stack used in a project (if implemented).
+
+#### Usage
+```mdx
+<ProjectTechStack 
+  technologies={['React', 'Next.js', 'TypeScript', 'CSS Modules']}
+/>
+```
+
+### ProjectHeaderPreview
+Displays the main header image for a project page (automatically used by the page template).
+
+#### Usage
+This component is automatically used by the page template based on front matter:
+
+```mdx
+---
+headerPreview: '/images/projects/my-project/banner.png'
+headline: 'My Project Title'
+---
+```
+
+## Creating New Components
+
+To add a new custom component for MDX:
+
+### 1. Create Component
+```typescript
+// /src/widgets/projects-page-details/new-component/index.tsx
+interface NewComponentProps {
+  data: {
+    title: string
+    items: string[]
+  }
+}
+
+export const NewComponent: FC<NewComponentProps> = ({ data }) => {
+  return (
+    <div className="new-component">
+      <h3>{data.title}</h3>
+      <ul>
+        {data.items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+```
+
+### 2. Export Component
+```typescript
+// /src/widgets/projects-page-details/index.ts
+export { NewComponent } from './new-component'
+```
+
+### 3. Register in MDX
+```typescript
+// /src/utils/mdx.ts
+import { NewComponent } from '@/widgets/projects-page-details'
+
+const { content } = await compileMDX({
+  source: fileContent,
+  components: {
+    ProjectHeadline,
+    Project2ColsText,
+    Project2ColsImage,
+    NewComponent, // Add new component
+  },
+})
+```
+
+### 4. Use in MDX
+```mdx
+<NewComponent 
+  data={{
+    title: "My List",
+    items: ["Item 1", "Item 2", "Item 3"]
+  }}
+/>
+```
+
+This component system provides flexibility while maintaining consistency across all project pages.

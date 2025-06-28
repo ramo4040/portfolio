@@ -6,25 +6,24 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [
-				{
-					icon: 'github',
-					label: 'GitHub',
-					href: 'https://github.com/withastro/starlight',
-				},
-			],
+			title: 'Portfolio Documentation',
+			description:
+				'Comprehensive documentation for the portfolio project architecture.',
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Getting Started',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Overview', slug: 'overview' },
+						{ label: 'Project Structure', slug: 'project-structure' },
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'MDX Implementation',
+					items: [
+						{ label: 'MDX Overview', slug: 'mdx/overview' },
+						{ label: 'How MDX Works', slug: 'mdx/how-it-works' },
+						{ label: 'Custom Components', slug: 'mdx/custom-components' },
+					],
 				},
 			],
 		}),

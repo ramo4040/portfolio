@@ -1,0 +1,133 @@
+---
+title: Project Structure
+description: Detailed breakdown of the portfolio project file organization
+---
+
+## Monorepo Structure
+
+The portfolio is organized as a monorepo with two main applications:
+
+```
+portfolio/
+├── apps/
+│   ├── web/          # Main portfolio application (Next.js)
+│   └── docs/         # Documentation site (Astro + Starlight)
+```
+
+## Web Application (`apps/web/`)
+
+### Core Structure
+
+```
+web/
+├── src/
+│   ├── app/          # Next.js App Router
+│   ├── components/   # Reusable UI components
+│   ├── content/      # MDX project files
+│   ├── utils/        # Utility functions (MDX processing)
+│   ├── widgets/      # Complex UI components
+│   ├── hooks/        # Custom React hooks
+│   ├── layouts/      # Layout components
+│   └── types/        # TypeScript type definitions
+├── public/           # Static assets
+└── data/            # Static data files
+```
+
+### Key Directories
+
+#### `/src/app/` - App Router Structure
+```
+app/
+├── layout.tsx       # Root layout
+├── (root)/         # Root group
+│   ├── layout.tsx  # Home layout
+│   ├── page.tsx    # Home page
+│   └── about/      # About page
+└── projects/       # Projects section
+    └── [slug]/     # Dynamic project pages
+        ├── page.tsx
+        └── style.css
+```
+
+#### `/src/content/projects/` - MDX Project Files
+```
+content/projects/
+├── mindsprint.mdx
+├── rh-car-rental.mdx
+└── [other-projects].mdx
+```
+
+Each MDX file contains:
+- **Front Matter**: Project metadata (slug, images, title)
+- **Content**: Rich content using custom components
+
+#### `/src/utils/mdx.ts` - MDX Processing
+Core utilities for MDX compilation and project loading.
+
+#### `/src/widgets/projects-page-details/` - MDX Components
+Custom React components used within MDX files:
+- `ProjectHeadline` - Section headers
+- `Project2ColsText` - Two-column text layouts  
+- `Project2ColsImage` - Image galleries
+- `ProjectTechStack` - Technology stack displays
+- `ProjectHeaderPreview` - Hero images
+
+### Static Assets (`/public/`)
+
+```
+public/
+├── images/
+│   ├── projects/    # Project-specific images
+│   └── me/         # Personal photos
+├── pdfs/           # Resume files
+├── font/           # Custom fonts
+└── icons/          # SVG icons and animations
+```
+
+## Documentation (`apps/docs/`)
+
+### Astro + Starlight Structure
+
+```
+docs/
+├── src/
+│   └── content/
+│       └── docs/    # Documentation MDX files
+├── astro.config.mjs # Astro configuration
+└── package.json     # Dependencies
+```
+
+### Documentation Organization
+
+The docs are organized into logical sections:
+
+1. **Getting Started** - Overview and project structure
+2. **MDX Implementation** - Detailed MDX documentation
+3. **Reference** - API documentation and quick references
+
+## File Naming Conventions
+
+### MDX Project Files
+- **Format**: `kebab-case.mdx` (e.g., `rh-car-rental.mdx`)
+- **Location**: `/src/content/projects/`
+- **Slug**: Derived from filename for routing
+
+### Components
+- **Format**: `PascalCase` for component names
+- **Files**: `kebab-case.tsx` for filenames
+- **Styles**: `style.css` co-located with components
+
+### Utilities
+- **Format**: `camelCase.ts` for utility files
+- **Location**: `/src/utils/` for shared utilities
+
+## Configuration Files
+
+### Next.js Configuration
+- `next.config.ts` - Next.js build and runtime configuration
+- `tsconfig.json` - TypeScript compiler options
+- `package.json` - Dependencies and scripts
+
+### Astro Configuration  
+- `astro.config.mjs` - Astro and Starlight configuration
+- `content.config.ts` - Content collections schema (if using)

@@ -1,0 +1,195 @@
+---
+title: How MDX Works
+description: Deep dive into the technical implementation of MDX in the portfolio
+---
+
+## Technical Implementation
+
+Understanding how MDX works in this portfolio requires examining the complete flow from MDX files to rendered pages.
+
+## Core Dependencies
+
+### Primary Libraries
+```json
+{
+  "next-mdx-remote": "Compiles MDX to React components",
+  "next": "Provides app router and static generation",
+  "typescript": "Type safety for content and components"
+}
+```
+
+### Key Files
+- `/src/utils/mdx.ts` - MDX processing utilities
+- `/src/app/projects/[slug]/page.tsx` - Dynamic project pages  
+- `/src/content/projects/*.mdx` - Project content files
+
+## MDX Processing Pipeline
+
+### 1. File Structure
+```
+src/content/projects/
+├── mindsprint.mdx
+├── rh-car-rental.mdx
+└── [project-name].mdx
+```
+
+### 2. MDX Compilation (`/src/utils/mdx.ts`)
+
+```typescript
+import { compileMDX } from 'next-mdx-remote/rsc'
+import { promises as fs } from 'node:fs'
+
+export async function getProjectBySlug(slug: string) {
+  const filePath = path.join(projectsDirectory, `${slug}.mdx`)
+  const fileContent = await fs.readFile(filePath, 'utf8')
+
+  const { content, frontmatter } = await compileMDX<ProjectMeta>({
+    source: fileContent,
+    components: {
+      ProjectHeadline,
+      Project2ColsText,
+      Project2ColsImage,
+    },
+    options: {
+      parseFrontmatter: true,
+    },
+  })
+
+  return { content, meta: frontmatter }
+}
+```
+
+#### What Happens Here:
+1. **File Reading**: MDX file is read from filesystem
+2. **Compilation**: `compileMDX` processes the content
+3. **Component Injection**: Custom components are made available
+4. **Front Matter Parsing**: YAML metadata is extracted and typed
+5. **Content Return**: Compiled React component and metadata returned
+
+### 3. Type Definitions
+
+```typescript
+export type ProjectMeta = {
+  slug: string
+  headerPreview: string
+  headline: string
+}
+```
+
+This provides:
+- **Type Safety**: Front matter structure is enforced
+ - **Runtime Validation**: TypeScript catches metadata errors
+
+### 4. Dynamic Route Generation
+
+```typescript
+// /src/app/projects/[slug]/page.tsx
+export async function generateStaticParams() {
+  const slugs = await getAllProjectSlugs()
+  
+  return slugs.map((slug) => ({
+    slug,
+  }))
+}
+```
+
+#### Static Generation Process:
+1. **Build Time**: Next.js calls `generateStaticParams()`
+2. **File Discovery**: All `.mdx` files in projects directory are found
+3. **Slug Extraction**: Filenames become route slugs
+4. **Static Pages**: Each slug generates a static HTML page
+
+### 5. Page Rendering
+
+```typescript
+const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
+  const { slug } = use(params)
+  const project = use(getProjectBySlug(slug))
+
+  if (!project) return notFound()
+
+  return (
+    <>
+      <ProjectHeaderPreview
+        alt={project.meta.headline}
+        src={project.meta.headerPreview}
+      />
+      <div id='project-details-elements'>
+        {project.content}
+      </div>
+    </>
+  )
+}
+```
+
+#### Rendering Flow:
+1. **Slug Extraction**: Route parameter becomes project identifier
+2. **Content Loading**: MDX content is compiled and loaded
+3. **Error Handling**: 404 page shown for missing projects
+4. **Component Rendering**: Header and content components are rendered
+
+## Component System Integration
+
+### Component Registration
+Custom components must be registered in the MDX compilation:
+
+```typescript
+const { content } = await compileMDX({
+  source: fileContent,
+  components: {
+    ProjectHeadline,      // <ProjectHeadline />
+    Project2ColsText,     // <Project2ColsText />
+    Project2ColsImage,    // <Project2ColsImage />
+  },
+})
+```
+
+### Component Usage in MDX
+```mdx
+<!-- Standard Markdown -->
+# This is a markdown heading
+
+<!-- Custom Components -->
+<ProjectHeadline title="Custom Styled Heading" />
+
+<Project2ColsText 
+  details={{
+    content: ['Column 1 text', 'Column 2 text']
+  }} 
+/>
+```
+
+## Performance Optimizations
+
+### Static Generation Benefits
+```typescript
+export async function generateStaticParams() {
+  // Runs at build time, not runtime
+  const slugs = await getAllProjectSlugs()
+  return slugs.map((slug) => ({ slug }))
+}
+```
+
+**Benefits:**
+- **Build Time Processing**: MDX compilation happens once during build
+- **No Runtime Overhead**: No MDX processing on page requests
+- **CDN Friendly**: Static HTML files can be cached globally
+- **SEO Optimized**: Full HTML available for search engines
+
+### Image Optimization
+```mdx
+<Project2ColsImage 
+  data={{
+    content: [{
+      src: '/images/projects/mindsprint/dashboard.png',
+      alt: 'Project dashboard screenshot'
+    }]
+  }} 
+/>
+```
+
+Images are optimized through:
+- **Next.js Image Component**: Automatic format optimization (WebP, AVIF)
+- **Lazy Loading**: Images load only when needed
+- **Responsive Sizing**: Multiple sizes generated for different screens
+- **Blur Placeholders**: Smooth loading experience
