@@ -1,5 +1,5 @@
 #project-2-cols-text {
-	width: 70vw;
+	width: 60vw;
 	text-wrap: balance;
 	margin-inline: auto;
 	display: flex;
@@ -13,11 +13,12 @@
 		flex: 1;
 
 		p {
-			font-size: 18px;
+			font-size: 20px;
 		}
 
 		h1 {
-			font: var(--font-headline-sm);
+			font: var(--font-headline-md);
+			font-weight: 500;
 		}
 	}
 }

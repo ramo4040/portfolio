@@ -1,25 +1,37 @@
+import type { ProjectSectionType } from '@/types'
 import './style.css'
 import { projectPageDetails } from '@/data/project-page-details'
-import type { ProjectDetailsEntries } from '@/types'
 import {
 	Project2ColsImage,
 	Project2ColsText,
 	ProjectHeaderPreview,
-	ProjectHeadline,
 } from '@/widgets/projects-page-details'
-import { type FC, use } from 'react'
+import { notFound } from 'next/navigation'
+import { type FC, type JSX, use } from 'react'
 
 type ProjectPageProps = {
 	params: Promise<{ slug: string }>
 }
 
+function renderProjectSection(
+	section: ProjectSectionType,
+	index: number,
+): JSX.Element | null {
+	switch (section.type) {
+		case '2-cols-text':
+			return <Project2ColsText key={index} details={section} />
+		case 'images':
+			return <Project2ColsImage key={index} data={section} />
+
+		default:
+			return null
+	}
+}
+
 const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 	const { slug } = use(params)
 	const project = projectPageDetails.find((e) => e.slug === slug)
-
-	if (!project) return null
-
-	const projectEnteries = Object.entries(project) as ProjectDetailsEntries
+	if (!project) return notFound()
 
 	return (
 		<>
@@ -29,19 +41,9 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 			/>
 
 			<div id='project-details-elements'>
-				{projectEnteries.map(([key, value], i) => {
-					if (key === 'headline') {
-						return <ProjectHeadline key={i} title={value} />
-					}
-
-					if (key === '2-cols-text') {
-						return <Project2ColsText key={i} details={value} />
-					}
-
-					if (key === '2-cols-image') {
-						return <Project2ColsImage key={i} images={value} />
-					}
-				})}
+				{project.sections.map((section, index) =>
+					renderProjectSection(section, index),
+				)}
 			</div>
 		</>
 	)

@@ -1,4 +1,4 @@
-import type { ComponentProps, ComponentType } from 'react'
+import type { ComponentType } from 'react'
 
 export type Project = {
 	id: number
@@ -19,25 +19,28 @@ export type ProjectDetailsTechStackType = {
 	icon: ComponentType
 }[]
 
-export type ProjectDetails2ColsImageType = {
-	alt: string
-	src: string
-}[]
+export type ProjectDetailsImagesType = {
+	type: 'images'
+	direction: 'col' | 'row'
+	content: {
+		alt: string
+		src: string
+	}[]
+}
+
+export type ProjectDetails2ColsTextType = {
+	type: '2-cols-text'
+	hasTitle?: boolean
+	content: string[]
+}
+
+export type ProjectSectionType =
+	| ProjectDetails2ColsTextType
+	| ProjectDetailsImagesType
 
 export type ProjectDetailsTypes = {
 	slug: string
 	'header-preview': string
 	headline: string
-	'2-cols-text': string[]
-	'tech-stack': ProjectDetailsTechStackType
-	'2-cols-image': ProjectDetails2ColsImageType
+	sections: ProjectSectionType[]
 }
-
-export type ProjectDetailsEntries = [
-	['slug', string],
-	['header-preview', string],
-	['headline', string],
-	['2-cols-text', string[]],
-	['2-cols-image', ProjectDetails2ColsImageType],
-	['tech-stack', ProjectDetailsTechStackType],
-]

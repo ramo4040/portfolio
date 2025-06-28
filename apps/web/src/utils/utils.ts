@@ -8,7 +8,7 @@ export const getDay = () => {
 	const day = now.getDate()
 
 	// Get ordinal suffix (st, nd, rd, th)
-	function getOrdinal(n) {
+	function getOrdinal(n: number) {
 		if (n > 3 && n < 21) return `${n}th`
 		switch (n % 10) {
 			case 1:
