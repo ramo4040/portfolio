@@ -13,6 +13,7 @@
 			".turbo",
 			"dev-dist",
 			".zed",
+			"docs",
 			".vscode",
 			"routeTree.gen.ts",
 			"src-tauri",

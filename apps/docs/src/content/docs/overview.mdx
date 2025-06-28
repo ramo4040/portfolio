@@ -1,0 +1,66 @@
+---
+title: Project Overview
+description: Understanding the portfolio project structure and architecture
+---
+
+## Welcome to the Portfolio Documentation
+
+This documentation provides a comprehensive guide to understanding and working with the portfolio project. The portfolio is built as a monorepo containing multiple applications with a focus on modern web technologies and dynamic content management through MDX.
+
+## Project Goals
+
+The portfolio project serves multiple purposes:
+
+- **Personal Showcase**: Display projects, skills, and professional information
+- **Technical Demonstration**: Showcase modern web development practices
+- **Content Management**: Dynamic project pages using MDX for flexible content creation
+- **Documentation**: Comprehensive documentation for maintainability and knowledge sharing
+
+## Key Technologies
+
+### Frontend Stack
+- **Next.js**: React framework for the main portfolio application
+- **TypeScript**: Type-safe JavaScript development
+- **CSS Modules**: Scoped styling approach
+- **MDX**: Markdown with JSX for dynamic content
+
+### Documentation
+- **Astro**: Static site generation for documentation
+- **Starlight**: Documentation-focused Astro theme
+
+### Content Management
+- **MDX (Markdown + JSX)**: Enables rich, interactive content with React components
+- **Front Matter**: YAML metadata for content organization
+- **Custom Components**: Reusable UI components for consistent project layouts
+
+## Architecture Overview
+
+The project follows a monorepo structure with clear separation of concerns:
+
+```
+apps/
+├── web/          # Main portfolio Next.js application
+└── docs/         # Astro-based documentation site
+```
+
+### Web Application Structure
+- **App Router**: Next.js 13+ app directory structure
+- **Component-Based**: Modular, reusable components
+- **Content-Driven**: Dynamic routing based on MDX content
+- **Responsive Design**: Mobile-first approach
+
+## Why MDX?
+
+MDX was chosen for project content management because it provides:
+
+1. **Flexibility**: Combine markdown simplicity with React component power
+2. **Maintainability**: Separate content from presentation logic
+3. **Reusability**: Consistent layouts through custom components
+4. **Type Safety**: TypeScript integration for content metadata
+5. **Developer Experience**: Familiar markdown syntax with enhanced capabilities
+
+## Next Steps
+
+- [Project Structure](/project-structure/) - Detailed file organization
+- [MDX Implementation](/mdx/overview/) - Understanding the MDX system
+- [Custom Components](/mdx/custom-components/) - Available UI components

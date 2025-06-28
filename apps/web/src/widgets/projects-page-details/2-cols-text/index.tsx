@@ -1,4 +1,3 @@
-import { cn } from '@sglara/cn'
 import './style.css'
 import type { ProjectDetails2ColsTextType } from '@/types'
 import type { FC } from 'react'

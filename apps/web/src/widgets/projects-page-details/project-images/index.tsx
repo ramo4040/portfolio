@@ -8,7 +8,7 @@ type Props = {
 	data: Pick<ProjectDetailsImagesType, 'direction' | 'content'>
 }
 
-export const Project2ColsImage: FC<Props> = ({ data }) => {
+export const ProjectImages: FC<Props> = ({ data }) => {
 	return (
 		<figure
 			id='project-images'

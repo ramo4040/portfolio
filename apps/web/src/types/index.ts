@@ -33,14 +33,3 @@ export type ProjectDetails2ColsTextType = {
 	hasTitle?: boolean
 	content: string[]
 }
-
-export type ProjectSectionType =
-	| ProjectDetails2ColsTextType
-	| ProjectDetailsImagesType
-
-export type ProjectDetailsTypes = {
-	slug: string
-	'header-preview': string
-	headline: string
-	sections: ProjectSectionType[]
-}

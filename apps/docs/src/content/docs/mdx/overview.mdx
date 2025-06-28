@@ -1,0 +1,142 @@
+---
+title: MDX Overview
+description: Understanding MDX and its role in the portfolio project
+---
+
+## What is MDX?
+
+MDX is a powerful authoring format that combines the simplicity of Markdown with the flexibility of JSX (React components). In this portfolio, MDX serves as the content management system for project pages, enabling rich, interactive content while maintaining the ease of writing in Markdown.
+
+## Why MDX for Portfolio Projects?
+
+### Traditional Approach Problems
+Before MDX, creating project pages typically involved:
+- **Hardcoded HTML/JSX**: Difficult to maintain and update
+- **Static Content**: Limited layout flexibility
+- **Developer Dependency**: Content updates require code changes
+- **Inconsistent Layouts**: Easy to create visual inconsistencies
+
+### MDX Solutions
+MDX solves these problems by providing:
+
+1. **Content-Code Separation**: Writers can focus on content, developers on components
+2. **Reusable Components**: Consistent layouts through custom components
+3. **Type Safety**: TypeScript integration for metadata validation
+4. **Dynamic Content**: Interactive elements within content
+5. **Easy Maintenance**: Update content without touching application code
+
+## How MDX Works in This Portfolio
+
+### The Flow
+```mermaid
+    A[MDX File] --> B[Front Matter Parsing]
+    B --> C[MDX Compilation]
+    C --> D[Custom Components Injection]
+    D --> E[React Component Output]
+    E --> F[Next.js Page Rendering]
+```
+
+### 1. Content Creation
+Content creators write MDX files with:
+- **Front Matter**: YAML metadata (slug, images, titles)
+- **Markdown**: Standard markdown syntax for text
+- **JSX Components**: Custom components for complex layouts
+
+### 2. Compilation Process
+The MDX compilation happens at build time:
+- `next-mdx-remote/rsc` compiles MDX to React components
+- Front matter is extracted and typed with TypeScript
+- Custom components are injected into the compilation context
+
+### 3. Dynamic Routing
+Next.js generates pages dynamically:
+- `[slug]` dynamic route matches MDX filenames
+- `generateStaticParams()` creates static pages at build time
+- SEO optimization through static generation
+
+## Benefits in Practice
+
+### For Content Management
+```mdx
+---
+slug: my-project
+headerPreview: '/images/projects/my-project/banner.png'
+headline: 'My Amazing Project'
+---
+
+<ProjectHeadline title="Project Overview" />
+
+<Project2ColsText 
+  details={{
+    content: [
+      'This project demonstrates...',
+      'Key features include...'
+    ]
+  }} 
+/>
+```
+
+## Integration with Next.js
+
+### File-based Routing
+```
+src/content/projects/
+├── mindsprint.mdx     → /projects/mindsprint
+├── rh-car-rental.mdx  → /projects/rh-car-rental
+└── new-project.mdx    → /projects/new-project
+```
+
+### Component System
+Custom components provide consistent layouts:
+- **ProjectHeadline**: Section headers with consistent styling
+- **Project2ColsText**: Flexible two-column text layouts
+- **Project2ColsImage**: Responsive image galleries
+- **ProjectTechStack**: Technology showcase components
+
+### Performance Optimizations
+- **Static Generation**: All pages pre-rendered at build time
+- **Image Optimization**: Next.js Image component for optimal loading
+- **Code Splitting**: Components loaded only when needed
+- **SEO Ready**: Meta tags generated from front matter
+
+## Real-world Example
+
+Here's how a project page is structured in practice:
+
+```mdx
+---
+slug: mindsprint
+headerPreview: '/images/projects/mindsprint/mindsprint-bg.png'
+headline: 'MindSprint - AI-Powered Learning Platform'
+---
+
+<ProjectHeadline title="MindSprint - AI-Powered Learning Platform" />
+
+<Project2ColsText 
+  details={{
+    content: [
+      'MindSprint is an innovative AI-powered online learning platform...',
+      'The platform leverages artificial intelligence to create dynamic...'
+    ]
+  }} 
+/>
+
+<Project2ColsImage 
+  data={{
+    direction: 'row',
+    content: [
+      {
+        alt: 'MindSprint Dashboard',
+        src: '/images/projects/mindsprint/mindsprint-bg.png'
+      }
+    ]
+  }} 
+/>
+```
+
+This approach provides:
+- **Content Focus**: Writers focus on the message, not markup
+- **Visual Consistency**: Components ensure consistent design
+- **Easy Maintenance**: Update content without code changes
+- **Performance**: Static generation for optimal loading
+- **SEO**: Proper HTML structure for search engines
