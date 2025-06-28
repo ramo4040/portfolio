@@ -28,7 +28,16 @@ export const ProjectHeaderPreview: FC<HeaderPreviewProps> = ({
 					}}
 				/>
 			) : (
-				<Image src={src} alt={alt} fill objectFit='cover' priority />
+				<Image
+					src={src}
+					alt={alt}
+					fill
+					sizes='100%'
+					priority
+					style={{
+						objectFit: 'cover',
+					}}
+				/>
 			)}
 		</header>
 	)

@@ -1,0 +1,24 @@
+#project-2-cols-text-image {
+	display: flex;
+	gap: 3rem;
+	width: 85vw;
+	height: 90vh;
+	margin-inline: auto;
+
+	&.reverse {
+		flex-direction: row-reverse;
+	}
+
+	.text-container {
+		flex: 30%;
+		font-size: 20px;
+	}
+
+	.image-container {
+		position: relative;
+		height: 100%;
+		flex: 70%;
+		overflow: hidden;
+		border-radius: var(--radius-xxl);
+	}
+}

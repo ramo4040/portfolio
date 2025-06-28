@@ -1,3 +1,4 @@
+export { Project2ColsTextImage } from './2-cols-text-image'
 export { Project2ColsText } from './2-cols-text'
 export { ProjectTechStack } from './tech-stack'
 export { ProjectHeadline } from './headline'

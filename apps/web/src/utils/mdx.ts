@@ -2,6 +2,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import {
 	Project2ColsText,
+	Project2ColsTextImage,
 	ProjectHeadline,
 	ProjectImages,
 } from '@/widgets/projects-page-details'
@@ -26,6 +27,7 @@ export async function getProjectBySlug(slug: string) {
 				ProjectHeadline,
 				Project2ColsText,
 				ProjectImages,
+				Project2ColsTextImage,
 			},
 			options: {
 				parseFrontmatter: true,
