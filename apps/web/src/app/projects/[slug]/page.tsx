@@ -19,7 +19,7 @@ function renderProjectSection(
 ): JSX.Element | null {
 	switch (section.type) {
 		case '2-cols-text':
-			return <Project2ColsText key={index} details={section.content} />
+			return <Project2ColsText key={index} details={section} />
 		case 'images':
 			return <Project2ColsImage key={index} data={section} />
 

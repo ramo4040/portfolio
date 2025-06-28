@@ -27,12 +27,15 @@ export type ProjectDetailsImagesType = {
 		src: string
 	}[]
 }
+
+export type ProjectDetails2ColsTextType = {
+	type: '2-cols-text'
+	hasTitle?: boolean
+	content: string[]
+}
+
 export type ProjectSectionType =
-	| {
-			type: '2-cols-text'
-			hasTitle?: boolean
-			content: string[]
-	  }
+	| ProjectDetails2ColsTextType
 	| ProjectDetailsImagesType
 
 export type ProjectDetailsTypes = {
