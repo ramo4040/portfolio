@@ -1,6 +1,8 @@
 import './style.css'
 import { getAllProjectSlugs, getProjectBySlug } from '@/utils/mdx'
 import { ProjectHeaderPreview } from '@/widgets/projects-page-details'
+import { X } from 'lucide-react'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { type FC, use } from 'react'
 
@@ -27,6 +29,10 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 
 	return (
 		<>
+			<Link href='/' id='project-close-button'>
+				<X />
+			</Link>
+
 			<ProjectHeaderPreview
 				alt={project.meta.headline}
 				src={project.meta.headerPreview}
