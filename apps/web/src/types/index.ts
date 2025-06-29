@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react'
 
 export type Project = {
-	id: number
+	id: string
 	theme: string
 	color?: string
 	title?: string

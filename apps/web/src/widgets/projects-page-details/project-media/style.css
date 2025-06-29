@@ -7,8 +7,8 @@
 	gap: 1rem;
 
 	> figure {
+		flex: 1;
 		aspect-ratio: 1;
-		height: 90vh;
 		border-radius: var(--radius-xxl);
 		overflow: hidden;
 		position: relative;
@@ -26,7 +26,7 @@
 	&.directionColumn {
 		> figure {
 			flex-direction: column;
-			width: 100%;
+			flex: 100%;
 			aspect-ratio: 16 / 9;
 		}
 	}
