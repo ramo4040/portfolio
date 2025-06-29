@@ -4,7 +4,7 @@ import {
 	Project2ColsText,
 	Project2ColsTextImage,
 	ProjectHeadline,
-	ProjectImages,
+	ProjectMedia,
 } from '@/widgets/projects-page-details'
 import { compileMDX } from 'next-mdx-remote/rsc'
 
@@ -26,7 +26,7 @@ export async function getProjectBySlug(slug: string) {
 			components: {
 				ProjectHeadline,
 				Project2ColsText,
-				ProjectImages,
+				ProjectMedia,
 				Project2ColsTextImage,
 			},
 			options: {

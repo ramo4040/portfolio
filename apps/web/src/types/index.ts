@@ -19,10 +19,11 @@ export type ProjectDetailsTechStackType = {
 	icon: ComponentType
 }[]
 
-export type ProjectDetailsImagesType = {
+export type ProjectDetailsMediaType = {
 	type: 'images'
 	direction: 'col' | 'row'
 	content: {
+		isVideo?: boolean
 		alt: string
 		src: string
 	}[]

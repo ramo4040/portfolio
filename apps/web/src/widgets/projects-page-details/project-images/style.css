@@ -1,5 +1,5 @@
 #project-images {
-	width: 90vw;
+	width: 80vw;
 	display: flex;
 	flex-wrap: wrap;
 	height: 100%;
@@ -8,16 +8,25 @@
 	gap: 1rem;
 	margin-inline: auto;
 
-	> div {
+	> figure {
 		aspect-ratio: 1;
 		height: 90vh;
 		border-radius: var(--radius-xxl);
 		overflow: hidden;
 		position: relative;
+
+		video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 
 	&.directionColumn {
-		> div {
+		> figure {
 			flex-direction: column;
 			width: 100%;
 			aspect-ratio: 16 / 9;

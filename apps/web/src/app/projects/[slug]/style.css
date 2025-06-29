@@ -3,6 +3,7 @@
 	flex-direction: column;
 	gap: 7rem;
 	padding-block: 7rem;
+	pointer-events: none;
 }
 
 #project-close-button {
@@ -20,8 +21,13 @@
 
 	display: grid;
 	place-content: center;
+	transition: var(--transition-standard-default-effects);
 
 	svg {
 		color: var(--primary-text-color);
+	}
+
+	&:hover {
+		background: #ffffff87;
 	}
 }

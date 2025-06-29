@@ -18,16 +18,26 @@ export const LocationCard: FC<DefaultCardProps> = async ({
 	children,
 	...props
 }) => {
+	let weatherData: WeatherData | null = null
+
 	const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
+
+	if (!API_KEY) {
+		throw new Error('Weather API key is not configured')
+	}
+
 	const response = await fetch(
 		`https://api.openweathermap.org/data/2.5/weather?q=Casablanca&appid=${API_KEY}&units=metric`,
+		{
+			next: { revalidate: 600 },
+		},
 	)
 
 	if (!response.ok) {
 		throw new Error(`Weather API error: ${response.status}`)
 	}
 
-	const data: WeatherData = await response.json()
+	weatherData = await response.json()
 
 	return (
 		<div
@@ -41,11 +51,15 @@ export const LocationCard: FC<DefaultCardProps> = async ({
 				<div>
 					<Clock />
 					<div className='today'>
-						<p>{data.name}</p>
+						{response.ok && <p>{weatherData?.name}</p>}
 						<small>{getDay()}</small>
 					</div>
 				</div>
-				<p className='weather-temp'>{Math.floor(data.main.temp)}°</p>
+				{response.ok && (
+					<p className='weather-temp'>
+						{Math.floor(weatherData?.main?.temp || 0)}°
+					</p>
+				)}
 			</div>
 		</div>
 	)
