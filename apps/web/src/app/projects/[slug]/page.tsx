@@ -1,5 +1,7 @@
+import { listProject } from '@/data/projects-list'
 import './style.css'
 import { getAllProjectSlugs, getProjectBySlug } from '@/utils/mdx'
+import { ProjectCard } from '@/widgets/cards'
 import { ProjectHeaderPreview } from '@/widgets/projects-page-details'
 import { X } from 'lucide-react'
 import Link from 'next/link'
@@ -24,6 +26,11 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 	// Load the MDX content
 	const projectPromise = getProjectBySlug(slug)
 	const project = use(projectPromise)
+	// get 2 random projects to display in the footer
+	const moreProjects = listProject
+		.filter((p) => p.id !== slug)
+		.sort(() => 0.5 - Math.random())
+		.slice(0, 2)
 
 	if (!project) return notFound()
 
@@ -39,6 +46,18 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 			/>
 
 			<div id='project-details-elements'>{project.content}</div>
+
+			<div className='footer container'>
+				<Link href='/' className='see-more'>
+					Explore more work
+				</Link>
+
+				<div className='more-projects'>
+					{moreProjects.map((project) => {
+						return <ProjectCard key={project.id} project={project} />
+					})}
+				</div>
+			</div>
 		</article>
 	)
 }

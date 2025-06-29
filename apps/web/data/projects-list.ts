@@ -1,6 +1,6 @@
 export const listProject = [
 	{
-		id: 1,
+		id: 'rh-car-rental',
 		theme: '#242a38',
 		color: '#fff',
 		imageAlt: 'Car Rental Project',
@@ -12,7 +12,7 @@ export const listProject = [
 			'Is an efficient car rental platform designed to streamline reservations and fleet management through a seamless and secure user experience.',
 	},
 	{
-		id: 2,
+		id: 'mindsprint',
 		theme: '#e8f9ff',
 		color: '#000',
 		imageAlt: 'Mindsprint Project',
