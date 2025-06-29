@@ -1,24 +1,17 @@
 #project-2-cols-text {
-	width: 60vw;
 	text-wrap: balance;
-	margin-inline: auto;
-	display: flex;
-	gap: 4rem;
 	color: #fff;
+
+	.content-wrapper {
+		width: 60rem;
+		margin-inline: auto;
+		display: flex;
+		gap: 4rem;
+	}
 
 	.paragraph-container {
 		display: grid;
 		gap: 1rem;
-
 		flex: 1;
-
-		p {
-			font-size: 20px;
-		}
-
-		h1 {
-			font: var(--font-headline-md);
-			font-weight: 500;
-		}
 	}
 }

@@ -1,17 +1,18 @@
 #project-2-cols-text-image {
 	display: flex;
 	gap: 3rem;
-	width: 80vw;
-	height: 90vh;
-	margin-inline: auto;
+	height: 65vh;
 
 	&.reverse {
 		flex-direction: row-reverse;
 	}
 
 	.text-container {
+		padding-top: var(--spacing-48);
 		flex: 30%;
-		font-size: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-16);
 	}
 
 	.image-container {

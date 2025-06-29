@@ -12,7 +12,7 @@ export const ProjectMedia: FC<Props> = ({ data }) => {
 	return (
 		<div
 			id='project-images'
-			className={cn({ directionColumn: data.direction === 'col' })}
+			className={cn('container', { directionColumn: data.direction === 'col' })}
 		>
 			{data.content.map(({ alt, src, isVideo }, i) => {
 				return (

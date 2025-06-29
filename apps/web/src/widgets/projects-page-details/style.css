@@ -1,0 +1,8 @@
+.project-details-h3 {
+	font: var(--font-headline-lg);
+	font-weight: 500;
+}
+
+.project-details-p {
+	font-size: 19px;
+}

@@ -28,7 +28,7 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 	if (!project) return notFound()
 
 	return (
-		<>
+		<article id='project-details-container'>
 			<Link href='/' id='project-close-button'>
 				<X />
 			</Link>
@@ -39,7 +39,7 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 			/>
 
 			<div id='project-details-elements'>{project.content}</div>
-		</>
+		</article>
 	)
 }
 

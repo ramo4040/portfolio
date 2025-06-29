@@ -6,7 +6,8 @@ import Image from 'next/image'
 type Props = {
 	reverse?: boolean
 	data: {
-		text: string
+		title: string
+		description: string
 		image: {
 			alt: string
 			src: string
@@ -18,12 +19,13 @@ export const Project2ColsTextImage: FC<Props> = ({ data, reverse = false }) => {
 	return (
 		<div
 			id='project-2-cols-text-image'
-			className={cn({
+			className={cn('container', {
 				reverse: reverse,
 			})}
 		>
 			<div className='text-container'>
-				<p>{data.text}</p>
+				<h3 className='project-details-h3'>{data.title}</h3>
+				<p className='project-details-p'>{data.description}</p>
 			</div>
 
 			<div className='image-container'>

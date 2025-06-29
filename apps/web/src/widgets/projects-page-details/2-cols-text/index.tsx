@@ -8,19 +8,29 @@ type Props = {
 
 export const Project2ColsText: FC<Props> = ({ details }) => {
 	return (
-		<div id='project-2-cols-text'>
-			{details.content.map((e, parrentIndex) => {
-				return (
-					<div key={parrentIndex} className='paragraph-container'>
-						{e.split('\n').map((e, i) => {
-							if (parrentIndex === 0 && details.hasTitle) {
-								return <h1 key={i}>{e}</h1>
-							}
-							return <p key={i}>{e}</p>
-						})}
-					</div>
-				)
-			})}
+		<div id='project-2-cols-text' className='container'>
+			<div className='content-wrapper'>
+				{details.content.map((e, parrentIndex) => {
+					return (
+						<div key={parrentIndex} className='paragraph-container'>
+							{e.split('\n').map((e, i) => {
+								if (parrentIndex === 0 && details.hasTitle) {
+									return (
+										<h3 className='project-details-h3' key={i}>
+											{e}
+										</h3>
+									)
+								}
+								return (
+									<p className='project-details-p' key={i}>
+										{e}
+									</p>
+								)
+							})}
+						</div>
+					)
+				})}
+			</div>
 		</div>
 	)
 }
