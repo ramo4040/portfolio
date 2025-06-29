@@ -1,7 +1,6 @@
 #project-headline {
-	max-width: 80vw;
-	margin-inline: auto;
 	text-align: center;
+	padding-inline: 4rem;
 	font: var(--font-display-lg);
 	line-height: 0.9;
 }
