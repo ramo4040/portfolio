@@ -10,6 +10,7 @@ import {
 	GitHubLight,
 	LinkedIn,
 } from '@ridemountainpig/svgl-react'
+import type { ComponentProps, FC } from 'react'
 
 const accounts = [
 	{
@@ -34,9 +35,11 @@ const accounts = [
 	},
 ]
 
-export const SocialAccountCard = () => {
+type Props = ComponentProps<'div'>
+
+export const SocialAccountCard: FC<Props> = ({ ...props }) => {
 	return (
-		<DefaultCard>
+		<DefaultCard {...props}>
 			<DefaultCard.Badge>Social Account</DefaultCard.Badge>
 			<div id='social-account-container'>
 				{accounts.map((account) => {
