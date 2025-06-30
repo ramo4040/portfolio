@@ -1,11 +1,13 @@
 'use client'
 import { listProject } from '@/data/projects-list'
-import { useState } from 'react'
+import { type ComponentProps, type FC, useState } from 'react'
 import { DefaultCard } from '../default/default-card'
 import { ProjectBanner } from './project-banner'
 import './style.css'
 
-export const ProjectsBannerContainer = () => {
+type Props = ComponentProps<'div'>
+
+export const ProjectsBannerContainer: FC<Props> = () => {
 	const [hoveredTheme, setHoveredTheme] = useState<string | null>(null)
 
 	return (

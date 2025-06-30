@@ -2,13 +2,15 @@
 import './style.css'
 import mailAnimation from '@/public/icons/mail/mail.json'
 import Lottie from 'lottie-react'
-import { useRef } from 'react'
+import { type ComponentProps, type FC, useRef } from 'react'
 import { DefaultCard } from '../default/default-card'
 
 import type { LottieRefCurrentProps } from 'lottie-react'
 import Link from 'next/link'
 
-const EmailMeCard = () => {
+type Props = ComponentProps<'div'>
+
+const EmailMeCard: FC<Props> = () => {
 	const lottieRef = useRef<LottieRefCurrentProps | null>(null)
 
 	const handleMouseEnter = () => {

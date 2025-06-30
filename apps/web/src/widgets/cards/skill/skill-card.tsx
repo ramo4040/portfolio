@@ -5,9 +5,12 @@ import {
 } from '@/components/tooltip/tooltip'
 import { DefaultCard } from '../default/default-card'
 import './style.css'
+import type { ComponentProps, FC } from 'react'
 import { list } from './list'
 
-export const SkillsCard = () => {
+type Props = ComponentProps<'div'>
+
+export const SkillsCard: FC<Props> = () => {
 	return (
 		<DefaultCard className='col-span-1 row-span-1'>
 			<DefaultCard.Badge>Stack</DefaultCard.Badge>

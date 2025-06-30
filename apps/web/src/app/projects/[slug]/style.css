@@ -1,5 +1,5 @@
 #project-details-container {
-	position: relative;
+	width: 100%;
 	user-select: none;
 
 	.footer {
@@ -21,7 +21,15 @@
 		}
 
 		.more-projects {
-			height: 39rem;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			gap: var(--spacing-24);
+			height: 40rem;
+
+			> * {
+				width: 50%;
+			}
 		}
 	}
 }
