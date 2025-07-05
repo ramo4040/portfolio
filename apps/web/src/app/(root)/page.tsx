@@ -20,8 +20,8 @@ export default function Home() {
 		<main>
 			<TopNavbar />
 			<Yassir />
-			<GridLayout rows={5} cols={4}>
-				<DefaultCard className='col-span-2 row-span-1'>
+			<GridLayout>
+				<DefaultCard>
 					<p>
 						Fullstack Web Developer based in Morocco, originally from
 						Casablanca. where I build and optimize web applications to deliver
@@ -34,16 +34,10 @@ export default function Home() {
 						always building—for today's challenges and tomorrow's innovations.
 					</p>
 				</DefaultCard>
-				<ProjectCard
-					className='col-span-2 row-span-2'
-					project={carRentalProject}
-				/>
+				<ProjectCard project={carRentalProject} />
 				<LocationCard />
 				<SocialAccountCard />
-				<ProjectCard
-					className='col-span-2 row-span-1'
-					project={mindsprintProject}
-				/>
+				<ProjectCard project={mindsprintProject} />
 				<EmailMeCard />
 				<SkillsCard />
 				<ProjectsBannerContainer />
