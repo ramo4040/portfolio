@@ -1,3 +1,7 @@
+.email-me-grid {
+	width: 100%;
+	aspect-ratio: 1;
+}
 #email-me-container {
 	position: absolute;
 	inset: 0;

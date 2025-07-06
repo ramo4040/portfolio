@@ -3,6 +3,8 @@
 	position: relative;
 	display: flex;
 	overflow: hidden;
+	width: 100%;
+	aspect-ratio: 1;
 
 	.details {
 		margin-top: auto;

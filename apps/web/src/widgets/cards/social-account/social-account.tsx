@@ -39,7 +39,7 @@ type Props = ComponentProps<'div'>
 
 export const SocialAccountCard: FC<Props> = ({ ...props }) => {
 	return (
-		<DefaultCard {...props}>
+		<DefaultCard className='social-account-grid' {...props}>
 			<DefaultCard.Badge>Social Account</DefaultCard.Badge>
 			<div id='social-account-container'>
 				{accounts.map((account) => {

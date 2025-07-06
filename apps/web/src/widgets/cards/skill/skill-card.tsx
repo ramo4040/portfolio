@@ -12,7 +12,7 @@ type Props = ComponentProps<'div'>
 
 export const SkillsCard: FC<Props> = () => {
 	return (
-		<DefaultCard className='col-span-1 row-span-1'>
+		<DefaultCard className='skills-grid col-span-1 row-span-1'>
 			<DefaultCard.Badge>Stack</DefaultCard.Badge>
 			<div id='skills-container'>
 				{list.map((e) => {

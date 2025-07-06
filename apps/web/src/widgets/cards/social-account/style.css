@@ -1,3 +1,7 @@
+.social-account-grid {
+	width: 100%;
+	aspect-ratio: 1;
+}
 #social-account-container {
 	margin: auto;
 	display: grid;

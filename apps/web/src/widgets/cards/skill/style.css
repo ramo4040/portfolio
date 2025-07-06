@@ -1,3 +1,8 @@
+.skills-grid {
+	width: 100%;
+	aspect-ratio: 1;
+}
+
 #skills-container {
 	gap: .5rem;
 	height: 100%;

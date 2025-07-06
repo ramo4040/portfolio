@@ -19,7 +19,7 @@ const EmailMeCard: FC<Props> = () => {
 
 	return (
 		<DefaultCard
-			className='col-span-1 row-span-1'
+			className='email-me-grid col-span-1 row-span-1'
 			onMouseEnter={handleMouseEnter}
 		>
 			<DefaultCard.Badge>Email Me</DefaultCard.Badge>

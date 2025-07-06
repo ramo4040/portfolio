@@ -1,3 +1,4 @@
+import './style.css'
 import { listProject } from '@/data/projects-list'
 import { GridLayout } from '@/layouts/grid-layout'
 import {
@@ -20,7 +21,7 @@ export default function Home() {
 		<main>
 			<TopNavbar />
 			<Yassir />
-			<GridLayout>
+			<GridLayout id='works-grid-layout'>
 				<DefaultCard>
 					<p>
 						Fullstack Web Developer based in Morocco, originally from

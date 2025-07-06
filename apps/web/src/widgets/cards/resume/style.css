@@ -1,6 +1,8 @@
 .resume-card {
 	overflow: hidden;
 	cursor: pointer;
+	width: 100%;
+	aspect-ratio: 1;
 
 	img {
 		z-index: 1;
