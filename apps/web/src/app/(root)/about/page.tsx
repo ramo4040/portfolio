@@ -10,11 +10,10 @@ import './style.css'
 import { GridLayout } from '@/layouts/grid-layout'
 import { MusicListeningCard } from '@/widgets/cards/music-listening'
 import { SkillsCard } from '@/widgets/cards/skill/skill-card'
-import { Music } from 'lucide-react'
 
 export default function AboutPage() {
 	return (
-		<GridLayout cols={4} rows={4} id='about-container'>
+		<GridLayout id='about-grid-layout'>
 			<DefaultCard className='col-span-2 row-span-2'>
 				<DefaultCard.Badge>About</DefaultCard.Badge>
 				<p>

@@ -1,5 +1,6 @@
 #music-card-conatiner {
-	height: 100%;
+	width: 100%;
+	aspect-ratio: 1;
 	background: #fff;
 	border-radius: var(--radius-xxl);
 	padding: 10px;

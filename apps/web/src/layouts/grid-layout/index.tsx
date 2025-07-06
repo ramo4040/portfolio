@@ -5,7 +5,6 @@ import type { ComponentProps } from 'react'
 type GridLayoutProps = ComponentProps<'div'>
 export const GridLayout = ({
 	children,
-
 	className,
 	...props
 }: GridLayoutProps) => {
