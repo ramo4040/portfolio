@@ -20,7 +20,7 @@
 
 body {
 	color: var(--primary-text-color);
-	background-color: var(--bg-primary);
+	background: #000;
 	width: 100%;
 	height: 100vh;
 	min-height: 100vh;
@@ -29,6 +29,8 @@ body {
 	line-height: 1.5;
 	/* 5. Improve text rendering */
 	-webkit-font-smoothing: antialiased;
+	/* Default font family - Nunito for body text */
+	font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
 }
 
 /* 6. Improve media defaults */
@@ -63,7 +65,10 @@ h6 {
 /* 9. Improve line wrapping */
 p {
 	text-wrap: pretty;
+	font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
 }
+
+/* Headlines use Cabinet font */
 h1,
 h2,
 h3,
@@ -71,6 +76,8 @@ h4,
 h5,
 h6 {
 	text-wrap: balance;
+	font-family: var(--font-cabinet), system-ui, -apple-system, sans-serif;
+	font-weight: 500;
 }
 
 /*
