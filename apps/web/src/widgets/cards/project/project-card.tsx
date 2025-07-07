@@ -30,7 +30,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 				id='project-card-link'
 				aria-label={`View ${title} project details`}
 			>
-				<header className='link'>
+				<header>
 					<span className='description' aria-hidden='true'>
 						Open Project
 					</span>
@@ -39,13 +39,16 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 					</div>
 				</header>
 
-				<figure className='image' role='img' aria-label={imageAlt}>
+				<figure role='img' aria-label={imageAlt}>
 					<Image src={imageSrc} alt={imageAlt} fill />
 				</figure>
 
-				<section className='description'>
-					<h2>{title}</h2>
-					<p>{description}</p>
+				<section>
+					<span />
+					<div>
+						<h2>{title}</h2>
+						<p>{description}</p>
+					</div>
 				</section>
 			</Link>
 		</article>

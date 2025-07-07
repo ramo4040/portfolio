@@ -14,7 +14,7 @@ import { SkillsCard } from '@/widgets/cards/skill/skill-card'
 export default function AboutPage() {
 	return (
 		<GridLayout id='about-grid-layout'>
-			<DefaultCard className='col-span-2 row-span-2'>
+			<DefaultCard>
 				<DefaultCard.Badge>About</DefaultCard.Badge>
 				<p>
 					Fullstack Web Developer based in Morocco, originally from Casablanca.

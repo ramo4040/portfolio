@@ -1,10 +1,20 @@
 import '@/public/styles/tokens.css'
 import '@/public/styles/variables.css'
 import '@/public/styles/index.css'
+import { Nunito } from 'next/font/google'
 import localFont from 'next/font/local'
 
-const myFont = localFont({
-	src: '../../public/font/Saans-Medium.woff2',
+const cabinet = localFont({
+	src: '../../public/font/CabinetGrotesk-Medium.woff',
+	variable: '--font-cabinet',
+})
+
+const nunito = Nunito({
+	subsets: ['latin'],
+	weight: ['400', '600', '700'],
+	style: ['normal', 'italic'],
+	display: 'swap',
+	variable: '--font-nunito',
 })
 
 export default function RootLayout({
@@ -14,7 +24,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en' suppressHydrationWarning>
-			<body className={`${myFont.className}`}>{children}</body>
+			<body className={`${cabinet.variable} ${nunito.variable}`}>
+				{children}
+			</body>
 		</html>
 	)
 }

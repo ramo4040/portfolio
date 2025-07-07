@@ -1,48 +1,34 @@
+import { ProjectCard } from '@/widgets/cards'
 import './style.css'
 import { listProject } from '@/data/projects-list'
-import { GridLayout } from '@/layouts/grid-layout'
-import {
-	DefaultCard,
-	EmailMeCard,
-	LocationCard,
-	ProjectCard,
-	ProjectsBannerContainer,
-	SocialAccountCard,
-} from '@/widgets/cards'
-import { SkillsCard } from '@/widgets/cards/skill/skill-card'
-import { TopNavbar } from '@/widgets/top-navbar/top-navbar'
-import { Yassir } from '@/widgets/yassir/yassir'
 
 export default function Home() {
 	const carRentalProject = listProject[0]
 	const mindsprintProject = listProject[1]
 
 	return (
-		<main>
-			<TopNavbar />
-			<Yassir />
-			<GridLayout id='works-grid-layout'>
-				<DefaultCard>
-					<p>
-						Fullstack Web Developer based in Morocco, originally from
-						Casablanca. where I build and optimize web applications to deliver
-						seamless user experiences. My expertise spans frontend and backend
-						development, with a focus on creating responsive, scalable, and
-						performant solutions.
-						<br />
-						<br />I enjoy turning ideas into reality, whether it's crafting
-						intuitive interfaces or architecting robust APIs. Always learning,
-						always building—for today's challenges and tomorrow's innovations.
-					</p>
-				</DefaultCard>
+		<main id='works-page-container'>
+			<div className='logo' />
+
+			<div className='headlines'>
+				<h1 className='headline'>Building scalable apps with impact.</h1>
+				<h1 className='sub-headline'>Code. Creativity. Reliability.</h1>
+			</div>
+
+			<div className='description'>
+				<p>
+					I’m <b>Yassir</b>, a fullstack developer based in <b>Morocco</b>. I
+					build modern, scalable web applications <br /> — turning ideas into
+					interactive digital experiences.
+				</p>
+			</div>
+
+			<div className='cta' />
+
+			<div className='projects-container'>
 				<ProjectCard project={carRentalProject} />
-				<LocationCard />
-				<SocialAccountCard />
 				<ProjectCard project={mindsprintProject} />
-				<EmailMeCard />
-				<SkillsCard />
-				<ProjectsBannerContainer />
-			</GridLayout>
+			</div>
 		</main>
 	)
 }
