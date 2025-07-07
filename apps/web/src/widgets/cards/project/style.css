@@ -6,29 +6,18 @@
 	position: relative;
 	padding: var(--spacing-18);
 
-	/* responsive design for project card that has row-span-1 */
-	&.row-span-1 {
-		&:hover .image {
-			height: 45%;
-		}
-
-		#project-card-link > .description {
-			padding-bottom: 0;
-		}
-	}
-
-	&:hover .image {
-		height: 65%;
+	&:hover figure {
+		height: 60%;
 		margin: var(--spacing-18);
 	}
 
-	&:hover .link .description {
+	&:hover header .description {
 		opacity: 1;
 		transform: translateX(0);
 		pointer-events: auto;
 	}
 
-	&:hover .icon {
+	&:hover header .icon {
 		scale: 0.8;
 	}
 }
@@ -40,7 +29,7 @@
 	display: block;
 	height: 100%;
 
-	.link {
+	header {
 		z-index: 99;
 		color: #fff;
 		position: absolute;
@@ -74,7 +63,7 @@
 		}
 	}
 
-	.image {
+	figure {
 		z-index: 95;
 		position: absolute;
 		inset: 0;
@@ -89,20 +78,35 @@
 		}
 	}
 
-	.description {
+	section {
+		container-type: inline-size;
 		display: flex;
 		flex-direction: column;
 		justify-content: end;
-		padding-bottom: var(--spacing-72);
+		gap: 2rem;
 		height: 100%;
 
-		h2 {
-			font-size: 3em;
+		span {
+			flex: calc(60% + (var(--spacing-18) * 2));
 		}
 
-		p {
-			font-size: 1.2rem;
-			text-wrap: stable;
+		div {
+			flex: 35%;
+
+			h2 {
+				font-size: clamp(1.5rem, 8cqi, 3rem);
+			}
+
+			p {
+				font-size: clamp(0.9rem, 3cqi, 1.2rem);
+			}
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	#project-card figure {
+		height: 60%;
+		margin: var(--spacing-18);
 	}
 }

@@ -18,7 +18,7 @@
 	}
 
 	.headlines,
-	.description {
+	> .description {
 		text-align: center;
 	}
 
@@ -56,6 +56,15 @@
 
 		> * {
 			aspect-ratio: 1;
+		}
+
+		@media (max-width: 768px) {
+			grid-auto-rows: 550px;
+
+			> * {
+				height: 100%;
+				aspect-ratio: unset;
+			}
 		}
 	}
 }

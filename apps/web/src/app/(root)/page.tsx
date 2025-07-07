@@ -1,9 +1,6 @@
-'use client'
-
 import { ProjectCard } from '@/widgets/cards'
 import './style.css'
 import { listProject } from '@/data/projects-list'
-import { useEffect, useRef } from 'react'
 
 export default function Home() {
 	const carRentalProject = listProject[0]
