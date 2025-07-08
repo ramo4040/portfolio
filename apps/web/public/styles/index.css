@@ -20,7 +20,7 @@
 
 body {
 	color: var(--primary-text-color);
-	background: #000;
+	background: linear-gradient(180deg, #f0f2f5 0%, #ffffff 100%) no-repeat;
 	width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
