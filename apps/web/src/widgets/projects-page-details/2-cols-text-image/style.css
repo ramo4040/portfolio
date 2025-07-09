@@ -1,7 +1,7 @@
 #project-2-cols-text-image {
 	display: flex;
-	gap: 3rem;
-	height: 65vh;
+	flex-wrap: wrap;
+	gap: clamp(1rem, 4vw, 3rem);
 
 	&.reverse {
 		flex-direction: row-reverse;
@@ -9,17 +9,17 @@
 
 	.text-container {
 		padding-top: var(--spacing-48);
-		flex: 30%;
+		flex: min(30%, 15rem);
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-16);
+		gap: clamp(10px, 2vw, var(--spacing-16));
 	}
 
 	.image-container {
 		position: relative;
-		height: 100%;
 		flex: 70%;
+		aspect-ratio: 16 / 9;
 		overflow: hidden;
-		border-radius: var(--radius-xxl);
+		border-radius: clamp(var(--radius-md), 3vw, var(--radius-xxl));
 	}
 }

@@ -1,7 +1,6 @@
 import './style.css'
 export { Project2ColsTextImage } from './2-cols-text-image'
 export { Project2ColsText } from './2-cols-text'
-export { ProjectTechStack } from './tech-stack'
 export { ProjectHeadline } from './headline'
 export { ProjectHeaderPreview } from './header-preview'
 export { ProjectMedia } from './project-media'

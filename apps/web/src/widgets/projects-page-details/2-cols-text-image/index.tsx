@@ -19,7 +19,7 @@ export const Project2ColsTextImage: FC<Props> = ({ data, reverse = false }) => {
 	return (
 		<div
 			id='project-2-cols-text-image'
-			className={cn('container', {
+			className={cn({
 				reverse: reverse,
 			})}
 		>
