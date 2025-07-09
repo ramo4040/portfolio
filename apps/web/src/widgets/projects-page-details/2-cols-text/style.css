@@ -1,17 +1,15 @@
 #project-2-cols-text {
-	text-wrap: balance;
 	color: #fff;
-
-	.content-wrapper {
-		width: 60rem;
-		margin-inline: auto;
-		display: flex;
-		gap: 4rem;
-	}
+	margin-inline: auto;
+	width: 100%;
+	max-width: 60rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+	grid-auto-rows: min-content;
+	gap: clamp(1rem, 4vw, 4rem);
 
 	.paragraph-container {
 		display: grid;
 		gap: 1rem;
-		flex: 1;
 	}
 }

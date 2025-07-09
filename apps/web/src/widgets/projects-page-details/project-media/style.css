@@ -9,7 +9,7 @@
 	> figure {
 		flex: 1;
 		aspect-ratio: 1;
-		border-radius: var(--radius-xxl);
+		border-radius: clamp(var(--radius-md), 3vw, var(--radius-xxl));
 		overflow: hidden;
 		position: relative;
 

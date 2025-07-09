@@ -1,4 +1,5 @@
 #project-details-container {
+	background: #000;
 	width: 100%;
 	user-select: none;
 
@@ -22,13 +23,20 @@
 
 		.more-projects {
 			width: 100%;
+			padding-inline: 1rem;
 			display: flex;
 			justify-content: center;
+			flex-wrap: wrap;
 			gap: var(--spacing-24);
-			height: 40rem;
 
 			> * {
-				width: 50%;
+				flex: min(50%, 20rem);
+				aspect-ratio: 1;
+
+				@media (max-width: 1024px) {
+					height: 40rem;
+					aspect-ratio: unset;
+				}
 			}
 		}
 	}
@@ -37,8 +45,19 @@
 #project-details-elements {
 	display: flex;
 	flex-direction: column;
-	gap: 7rem;
+	gap: clamp(1rem, 4vw, 7rem);
 	padding-block: 7rem;
+	padding-inline: 1rem;
+
+	h3 {
+		font-size: clamp(16px, 5vw, 30px);
+		font-weight: 700;
+	}
+
+	p {
+		font-size: clamp(14px, 3vw, 20px);
+		font-weight: 600;
+	}
 }
 
 #project-close-button {
@@ -46,7 +65,7 @@
 	top: 2rem;
 	left: 2rem;
 	width: 3.5rem;
-	z-index: 1;
+	z-index: 9999;
 	aspect-ratio: 1;
 	border-radius: var(--radius-rounded);
 	background: #ffffff47;

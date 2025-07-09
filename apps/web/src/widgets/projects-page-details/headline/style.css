@@ -1,6 +1,6 @@
 #project-headline {
 	text-align: center;
 	padding-inline: 4rem;
-	font: var(--font-display-lg);
-	line-height: 0.9;
+	font-size: clamp(0.5rem, 5vw, 4rem);
+	line-height: 1.1;
 }
