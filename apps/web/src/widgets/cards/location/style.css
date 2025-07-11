@@ -30,7 +30,7 @@
 
 		.clock {
 			position: relative;
-			width: 3.3rem;
+			width: clamp(2.5rem, 10vw, 3.3rem);
 			aspect-ratio: 1;
 			border-radius: var(--radius-rounded);
 			border: 2px solid #fff;
@@ -72,17 +72,17 @@
 			display: grid;
 			p {
 				line-height: 1;
-				font-size: 20px;
+				font-size: clamp(12px, 5vw, 20px);
 			}
 
 			small {
 				color: #c1c1c1;
-				font-size: 13px;
+				font-size: clamp(10px, 5vw, 13px);
 			}
 		}
 
 		.weather-temp {
-			font-size: 20px;
+			font-size: clamp(12px, 5vw, 20px);
 		}
 	}
 
