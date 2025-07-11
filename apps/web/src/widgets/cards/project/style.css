@@ -5,6 +5,8 @@
 	overflow: hidden;
 	position: relative;
 	padding: var(--spacing-18);
+	border-radius: var(--radius-xxl);
+	user-select: none;
 
 	&:hover figure {
 		height: 60%;

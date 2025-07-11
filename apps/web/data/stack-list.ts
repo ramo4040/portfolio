@@ -18,7 +18,7 @@ import {
 	TypeScript,
 } from '@ridemountainpig/svgl-react'
 
-export const list = [
+export const stackList = [
 	// Programming Languages
 	{
 		title: 'TypeScript',

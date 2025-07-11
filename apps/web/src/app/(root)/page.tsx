@@ -1,12 +1,12 @@
 import { ProjectCard } from '@/widgets/cards'
 import './style.css'
-import { Badge } from '@/components/badge/badge'
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from '@/components/tooltip/tooltip'
 import { listProject } from '@/data/projects-list'
+import { Footer } from '@/widgets/footer/footer'
 import Image from 'next/image'
 
 export default function Home() {
@@ -66,34 +66,7 @@ export default function Home() {
 				))}
 			</div>
 
-			<footer>
-				<Badge>
-					<span className='pulse' />
-					Available for work
-				</Badge>
-				<h1>Let's build something incredible together!</h1>
-
-				<a
-					href='mailto:rouane.yasseer@gmail.com'
-					rel='noreferrer'
-					target='_blank'
-				>
-					rouane.yasseer@gmail.com
-				</a>
-
-				<p className='coptyright'>
-					Copyright {new Date().getFullYear()} · Made by{' '}
-					<a
-						href='mailto:rouane.yasseer@gmail.com'
-						rel='noreferrer'
-						target='_blank'
-					>
-						Yassir
-					</a>
-				</p>
-			</footer>
-
-			<div className='gradient-bg' />
+			<Footer hSize='3rem' aSize='2rem' />
 		</main>
 	)
 }

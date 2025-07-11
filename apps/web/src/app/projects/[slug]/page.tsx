@@ -27,7 +27,10 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 	const projectPromise = getProjectBySlug(slug)
 	const project = use(projectPromise)
 	// get 2 random projects to display in the footer
-	const moreProjects = listProject.sort(() => 0.5 - Math.random()).slice(0, 2)
+	const moreProjects = listProject
+		.filter((e) => e.id !== slug)
+		.sort(() => 0.5 - Math.random())
+		.slice(0, 2)
 
 	if (!project) return notFound()
 
