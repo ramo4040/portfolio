@@ -4,14 +4,17 @@
 	display: flex;
 	overflow: hidden;
 	width: 100%;
-	aspect-ratio: 1;
+	height: 18rem;
+	color: #fff;
+	border-radius: var(--radius-md);
 
 	.details {
+		z-index: 3;
 		margin-top: auto;
 		padding: var(--spacing-12);
 		background: #ffffff2b;
 		backdrop-filter: blur(5px);
-		border-radius: var(--spacing-44);
+		border-radius: var(--radius-rounded);
 		height: 4.5rem;
 		width: 100%;
 		display: flex;
@@ -80,5 +83,30 @@
 		.weather-temp {
 			font-size: 20px;
 		}
+	}
+
+	.cloud {
+		--distance-outside: 50px;
+		--item-size: 150px;
+		position: absolute;
+		z-index: 2;
+		bottom: calc(-150px - var(--distance-outside));
+		left: calc(-150px - var(--distance-outside));
+		animation: cloud-move 50s linear infinite;
+	}
+}
+
+@keyframes cloud-move {
+	0% {
+		transform: translate(0, 0);
+	}
+	50% {
+		transform: translate(
+			calc(500px + var(--item-size) + (var(--distance-outside) * 2)),
+			calc(-18rem - var(--item-size) - (var(--distance-outside) * 2))
+		);
+	}
+	100% {
+		transform: translate(0, 0);
 	}
 }

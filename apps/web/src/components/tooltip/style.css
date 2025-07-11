@@ -19,7 +19,7 @@
 		place-content: center;
 		width: max-content;
 		max-width: 300px;
-		font: var(--font-body-md);
+		font: var(--font-label-sm);
 		opacity: 0;
 		z-index: 999;
 		min-height: 24px;

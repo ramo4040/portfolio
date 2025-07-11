@@ -66,6 +66,7 @@
 	.projects-container {
 		width: 80vw;
 		margin-inline: auto;
+		margin-bottom: var(--spacing-128);
 		display: grid;
 		grid-template-columns: repeat(
 				auto-fit,
@@ -85,66 +86,6 @@
 				aspect-ratio: unset;
 			}
 		}
-	}
-
-	footer {
-		margin-top: var(--spacing-128);
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
-
-		#badge {
-			background: #16a34a17;
-
-			.pulse {
-				width: 8px;
-				aspect-ratio: 1;
-				background: #16a34a;
-				border-radius: var(--radius-rounded);
-				margin-right: 1rem;
-
-				&::after {
-					content: "";
-					display: block;
-					background: inherit;
-					width: 100%;
-					height: 100%;
-					border-radius: inherit;
-					animation: ping 1.5s infinite;
-				}
-			}
-		}
-
-		h1 {
-			font-size: clamp(1.5rem, 4vw, 3rem);
-			line-height: 1.2;
-		}
-
-		> a {
-			color: #000;
-			font-size: clamp(1rem, 4vw, 2rem);
-		}
-
-		.coptyright {
-			margin-top: var(--spacing-128);
-			font-size: 14px;
-			a {
-				color: #000;
-			}
-		}
-	}
-
-	.gradient-bg {
-		filter: blur(200px);
-		background: #7dcfff;
-		width: 55rem;
-		height: 2rem;
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
 	}
 }
 

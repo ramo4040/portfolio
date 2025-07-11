@@ -40,12 +40,21 @@ export const LocationCard: FC<DefaultCardProps> = async ({
 	weatherData = await response.json()
 
 	return (
-		<div
-			id='location-container'
-			className='card col-span-1 row-span-1'
-			{...props}
-		>
-			<Image src='/images/my-location.png' fill alt='My location' />
+		<div id='location-container' {...props}>
+			<Image
+				src='/images/me/my-location.png'
+				fill
+				alt='My location'
+				style={{ objectFit: 'cover' }}
+			/>
+
+			<Image
+				src='/images/me/cloud.png'
+				width={150}
+				height={150}
+				alt='Location cloud'
+				className='cloud'
+			/>
 
 			<div className='details'>
 				<div>

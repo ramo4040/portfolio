@@ -1,0 +1,59 @@
+.page-footer {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+
+	#badge {
+		background: #16a34a17;
+
+		.pulse {
+			width: 8px;
+			aspect-ratio: 1;
+			background: #16a34a;
+			border-radius: var(--radius-rounded);
+			margin-right: 1rem;
+
+			&::after {
+				content: "";
+				display: block;
+				background: inherit;
+				width: 100%;
+				height: 100%;
+				border-radius: inherit;
+				animation: ping 1.5s infinite;
+			}
+		}
+	}
+
+	h1 {
+		font-size: clamp(1.5rem, 4vw, var(--hSize));
+		line-height: 1.2;
+	}
+
+	> a {
+		background: #0072ff0a;
+		color: #000;
+		font-size: clamp(1rem, 4vw, var(--aSize));
+	}
+
+	.coptyright {
+		margin-top: var(--spacing-128);
+		font-size: 14px;
+		a {
+			color: #000;
+		}
+	}
+}
+
+.footer-gradient-bg {
+	filter: blur(200px);
+	background: #7dcfff;
+	width: 55rem;
+	height: 5rem;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
