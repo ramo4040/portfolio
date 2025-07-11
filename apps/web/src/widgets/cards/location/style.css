@@ -4,9 +4,10 @@
 	display: flex;
 	overflow: hidden;
 	width: 100%;
-	height: 18rem;
+	height: 15rem;
 	color: #fff;
 	border-radius: var(--radius-md);
+	user-select: none;
 
 	.details {
 		z-index: 3;
@@ -103,7 +104,7 @@
 	50% {
 		transform: translate(
 			calc(500px + var(--item-size) + (var(--distance-outside) * 2)),
-			calc(-18rem - var(--item-size) - (var(--distance-outside) * 2))
+			calc(-15rem - var(--item-size) - (var(--distance-outside) * 2))
 		);
 	}
 	100% {
