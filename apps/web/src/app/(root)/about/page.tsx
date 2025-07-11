@@ -10,6 +10,7 @@ import { socialAccounts } from '@/data/social-account'
 import { stackList } from '@/data/stack-list'
 import { LocationCard } from '@/widgets/cards'
 import { Footer } from '@/widgets/footer/footer'
+import { Resume } from '@/widgets/resume'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 
@@ -114,9 +115,9 @@ export default function AboutPage() {
 							<div>
 								<h4>Quality</h4>
 								<p>
-									I treat each project as if it were my own — putting in maximum
+									I treat each project as if it were my own, putting in maximum
 									effort, striving to improve every result, and never settling
-									for "just good enough."
+									for "just good enough".
 								</p>
 							</div>
 						</li>
@@ -163,6 +164,11 @@ export default function AboutPage() {
 							)
 						})}
 					</div>
+				</section>
+
+				<section className='__item resume'>
+					<h3>Resume</h3>
+					<Resume />
 				</section>
 			</section>
 

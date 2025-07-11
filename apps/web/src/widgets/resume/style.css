@@ -1,0 +1,29 @@
+.resume-container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-10);
+
+	.resume-image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		height: 4rem;
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		cursor: pointer;
+		border: none;
+		background: none;
+		padding: 0;
+
+		&:hover svg {
+			scale: 1.2;
+		}
+
+		svg {
+			z-index: 99;
+			color: #464646;
+			transition: var(--transition-standard-default-spatial);
+		}
+	}
+}
