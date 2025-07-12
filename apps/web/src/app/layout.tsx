@@ -1,6 +1,7 @@
 import '@/public/styles/tokens.css'
 import '@/public/styles/variables.css'
 import '@/public/styles/index.css'
+import { ViewTransitions } from 'next-view-transitions'
 import { Nunito } from 'next/font/google'
 import localFont from 'next/font/local'
 
@@ -23,10 +24,12 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en' suppressHydrationWarning>
-			<body className={`${cabinet.variable} ${nunito.variable}`}>
-				{children}
-			</body>
-		</html>
+		<ViewTransitions>
+			<html lang='en' suppressHydrationWarning>
+				<body className={`${cabinet.variable} ${nunito.variable}`}>
+					{children}
+				</body>
+			</html>
+		</ViewTransitions>
 	)
 }
