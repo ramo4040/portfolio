@@ -10,14 +10,6 @@
 	overflow: hidden;
 	position: relative;
 
-	.logo {
-		width: 60px;
-		height: 60px;
-		background-color: #fff;
-		border-radius: 50%;
-		margin-inline: auto;
-	}
-
 	.headlines,
 	> .description {
 		text-align: center;
@@ -37,18 +29,6 @@
 	.description {
 		b {
 			cursor: pointer;
-		}
-
-		[role="tooltip"] {
-			background: none;
-		}
-
-		.my-images {
-			width: 12rem;
-			aspect-ratio: 1;
-			position: relative;
-			border-radius: var(--radius-xl-inc);
-			overflow: hidden;
 		}
 	}
 

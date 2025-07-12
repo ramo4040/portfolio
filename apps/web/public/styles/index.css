@@ -119,3 +119,18 @@ h6 {
 		max-width: 1400px;
 	}
 }
+
+.mobile-first-container {
+	--container-width: 500px;
+	width: min(100%, var(--container-width));
+	min-height: 100vh;
+	padding-top: var(--spacing-56);
+	padding-bottom: var(--spacing-128);
+	padding-inline: var(--spacing-20);
+	gap: var(--spacing-96);
+	color: #000;
+	flex-direction: column;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+}
