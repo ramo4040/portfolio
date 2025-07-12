@@ -11,6 +11,20 @@
 			text-align: center;
 		}
 
+		.status-message {
+			border-radius: var(--radius-sm);
+			padding: var(--spacing-8) var(--spacing-12);
+
+			&.success {
+				background-color: #f0fdf4;
+				color: #16a34a;
+			}
+			&.error {
+				background-color: #fee2e2;
+				color: #dc2626;
+			}
+		}
+
 		.contact-form {
 			display: grid;
 			gap: var(--spacing-10);
@@ -40,6 +54,11 @@
 				}
 			}
 
+			.error-text {
+				font-size: 14px;
+				color: rgb(255, 71, 71);
+			}
+
 			.submit-button {
 				color: #000;
 				cursor: pointer;
@@ -53,6 +72,12 @@
 				font-weight: 600;
 				box-shadow: 0 1px 2px #1018280f, 0 1px 3px #1018281a;
 				border: 0;
+
+				&.disabled {
+					background-color: #f0f0f0;
+					color: #a0a0a0;
+					cursor: not-allowed;
+				}
 			}
 		}
 	}
