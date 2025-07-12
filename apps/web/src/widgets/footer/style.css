@@ -38,11 +38,17 @@
 		font-size: clamp(1rem, 4vw, var(--aSize));
 	}
 
-	.coptyright {
+	.copyright {
 		margin-top: var(--spacing-128);
 		font-size: 14px;
+
 		a {
 			color: #000;
+			text-decoration: none;
+		}
+
+		&.is-contact-page {
+			margin-top: 0;
 		}
 	}
 }

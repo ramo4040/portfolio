@@ -1,34 +1,43 @@
-import { Badge } from '@/components/badge/badge'
 import './style.css'
+import { Badge } from '@/components/badge/badge'
+import { cn } from '@sglara/cn'
 import type { FC } from 'react'
 
 type FooterProps = {
-	hSize: string
-	aSize: string
+	hSize?: string
+	aSize?: string
+	isContactPage?: boolean
 }
 
-export const Footer: FC<FooterProps> = ({ aSize, hSize }) => {
+export const Footer: FC<FooterProps> = ({
+	aSize,
+	hSize,
+	isContactPage = false,
+}) => {
 	return (
 		<>
 			<footer
 				className='page-footer'
 				style={{ '--aSize': aSize, '--hSize': hSize } as React.CSSProperties}
 			>
-				<Badge>
-					<span className='pulse' />
-					Available for work
-				</Badge>
-				<h1>Let's build something incredible together!</h1>
+				{!isContactPage && (
+					<>
+						<Badge>
+							<span className='pulse' />
+							Available for work
+						</Badge>
+						<h1>Let's build something incredible together!</h1>
+						<a
+							href='mailto:rouane.yasseer@gmail.com'
+							rel='noreferrer'
+							target='_blank'
+						>
+							rouane.yasseer@gmail.com
+						</a>
+					</>
+				)}
 
-				<a
-					href='mailto:rouane.yasseer@gmail.com'
-					rel='noreferrer'
-					target='_blank'
-				>
-					rouane.yasseer@gmail.com
-				</a>
-
-				<p className='coptyright'>
+				<p className={cn('copyright', { 'is-contact-page': isContactPage })}>
 					Copyright {new Date().getFullYear()} · Made by{' '}
 					<a
 						href='mailto:rouane.yasseer@gmail.com'
@@ -39,7 +48,7 @@ export const Footer: FC<FooterProps> = ({ aSize, hSize }) => {
 					</a>
 				</p>
 			</footer>
-			<div className='footer-gradient-bg' />
+			{!isContactPage && <div className='footer-gradient-bg' />}
 		</>
 	)
 }

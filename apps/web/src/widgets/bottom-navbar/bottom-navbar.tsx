@@ -20,7 +20,7 @@ const navItems = [
 	},
 	{
 		id: 'contact',
-		href: '#contact',
+		href: '/contact',
 		label: 'Contact',
 		ariaLabel: 'Navigate to Contact section',
 	},

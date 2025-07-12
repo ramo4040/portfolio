@@ -10,14 +10,15 @@ import { socialAccounts } from '@/data/social-account'
 import { stackList } from '@/data/stack-list'
 import { LocationCard } from '@/widgets/cards'
 import { Footer } from '@/widgets/footer/footer'
+import { Logo } from '@/widgets/logo/logo'
 import { Resume } from '@/widgets/resume'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 
 export default function AboutPage() {
 	return (
-		<main id='about-page-container'>
-			<header className='logo' />
+		<main id='about-page-container' className='mobile-first-container'>
+			<Logo />
 
 			<section className='sections-container'>
 				<h1 className='headline'>Where code meets creativity — welcome!</h1>

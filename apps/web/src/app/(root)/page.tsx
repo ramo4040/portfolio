@@ -7,12 +7,13 @@ import {
 } from '@/components/tooltip/tooltip'
 import { listProject } from '@/data/projects-list'
 import { Footer } from '@/widgets/footer/footer'
+import { Logo } from '@/widgets/logo/logo'
 import Image from 'next/image'
 
 export default function Home() {
 	return (
 		<main id='works-page-container'>
-			<div className='logo' />
+			<Logo />
 
 			<div className='headlines'>
 				<h1 className='headline'>Building scalable apps with impact.</h1>
@@ -21,40 +22,9 @@ export default function Home() {
 
 			<div className='description'>
 				<p>
-					I'm{' '}
-					<Tooltip>
-						<TooltipTrigger>
-							<b>Yassir</b>
-						</TooltipTrigger>
-						<TooltipContent>
-							<div className='my-images'>
-								<Image
-									src={'/images/me/3.jpg'}
-									fill
-									alt='yassir'
-									style={{ objectFit: 'cover' }}
-								/>
-							</div>
-						</TooltipContent>
-					</Tooltip>
-					, a fullstack developer based in{' '}
-					<Tooltip>
-						<TooltipTrigger>
-							<b>Morocco</b>
-						</TooltipTrigger>
-						<TooltipContent>
-							<div className='my-images'>
-								<Image
-									src={'/images/my-location.png'}
-									fill
-									alt='yassir'
-									style={{ objectFit: 'cover' }}
-								/>
-							</div>
-						</TooltipContent>
-					</Tooltip>
-					. I build modern, scalable web applications <br /> — turning ideas
-					into interactive digital experiences.
+					I'm <b>Yassir</b>, a fullstack developer based in <b>Morocco</b>. I
+					build modern, scalable web applications <br /> — turning ideas into
+					interactive digital experiences.
 				</p>
 			</div>
 
