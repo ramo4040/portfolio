@@ -63,7 +63,7 @@ export const AudioConversation = () => {
 				onClick={isPlaying || isChatOpen ? () => false : handlePlayAudio}
 				initial={{ width: 240 }}
 				animate={{
-					width: isPlaying && isChatOpen ? 450 : isPlaying ? 320 : 240,
+					width: isPlaying && isChatOpen ? 500 : isPlaying ? 320 : 240,
 					cursor: isPlaying || isChatOpen ? 'default' : 'pointer',
 				}}
 				transition={{
