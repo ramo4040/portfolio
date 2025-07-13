@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import './style.css'
+import { useTransitionRouter } from 'next-view-transitions'
 import { useState } from 'react'
 
 const navItems = [
@@ -31,7 +32,7 @@ export const BottomNavbar = () => {
 	const [bgXposition, setBgXPosition] = useState(
 		`${navItems.findIndex((item) => item.href === pathname) * 100}%`,
 	)
-	console.log(pathname)
+	const router = useTransitionRouter()
 
 	return (
 		<nav id='bottom-navbar' aria-label='Main navigation'>
@@ -53,7 +54,13 @@ export const BottomNavbar = () => {
 								href={item.href}
 								aria-label={item.ariaLabel}
 								aria-current={isCurrentPage ? 'page' : undefined}
-								onClick={() => setBgXPosition(bgXPosition)}
+								onClick={(e) => {
+									e.preventDefault()
+									setBgXPosition(bgXPosition)
+									router.push(item.href, {
+										onTransitionReady: pageAnimation,
+									})
+								}}
 							>
 								{item.label}
 							</Link>
@@ -62,5 +69,45 @@ export const BottomNavbar = () => {
 				})}
 			</ul>
 		</nav>
+	)
+}
+
+const pageAnimation = () => {
+	document.documentElement.animate(
+		[
+			{
+				opacity: 1,
+				scale: 1,
+				transform: 'translateY(0)',
+			},
+			{
+				opacity: 0.5,
+				scale: 0.9,
+				transform: 'translateY(-200px)',
+			},
+		],
+		{
+			duration: 1000,
+			easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+			fill: 'forwards',
+			pseudoElement: '::view-transition-old(root)',
+		},
+	)
+
+	document.documentElement.animate(
+		[
+			{
+				transform: 'translateY(100%)',
+			},
+			{
+				transform: 'translateY(0)',
+			},
+		],
+		{
+			duration: 1000,
+			easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+			fill: 'forwards',
+			pseudoElement: '::view-transition-new(root)',
+		},
 	)
 }

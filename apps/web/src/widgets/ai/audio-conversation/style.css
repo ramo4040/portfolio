@@ -1,0 +1,123 @@
+@property --gradient-angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+#audio-conversation-wrapper {
+	--h: calc(3rem);
+	--clr-1: #052b2f2d;
+	--clr-2: #0734382d;
+	--clr-3: #00e1ff2d;
+	--clr-4: #0051ff2d;
+	--clr-5: #001aff2d;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-16);
+	margin-top: var(--spacing-56);
+	margin-bottom: var(--spacing-128);
+	margin-inline: auto;
+	position: relative;
+
+	button {
+		border: none;
+		outline: none;
+	}
+
+	.circle-btn {
+		background: #fff;
+		height: var(--h);
+		aspect-ratio: 1;
+		border-radius: var(--radius-rounded);
+		display: grid;
+		place-content: center;
+		cursor: pointer;
+	}
+
+	.play-button {
+		min-width: 240px;
+		position: relative;
+		height: var(--h);
+		background: #fff;
+		cursor: pointer;
+		border-radius: var(--radius-rounded);
+		padding: var(--spacing-8) var(--spacing-16);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.details {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: var(--spacing-8);
+		}
+
+		span {
+			font-size: 14px;
+			font-weight: 600;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #0051ff;
+			outline-offset: 2px;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			inset: -1px;
+			z-index: -1;
+			background: conic-gradient(
+				from var(--gradient-angle),
+				var(--clr-3),
+				var(--clr-4),
+				var(--clr-5),
+				var(--clr-4),
+				var(--clr-3)
+			);
+			border-radius: inherit;
+			animation: rotation 20s linear infinite;
+		}
+
+		&::after {
+			filter: blur(24px);
+		}
+
+		.chat-input {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: var(--spacing-8);
+
+			input {
+				border: none;
+				outline: none;
+				flex: 1;
+				font-size: 14px;
+			}
+
+			svg {
+				transition: var(--transition-standard-default-spatial);
+				cursor: pointer;
+
+				&:hover {
+					fill: #000;
+					stroke: #000;
+				}
+			}
+		}
+	}
+}
+@keyframes rotation {
+	0% {
+		--gradient-angle: 0deg;
+	}
+	100% {
+		--gradient-angle: 360deg;
+	}
+}
