@@ -32,17 +32,6 @@
 		}
 	}
 
-	.cta {
-		margin-top: var(--spacing-56);
-		margin-bottom: var(--spacing-128);
-		margin-inline: auto;
-		width: 10rem;
-		height: 2rem;
-		border-radius: var(--radius-rounded);
-		background: #fff;
-		border: 1px solid #cecece;
-	}
-
 	.projects-container {
 		width: 80vw;
 		margin-inline: auto;

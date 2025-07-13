@@ -1,14 +1,9 @@
-import { ProjectCard } from '@/widgets/cards'
 import './style.css'
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
-} from '@/components/tooltip/tooltip'
 import { listProject } from '@/data/projects-list'
+import { AudioConversation } from '@/widgets/ai'
+import { ProjectCard } from '@/widgets/cards'
 import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
-import Image from 'next/image'
 
 export default function Home() {
 	return (
@@ -28,7 +23,7 @@ export default function Home() {
 				</p>
 			</div>
 
-			<div className='cta' />
+			<AudioConversation />
 
 			<div className='projects-container'>
 				{listProject.map((project) => (
