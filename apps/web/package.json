@@ -12,6 +12,7 @@
 		"@mdx-js/loader": "^3.1.0",
 		"@mdx-js/react": "^3.1.0",
 		"@next/mdx": "^15.3.4",
+		"@pinecone-database/pinecone": "^6.1.1",
 		"@ridemountainpig/svgl-react": "^1.0.8",
 		"@sglara/cn": "^1.0.0",
 		"@types/mdx": "^2.0.13",
@@ -23,6 +24,7 @@
 		"next-view-transitions": "^0.3.4",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"react-markdown": "^10.1.0",
 		"resend": "^4.6.0",
 		"usehooks-ts": "^3.1.1",
 		"zod": "^4.0.5"

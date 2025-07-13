@@ -4,7 +4,17 @@
 	inherits: false;
 }
 
-#audio-conversation-wrapper {
+#ai-wrapper {
+	margin-top: var(--spacing-56);
+	margin-bottom: var(--spacing-128);
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-16);
+	max-width: 500px;
+}
+
+#audio-chat-input-wrapper {
 	--h: calc(3rem);
 	--clr-1: #052b2f2d;
 	--clr-2: #0734382d;
@@ -16,9 +26,6 @@
 	align-items: center;
 	justify-content: center;
 	gap: var(--spacing-16);
-	margin-top: var(--spacing-56);
-	margin-bottom: var(--spacing-128);
-	margin-inline: auto;
 	position: relative;
 
 	button {
@@ -113,6 +120,7 @@
 		}
 	}
 }
+
 @keyframes rotation {
 	0% {
 		--gradient-angle: 0deg;

@@ -1,1 +1,1 @@
-export { AudioConversation } from './audio-conversation/audio-conversation'
+export { AudioConversation } from './audio-chat-input-wrapper/audio-conversation'
