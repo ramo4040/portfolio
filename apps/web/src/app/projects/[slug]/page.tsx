@@ -2,7 +2,10 @@ import { listProject } from '@/data/projects-list'
 import './style.css'
 import { getAllProjectSlugs, getProjectBySlug } from '@/utils/mdx'
 import { ProjectCard } from '@/widgets/cards'
-import { ProjectHeaderPreview } from '@/widgets/projects-page-details'
+import {
+	ProjectCloseButton,
+	ProjectHeaderPreview,
+} from '@/widgets/projects-page-details'
 import { X } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -36,9 +39,7 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 
 	return (
 		<article id='project-details-container'>
-			<Link href='/' id='project-close-button'>
-				<X />
-			</Link>
+			<ProjectCloseButton />
 
 			<ProjectHeaderPreview
 				alt={project.meta.headline}

@@ -1,7 +1,11 @@
+'use client'
+
 import { ArrowUpRight } from 'lucide-react'
 import './style.css'
 import type { Project } from '@/types'
+import { pageAnimation } from '@/widgets/bottom-navbar/bottom-navbar'
 import { cn } from '@sglara/cn'
+import { useTransitionRouter } from 'next-view-transitions'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ComponentProps, FC } from 'react'
@@ -17,6 +21,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 	...props
 }) => {
 	const { theme, color, imageSrc, imageAlt, href, title, description } = project
+	const router = useTransitionRouter()
 
 	return (
 		<article
@@ -27,6 +32,12 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 		>
 			<Link
 				href={href}
+				onClick={(e) => {
+					e.preventDefault()
+					router.push(href, {
+						onTransitionReady: pageAnimation,
+					})
+				}}
 				id='project-card-link'
 				aria-label={`View ${title} project details`}
 			>

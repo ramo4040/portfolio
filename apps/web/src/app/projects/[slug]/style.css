@@ -60,29 +60,3 @@
 		font-weight: 600;
 	}
 }
-
-#project-close-button {
-	position: fixed;
-	top: 2rem;
-	left: 2rem;
-	width: 3.5rem;
-	z-index: 9999;
-	aspect-ratio: 1;
-	border-radius: var(--radius-rounded);
-	background: #ffffff47;
-	backdrop-filter: blur(8px);
-	text-decoration: none;
-	mix-blend-mode: difference;
-
-	display: grid;
-	place-content: center;
-	transition: var(--transition-standard-default-effects);
-
-	svg {
-		color: var(--primary-text-color);
-	}
-
-	&:hover {
-		background: #ffffff87;
-	}
-}

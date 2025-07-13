@@ -72,7 +72,7 @@ export const BottomNavbar = () => {
 	)
 }
 
-const pageAnimation = () => {
+export const pageAnimation = () => {
 	document.documentElement.animate(
 		[
 			{

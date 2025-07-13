@@ -1,4 +1,5 @@
 import './style.css'
+export { ProjectCloseButton } from './close-button/close-button'
 export { Project2ColsTextImage } from './2-cols-text-image'
 export { Project2ColsText } from './2-cols-text'
 export { ProjectHeadline } from './headline'
