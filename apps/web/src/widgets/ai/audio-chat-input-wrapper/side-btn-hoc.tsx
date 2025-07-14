@@ -17,7 +17,6 @@ export const SideButtonHOC: FC<SideButtonProps> = ({
 		<AnimatePresence>
 			{isVisible && (
 				<motion.button
-					initial={{ opacity: 0, x: xPosition }}
 					animate={{ opacity: 1, x: 0 }}
 					exit={{ scale: 0, x: xPosition }}
 					transition={{
