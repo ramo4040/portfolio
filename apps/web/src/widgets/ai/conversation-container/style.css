@@ -5,6 +5,7 @@
 	max-height: 50vh;
 	overflow-y: auto;
 	padding-inline: 10px;
+	max-width: 510px;
 
 	.chat-message {
 		font-size: 14px;

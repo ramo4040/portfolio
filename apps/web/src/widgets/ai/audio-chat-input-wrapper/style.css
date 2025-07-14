@@ -10,23 +10,26 @@
 	margin-inline: auto;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: var(--spacing-16);
-	max-width: 500px;
+	padding-inline: var(--spacing-16);
+	max-width: 100%;
 }
 
 #audio-chat-input-wrapper {
 	--h: calc(3rem);
-	--clr-1: #052b2f2d;
-	--clr-2: #0734382d;
-	--clr-3: #00e1ff2d;
-	--clr-4: #0051ff2d;
-	--clr-5: #001aff2d;
+	--clr-1: hsla(186, 81%, 10%, 0.17);
+	--clr-2: hsla(185, 78%, 12%, 0.17);
+	--clr-3: hsla(187, 100%, 50%, 0.17);
+	--clr-4: hsla(221, 100%, 50%, 0.17);
+	--clr-5: hsla(234, 100%, 50%, 0.17);
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: var(--spacing-16);
-	position: relative;
+	gap: var(--spacing-8);
+	margin-inline: auto;
+	width: 100%;
 
 	button {
 		border: none;
@@ -41,10 +44,11 @@
 		display: grid;
 		place-content: center;
 		cursor: pointer;
+		flex-shrink: 0;
 	}
 
 	.play-button {
-		min-width: 240px;
+		flex: 1;
 		position: relative;
 		height: var(--h);
 		background: #fff;
@@ -54,12 +58,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		min-width: 0;
 
 		.details {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			gap: var(--spacing-8);
+			white-space: nowrap;
+			overflow: hidden;
 		}
 
 		span {
@@ -87,7 +94,7 @@
 				var(--clr-3)
 			);
 			border-radius: inherit;
-			animation: rotation 20s linear infinite;
+			animation: rotation 10s linear infinite;
 		}
 
 		&::after {
@@ -106,16 +113,58 @@
 				outline: none;
 				flex: 1;
 				font-size: 14px;
+				min-width: 0; /* Allow input to shrink */
 			}
 
 			svg {
 				transition: var(--transition-standard-default-spatial);
 				cursor: pointer;
+				flex-shrink: 0;
 
 				&:hover {
 					fill: #000;
 					stroke: #000;
 				}
+			}
+		}
+	}
+
+	/* Mobile responsive styles */
+	@media (max-width: 640px) {
+		--h: calc(2.75rem);
+		gap: var(--spacing-6);
+
+		.circle-btn {
+			height: var(--h);
+		}
+
+		.play-button {
+			height: var(--h);
+			padding: var(--spacing-6) var(--spacing-12);
+
+			.details {
+				gap: var(--spacing-6);
+			}
+
+			span {
+				font-size: 12px;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		--h: calc(2.5rem);
+		gap: var(--spacing-4);
+
+		.play-button {
+			padding: var(--spacing-4) var(--spacing-8);
+
+			.details {
+				gap: var(--spacing-4);
+			}
+
+			span {
+				font-size: 11px;
 			}
 		}
 	}

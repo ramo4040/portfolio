@@ -13,6 +13,32 @@ export const AudioConversation = () => {
 	const [isChatOpen, setIsChatOpen] = useState(false)
 	const audioRef = useRef<HTMLAudioElement | null>(null)
 
+	// Get responsive widths based on screen size
+	const getResponsiveWidths = () => {
+		const width = window.innerWidth
+
+		if (width <= 480) {
+			return { initial: 180, playing: 240, chat: 300 }
+		}
+		if (width <= 640) {
+			return { initial: 200, playing: 280, chat: 400 }
+		}
+
+		return { initial: 240, playing: 320, chat: 500 }
+	}
+
+	const [widths, setWidths] = useState(getResponsiveWidths())
+
+	// Update widths on resize
+	useEffect(() => {
+		const handleResize = () => {
+			setWidths(getResponsiveWidths())
+		}
+
+		window.addEventListener('resize', handleResize)
+		return () => window.removeEventListener('resize', handleResize)
+	}, [])
+
 	// Initialize audio only once
 	useEffect(() => {
 		if (!audioRef.current) {
@@ -67,12 +93,18 @@ export const AudioConversation = () => {
 						type='button'
 						className='play-button'
 						onClick={isPlaying || isChatOpen ? () => false : handlePlayAudio}
-						initial={{ width: 240 }}
+						initial={{ width: widths.initial }}
 						animate={{
-							width: isPlaying && isChatOpen ? 500 : isPlaying ? 320 : 240,
+							width:
+								isPlaying && isChatOpen
+									? widths.chat
+									: isPlaying
+										? widths.playing
+										: widths.initial,
 							cursor: isPlaying || isChatOpen ? 'default' : 'pointer',
 						}}
 						transition={{
+							delay: !isChatOpen ? 0.2 : 0,
 							type: 'spring',
 							stiffness: 100,
 							damping: 10,

@@ -22,36 +22,34 @@ export const ConversationContainer: FC<ConversationContainerProps> = ({
 
 	return (
 		<AnimatePresence mode='wait'>
-			<motion.div
-				ref={containerRef}
-				id='conversation-container'
-				initial={{ filter: 'blur(4px)', opacity: 0, y: 100, height: 0 }}
-				animate={{
-					filter: isVisible ? 'blur(0px)' : 'blur(4px)',
-					opacity: isVisible ? 1 : 0,
-					y: isVisible ? 0 : 100,
-					height: isVisible ? 'auto' : 0,
-				}}
-				transition={{ duration: 0.3 }}
-			>
-				{messages.map(({ content, id, sender }) => {
-					return (
-						<div
-							className={cn(
-								'chat-message',
-								sender === 'user' ? 'user-message' : 'ai-message',
-							)}
-							key={id}
-						>
-							{sender === 'user' ? (
-								content
-							) : (
-								<ReactMarkdown>{content}</ReactMarkdown>
-							)}
-						</div>
-					)
-				})}
-			</motion.div>
+			{isVisible && (
+				<motion.div
+					ref={containerRef}
+					id='conversation-container'
+					initial={{ filter: 'blur(4px)', opacity: 0, y: 100, height: 0 }}
+					animate={{ filter: 'blur(0px)', opacity: 1, y: 0, height: 'auto' }}
+					exit={{ filter: 'blur(4px)', opacity: 0, y: 100, height: 0 }}
+					transition={{ duration: 0.3 }}
+				>
+					{messages.map(({ content, id, sender }) => {
+						return (
+							<div
+								className={cn(
+									'chat-message',
+									sender === 'user' ? 'user-message' : 'ai-message',
+								)}
+								key={id}
+							>
+								{sender === 'user' ? (
+									content
+								) : (
+									<ReactMarkdown>{content}</ReactMarkdown>
+								)}
+							</div>
+						)
+					})}
+				</motion.div>
+			)}
 		</AnimatePresence>
 	)
 }
