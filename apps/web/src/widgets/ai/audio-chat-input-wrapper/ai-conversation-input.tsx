@@ -6,7 +6,7 @@ import { use, useRef } from 'react'
 import { aiConversationContext } from '../ai-conversation-context'
 
 export const AiConversationInput = () => {
-	const { addMessage } = use(aiConversationContext)
+	const { addMessage, setIsLoading } = use(aiConversationContext)
 	const inputRef = useRef<HTMLInputElement>(null)
 	useKeyPress('Enter', () => handleSendMessage())
 
@@ -18,8 +18,9 @@ export const AiConversationInput = () => {
 				content: message,
 				sender: 'user',
 			})
-
 			inputRef.current.value = ''
+
+			setIsLoading?.(true)
 
 			try {
 				const response = await fetch('/api/ai', {
@@ -43,6 +44,8 @@ export const AiConversationInput = () => {
 			} catch (error) {
 				console.error('Search error:', error)
 			}
+
+			setIsLoading?.(false)
 		}
 	}
 
