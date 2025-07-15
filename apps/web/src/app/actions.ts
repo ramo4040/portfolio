@@ -51,7 +51,7 @@ export const submitContactForm = async (
 	try {
 		await resend.emails.send({
 			from: 'onboarding@resend.dev',
-			to: 'rouane.yasseer@gmail.com',
+			to: process.env.NEXT_PUBLIC_MY_EMAIL || 'rouane.yasseer@gmail.com',
 			replyTo: email,
 			subject: `Portfolio: New contact from ${name}`,
 			html: `
