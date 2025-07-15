@@ -28,11 +28,11 @@ export const Footer: FC<FooterProps> = ({
 						</Badge>
 						<h1>Let's build something incredible together!</h1>
 						<a
-							href='mailto:rouane.yasseer@gmail.com'
+							href={`mailto:${process.env.NEXT_PUBLIC_MY_EMAIL}`}
 							rel='noreferrer'
 							target='_blank'
 						>
-							rouane.yasseer@gmail.com
+							{process.env.NEXT_PUBLIC_MY_EMAIL}
 						</a>
 					</>
 				)}
@@ -40,7 +40,7 @@ export const Footer: FC<FooterProps> = ({
 				<p className={cn('copyright', { 'is-contact-page': isContactPage })}>
 					Copyright {new Date().getFullYear()} · Made by{' '}
 					<a
-						href='mailto:rouane.yasseer@gmail.com'
+						href={`mailto:${process.env.NEXT_PUBLIC_MY_EMAIL}`}
 						rel='noreferrer'
 						target='_blank'
 					>

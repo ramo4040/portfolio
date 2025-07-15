@@ -1,4 +1,5 @@
 'use client'
+
 import { MessageCircle, Pause, PlayIcon, Send, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
@@ -31,6 +32,8 @@ export const AudioConversation = () => {
 
 	// Update widths on resize
 	useEffect(() => {
+		if (typeof window === 'undefined') return
+
 		const handleResize = () => {
 			setWidths(getResponsiveWidths())
 		}

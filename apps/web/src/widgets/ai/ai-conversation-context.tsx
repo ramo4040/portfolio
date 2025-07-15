@@ -8,6 +8,8 @@ type Message = {
 
 type AIConversationContextType = {
 	messages: Message[]
+	isLoading?: boolean
+	setIsLoading?: (loading: boolean) => void
 	addMessage: (message: Message) => void
 }
 
@@ -19,13 +21,16 @@ export const AIConversationProvider = ({
 	children,
 }: { children: React.ReactNode }) => {
 	const [messages, setMessages] = useState<Message[]>([])
+	const [isLoading, setIsLoading] = useState(false)
 
 	const addMessage = (message: Message) => {
 		setMessages((prev) => [...prev, message])
 	}
 
 	return (
-		<aiConversationContext.Provider value={{ messages, addMessage }}>
+		<aiConversationContext.Provider
+			value={{ messages, addMessage, isLoading, setIsLoading }}
+		>
 			{children}
 		</aiConversationContext.Provider>
 	)

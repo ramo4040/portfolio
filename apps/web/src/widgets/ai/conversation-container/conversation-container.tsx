@@ -11,7 +11,7 @@ type ConversationContainerProps = { isVisible: boolean }
 export const ConversationContainer: FC<ConversationContainerProps> = ({
 	isVisible,
 }) => {
-	const { messages } = use(aiConversationContext)
+	const { messages, isLoading } = use(aiConversationContext)
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
@@ -48,6 +48,8 @@ export const ConversationContainer: FC<ConversationContainerProps> = ({
 							</div>
 						)
 					})}
+
+					{isLoading && <div className='ai-message loader' />}
 				</motion.div>
 			)}
 		</AnimatePresence>
