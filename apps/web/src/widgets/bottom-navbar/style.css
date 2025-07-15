@@ -53,7 +53,7 @@
 				text-decoration: none;
 				color: var(--secondary-text-color);
 				font: var(--font-body-lg);
-				font-weight: 500;
+				font-weight: 600;
 				transition: color 0.2s ease;
 			}
 		}

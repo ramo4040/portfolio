@@ -46,7 +46,7 @@
 #project-details-elements {
 	display: flex;
 	flex-direction: column;
-	gap: clamp(1rem, 4vw, 7rem);
+	gap: clamp(1rem, 4vw, 3rem);
 	padding-block: 7rem;
 	padding-inline: 1rem;
 
