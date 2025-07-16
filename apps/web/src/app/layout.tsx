@@ -1,6 +1,7 @@
 import '@/public/styles/tokens.css'
 import '@/public/styles/variables.css'
 import '@/public/styles/index.css'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Nunito } from 'next/font/google'
@@ -155,6 +156,7 @@ export default function RootLayout({
 				>
 					{children}
 				</body>
+				<GoogleAnalytics gaId='G-WYQJ9WHY5X' />
 			</html>
 		</ViewTransitions>
 	)
