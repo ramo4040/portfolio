@@ -6,6 +6,7 @@
 	overflow-y: auto;
 	padding-inline: 10px;
 	width: 510px;
+	max-width: 100%;
 
 	.chat-message {
 		font-size: 14px;
