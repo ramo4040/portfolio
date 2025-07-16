@@ -33,6 +33,7 @@ const TooltipTrigger: FC<TooltipTriggerProps> = ({ children, ...props }) => {
 	const { handleToggleTooltip, idTooltip, isOpen } = useTooltip()
 
 	useEffect(() => {
+		if (typeof window === 'undefined') return
 		if (isOpen && containerRef.current) {
 			const trigger = containerRef.current
 			const container = trigger.closest('[y-tooltip]')
