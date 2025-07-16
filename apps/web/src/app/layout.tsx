@@ -97,7 +97,7 @@ export const metadata: Metadata = {
 
 	// Canonical URL to prevent duplicate content
 	alternates: {
-		canonical: 'https://yassir-rouane.me',
+		canonical: 'https://www.yassir-rouane.me',
 	},
 
 	// Structured data for rich snippets
