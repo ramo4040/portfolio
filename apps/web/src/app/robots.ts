@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
 			userAgent: '*',
 			allow: '/',
 		},
-		sitemap: 'https://yassir-rouane.me/sitemap.xml',
+		sitemap: 'https://www.yassir-rouane.me/sitemap.xml',
 	}
 }

@@ -2,7 +2,7 @@ import { listProject } from '@/data/projects-list'
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const baseUrl = 'https://yassir-rouane.me'
+	const baseUrl = 'https://www.yassir-rouane.me'
 
 	// Static routes
 	const staticRoutes: MetadataRoute.Sitemap = [
