@@ -5,7 +5,18 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": ["dist/**"]
+			"outputs": ["dist/**"],
+			"env": [
+				"NEXT_PUBLIC_SERVER_URL",
+				"NEXT_PUBLIC_OPENWEATHER_API_KEY",
+				"R2_ENDPOINT",
+				"R2_ACCESS_KEY_ID",
+				"R2_BUCKET_NAME",
+				"RESEND_API_KEY",
+				"PINECONE_DB",
+				"AI_API_KEY",
+				"NEXT_PUBLIC_MY_EMAIL"
+			]
 		},
 		"lint": {
 			"dependsOn": ["^lint"]
