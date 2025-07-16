@@ -20,7 +20,7 @@ const nunito = Nunito({
 })
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://yassir-rouane.me'),
+	metadataBase: new URL('https://www.yassir-rouane.me'),
 	title: 'Yassir Rouane - Full Stack Developer Portfolio',
 	description:
 		'Explore my portfolio showcasing innovative web applications and full-stack development projects. Available for work.',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 		'MERN stack developer portfolio examples',
 		'freelance full-stack developer available',
 	],
-	authors: [{ name: 'Yassir Rouane', url: 'https://yassir-rouane.me' }],
+	authors: [{ name: 'Yassir Rouane', url: 'https://www.yassir-rouane.me' }],
 	// Creator information
 	creator: 'Yassir Rouane',
 	// Language and content classification
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		locale: 'en_US',
-		url: 'https://yassir-rouane.me',
+		url: 'https://www.yassir-rouane.me',
 		title: 'Yassir Rouane - Full Stack Developer Portfolio',
 		description:
 			'Explore my portfolio showcasing innovative web applications and full-stack development projects. Available for work.',
@@ -139,7 +139,7 @@ export default function RootLayout({
 								'@type': 'Person',
 								name: 'Yassir Rouane',
 								jobTitle: 'Full Stack Developer',
-								url: 'https://yassir-rouane.me',
+								url: 'https://www.yassir-rouane.me',
 								sameAs: [
 									'https://github.com/ramo4040',
 									'https://www.linkedin.com/in/yassir-rouane',
