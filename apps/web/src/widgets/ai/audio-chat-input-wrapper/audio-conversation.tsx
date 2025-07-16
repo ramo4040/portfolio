@@ -16,6 +16,11 @@ export const AudioConversation = () => {
 
 	// Get responsive widths based on screen size
 	const getResponsiveWidths = () => {
+		if (typeof window === 'undefined') {
+			// Return default values for SSR
+			return { initial: 240, playing: 320, chat: 500 }
+		}
+
 		const width = window.innerWidth
 
 		if (width <= 480) {
@@ -28,7 +33,7 @@ export const AudioConversation = () => {
 		return { initial: 240, playing: 320, chat: 500 }
 	}
 
-	const [widths, setWidths] = useState(getResponsiveWidths())
+	const [widths, setWidths] = useState(() => getResponsiveWidths())
 
 	// Update widths on resize
 	useEffect(() => {

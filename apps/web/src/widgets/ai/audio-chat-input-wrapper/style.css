@@ -61,6 +61,7 @@
 		min-width: 0;
 
 		.details {
+			color: #000;
 			display: flex;
 			align-items: center;
 			justify-content: center;
