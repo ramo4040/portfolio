@@ -45,7 +45,8 @@ export const Footer: FC<FooterProps> = ({
 						target='_blank'
 					>
 						Yassir
-					</a>
+					</a>{' '}
+					· <a href='./llm.txt'>llm.txt</a>
 				</p>
 			</footer>
 			{!isContactPage && <div className='footer-gradient-bg' />}
