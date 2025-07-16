@@ -51,7 +51,8 @@ export const submitContactForm = async (
 	try {
 		await resend.emails.send({
 			from: 'onboarding@resend.dev',
-			to: 'rouane.yasseer@gmail.com',
+			// biome-ignore lint/style/noNonNullAssertion: <explanation>
+			to: process.env.NEXT_PUBLIC_MY_EMAIL!,
 			replyTo: email,
 			subject: `Portfolio: New contact from ${name}`,
 			html: `
