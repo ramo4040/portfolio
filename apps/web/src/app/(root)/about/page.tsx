@@ -9,6 +9,7 @@ import { certificates } from '@/data/certificates'
 import { socialAccounts } from '@/data/social-account'
 import { stackList } from '@/data/stack-list'
 import { LocationCard } from '@/widgets/cards'
+import { CertificatesList } from '@/widgets/certificates-list'
 import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
 import { Resume } from '@/widgets/resume'
@@ -138,33 +139,9 @@ export default function AboutPage() {
 
 				<section className='__item certifications'>
 					<h3>
-						Certifications <sup>({certificates.length})</sup>{' '}
+						Certifications <sup>({certificates.length})</sup>
 					</h3>
-					<div className='-container'>
-						{certificates.map((e, i) => {
-							return (
-								<Link href={e.url} key={i} target='_blank'>
-									<div className='__image'>
-										<Image
-											src={e.image}
-											alt={e.title}
-											fill
-											style={{ objectFit: 'cover' }}
-										/>
-									</div>
-									<div className='__details'>
-										<h4>{e.title}</h4>
-										<div>
-											<small className='issuer'>@{e.issuer}</small>
-											<hr />
-											<small className='date'>{e.date}</small>
-										</div>
-									</div>
-									<ArrowUpRight size={20} />
-								</Link>
-							)
-						})}
-					</div>
+					<CertificatesList data={certificates} />
 				</section>
 
 				<section className='__item resume'>

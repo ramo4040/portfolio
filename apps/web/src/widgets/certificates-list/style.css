@@ -1,0 +1,62 @@
+#certifications-container {
+	width: 100%;
+	display: grid;
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	border: 1px solid var(--card-border-color);
+
+	> a {
+		display: flex;
+		align-items: center;
+		gap: clamp(var(--spacing-6), 4vw, var(--spacing-20));
+		background: var(--card-bg);
+		padding-block: .5rem;
+		padding-inline: 1rem;
+		text-decoration: none;
+		color: inherit;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid var(--card-border-color);
+		}
+
+		&:hover {
+			background: var(--card-bg-hover);
+		}
+
+		.__image {
+			position: relative;
+			min-width: 2.5rem;
+			aspect-ratio: 1;
+		}
+
+		.__details {
+			flex: 1;
+
+			> div {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				color: #71717b;
+				gap: var(--spacing-10);
+
+				hr {
+					display: block;
+					height: 15px;
+					width: 1px;
+					border: 0;
+					background: var(--card-border-color);
+				}
+			}
+		}
+
+		svg {
+			min-width: 20px;
+			color: #71717b;
+		}
+	}
+
+	.actions {
+		justify-self: center;
+		padding-block: 6px;
+	}
+}
