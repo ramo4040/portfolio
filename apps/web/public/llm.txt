@@ -31,6 +31,8 @@ Email: contact@yassir-rouane.me
 - Build JavaScript Applications Using TypeScript — Microsoft — 26 June 2024
 - Agile Foundations — PMI — 11 July 2024
 - DevOps Foundations: Lean and Agile — PMI — 8 July 2024
+- Next.js SEO Fundamentals — Vercel — 07 July 2025
+- Next.js App Router Fundamentals — Vercel — 07 July 2025
 
 ## Projects
 
