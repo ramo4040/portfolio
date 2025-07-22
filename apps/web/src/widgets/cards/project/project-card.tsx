@@ -51,7 +51,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 				</header>
 
 				<figure role='img' aria-label={imageAlt}>
-					<Image src={imageSrc} alt={imageAlt} fill />
+					<Image src={imageSrc} alt={imageAlt} fill priority sizes='100vw' />
 				</figure>
 
 				<section>

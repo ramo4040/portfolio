@@ -1,0 +1,31 @@
+.not-found-container {
+	height: 100vh;
+	display: grid;
+	place-content: center;
+	text-align: center;
+	color: #000;
+	gap: var(--spacing-32);
+
+	.error-code {
+		line-height: 1;
+		font-size: clamp(5rem, 20vw, 7rem);
+	}
+	.error-title {
+		line-height: 1;
+		font-size: clamp(1.5rem, 5vw, 2rem);
+	}
+	.error-description {
+		font-size: clamp(1rem, 3vw, 1.25rem);
+		color: #666;
+	}
+
+	.content {
+		display: grid;
+		gap: 1rem;
+		justify-items: center;
+	}
+
+	.actions {
+		width: 8rem;
+	}
+}

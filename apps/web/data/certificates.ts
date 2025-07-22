@@ -1,5 +1,19 @@
 export const certificates = [
 	{
+		title: 'Next.js SEO Fundamentals',
+		image: '/images/certificates/vercel_logo.jpg',
+		issuer: 'Vercel',
+		date: '07.21.2025',
+		url: 'https://nextjs.org/learn/certificate?course=seo&user=82442&certId=seo-82442-1753141924441',
+	},
+	{
+		title: 'Next.js App Router Fundamentals',
+		image: '/images/certificates/vercel_logo.jpg',
+		issuer: 'Vercel',
+		date: '07.19.2025',
+		url: 'https://nextjs.org/learn/certificate?course=dashboard-app&user=82442&certId=dashboard-app-82442-1752936965956',
+	},
+	{
 		title: 'MongoDB Node.js Developer Path',
 		image: '/images/certificates/mongodbinc_logo.jpg',
 		issuer: 'MongoDB',
@@ -42,3 +56,5 @@ export const certificates = [
 		url: 'https://www.linkedin.com/learning/certificates/9720d7897a20885fb12a8bc1ef8a7576edf67084f10df83d79087a8e7fbaeff0',
 	},
 ]
+
+export type certificates = typeof certificates

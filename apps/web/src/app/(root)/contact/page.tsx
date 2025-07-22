@@ -3,8 +3,8 @@
 import { Logo } from '@/widgets/logo/logo'
 import './style.css'
 import { submitContactForm } from '@/app/actions'
+import { Button } from '@/components'
 import { Footer } from '@/widgets/footer/footer'
-import { cn } from '@sglara/cn'
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
 
@@ -12,15 +12,9 @@ const SubmitButton = () => {
 	const { pending } = useFormStatus()
 
 	return (
-		<button
-			type='submit'
-			className={cn('submit-button', {
-				disabled: pending,
-			})}
-			disabled={pending}
-		>
+		<Button isLoading={pending}>
 			{pending ? 'Sending...' : 'Send Message'}
-		</button>
+		</Button>
 	)
 }
 

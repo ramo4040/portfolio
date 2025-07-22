@@ -1,5 +1,6 @@
 'use server'
 
+import { ContactMailForm } from '@/widgets/contact-mail-form'
 import { Resend } from 'resend'
 import { z } from 'zod'
 
@@ -55,12 +56,9 @@ export const submitContactForm = async (
 			to: process.env.NEXT_PUBLIC_MY_EMAIL!,
 			replyTo: email,
 			subject: `Portfolio: New contact from ${name}`,
-			html: `
-                <h2>New Contact Form Submission</h2>
-                <p><b>Name:</b> ${name}</p>
-                <p><b>Email:</b> ${email}</p>
-                <p><b>Message:</b> ${message}</p>
-            `,
+			react: (
+				<ContactMailForm fullName={name} email={email} message={message} />
+			),
 		})
 
 		return { success: true, error: '', errors: {} }
