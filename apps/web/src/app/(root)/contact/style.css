@@ -58,27 +58,6 @@
 				font-size: 14px;
 				color: rgb(255, 71, 71);
 			}
-
-			.submit-button {
-				color: #000;
-				cursor: pointer;
-				background-color: #fff;
-				border-radius: var(--radius-sm);
-				width: 100%;
-				height: var(--spacing-40);
-				display: grid;
-				place-content: center;
-				padding: 10px 12px;
-				font-weight: 600;
-				box-shadow: 0 1px 2px #1018280f, 0 1px 3px #1018281a;
-				border: 0;
-
-				&.disabled {
-					background-color: #f0f0f0;
-					color: #a0a0a0;
-					cursor: not-allowed;
-				}
-			}
 		}
 	}
 }
