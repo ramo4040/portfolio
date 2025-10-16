@@ -34,3 +34,49 @@ export type ProjectDetails2ColsTextType = {
 	hasTitle?: boolean
 	content: string[]
 }
+
+// --------------------------------
+// GitHub API Types
+
+export type GitHubContributionLevel =
+	| 'NONE'
+	| 'FIRST_QUARTILE'
+	| 'SECOND_QUARTILE'
+	| 'THIRD_QUARTILE'
+	| 'FOURTH_QUARTILE'
+
+export type GitHubContributionDay = {
+	contributionCount: number
+	date: string
+	contributionLevel: GitHubContributionLevel
+}
+
+export type GitHubWeek = {
+	contributionDays: GitHubContributionDay[]
+}
+
+export type GitHubContributionCalendar = {
+	totalContributions: number
+	weeks: GitHubWeek[]
+}
+
+export type GitHubContributionsCollection = {
+	contributionCalendar: GitHubContributionCalendar
+}
+
+export type GitHubUser = {
+	contributionsCollection: GitHubContributionsCollection
+}
+
+export type GitHubApiResponse = {
+	data: {
+		user: GitHubUser
+	}
+	errors?: Array<{ message: string }>
+}
+
+// React GitHub Heatmap Types
+export type HeatmapDataPoint = {
+	date: string
+	contributions: number
+}

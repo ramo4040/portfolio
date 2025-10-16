@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
 						{
 							role: 'system',
 							content: `You are an AI assistant for a developer's portfolio website. Your role is to help visitors learn about the developer's skills, projects, and experience. Use the provided context from the portfolio to answer questions accurately and professionally.
-
+						
 							Context from portfolio:
 							${JSON.stringify(context)}
 
@@ -55,6 +55,7 @@ export async function POST(request: NextRequest) {
 							- If asked about projects, provide specific details from the context
 							- If the context doesn't contain the answer, politely say you don't have that information
 							- Keep responses concise but informative
+							- Dont use table markdown.
 							
 							If the question is unrelated out of context of portfolio, respond with:
 							"I'm sorry, I can only provide information about Yassir's (Yassirs's) career and work. Would you like to know more about his skills or projects?"
@@ -65,7 +66,7 @@ export async function POST(request: NextRequest) {
 							content: message,
 						},
 					],
-					model: 'llama3-70b-8192',
+					model: process.env.AI_MODEL,
 					temperature: 0.7,
 					max_completion_tokens: 1024,
 				}),

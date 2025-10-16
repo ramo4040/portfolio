@@ -1,0 +1,12 @@
+#github-heatmap {
+  width: 100%;
+  overflow: hidden;
+
+  .contribution-graph__legend-text {
+    visibility: hidden;
+  }
+
+  .contribution-graph {
+    width: 100%;
+  }
+}
