@@ -25,24 +25,3 @@ export const getDay = () => {
 	const formatted = `${weekday} ${getOrdinal(day)}`
 	return formatted
 }
-
-export const get52WeeksDateRange = ({ endDate }: { endDate: Date }) => {
-	// Go back approximately one year (52 weeks)
-	const startDate = new Date(endDate)
-	startDate.setDate(endDate.getDate() - 52 * 7)
-
-	// Adjust to the nearest Sunday if not already a Sunday
-	while (startDate.getDay() !== 0) {
-		startDate.setDate(startDate.getDate() - 1)
-	}
-
-	const strStartDate = `${startDate.getFullYear()}-${String(
-		startDate.getMonth() + 1,
-	).padStart(2, '0')}-${String(startDate.getDate()).padStart(2, '0')}`
-
-	const strEndDate = `${endDate.getFullYear()}-${String(
-		endDate.getMonth() + 1,
-	).padStart(2, '0')}-${String(endDate.getDate()).padStart(2, '0')}`
-
-	return { startDate: strStartDate, endDate: strEndDate }
-}

@@ -9,7 +9,6 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@ahmaddzidnii/react-github-heatmap": "^1.2.2",
 		"@mdx-js/loader": "^3.1.0",
 		"@mdx-js/react": "^3.1.0",
 		"@next/mdx": "^15.3.4",
@@ -26,6 +25,7 @@
 		"next-view-transitions": "^0.3.4",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"react-github-calendar": "^4.5.11",
 		"react-markdown": "^10.1.0",
 		"resend": "^4.6.0",
 		"usehooks-ts": "^3.1.1",

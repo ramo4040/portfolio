@@ -1,12 +1,11 @@
 #github-heatmap {
   width: 100%;
-  overflow: hidden;
+  overflow-x: scroll;
 
-  .contribution-graph__legend-text {
-    visibility: hidden;
-  }
-
-  .contribution-graph {
-    width: 100%;
+  .react-activity-calendar {
+    max-width: none !important;
+    .react-activity-calendar__scroll-container {
+      width: 40rem;
+    }
   }
 }

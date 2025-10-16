@@ -1,34 +1,34 @@
 [y-tooltip] {
-	position: relative;
-	width: fit-content;
-	display: inline-block;
+  position: relative;
+  width: fit-content;
+  display: inline-block;
 
-	/* hover and focus animations */
-	[y-tooltip-trigger]:hover + [role="tooltip"],
-	[y-tooltip-trigger]:focus + [role="tooltip"] {
-		opacity: 1;
-		visibility: visible;
-	}
+  /* hover and focus animations */
+  [y-tooltip-trigger]:hover + [role="tooltip"],
+  [y-tooltip-trigger]:focus + [role="tooltip"] {
+    opacity: 1;
+    visibility: visible;
+  }
 
-	[role="tooltip"] {
-		--offset: 8px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		display: grid;
-		place-content: center;
-		width: max-content;
-		max-width: 300px;
-		font: var(--font-label-sm);
-		opacity: 0;
-		z-index: 999;
-		min-height: 24px;
-		padding-inline: 8px;
-		background-color: #322f35;
-		color: #fff;
-		border-radius: 4px;
-		white-space: nowrap;
-		transition: var(--transition-standard-slow-effects);
-		pointer-events: none;
-	}
+  [role="tooltip"] {
+    --offset: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-content: center;
+    width: max-content;
+    max-width: 300px;
+    font: var(--font-label-sm);
+    opacity: 0;
+    z-index: 999;
+    min-height: 24px;
+    padding-inline: 8px;
+    background-color: #322f35;
+    color: #fff;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: var(--transition-standard-slow-effects);
+    pointer-events: none;
+  }
 }
