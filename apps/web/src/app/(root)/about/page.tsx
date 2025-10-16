@@ -9,6 +9,7 @@ import { certificates } from '@/data/certificates'
 import { socialAccounts } from '@/data/social-account'
 import { stackList } from '@/data/stack-list'
 import { LocationCard } from '@/widgets/cards'
+import { GithubHeatmap } from '@/widgets/cards/github-heatmap'
 import { CertificatesList } from '@/widgets/certificates-list'
 import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
@@ -42,6 +43,11 @@ export default function AboutPage() {
 						of work, I’m always learning, exploring, and finding new ways to
 						grow — as a developer and as a person.
 					</p>
+				</section>
+
+				<section className='__item'>
+					<h3 className='section-title'>Days I Code</h3>
+					<GithubHeatmap />
 				</section>
 
 				<section className='__item location'>

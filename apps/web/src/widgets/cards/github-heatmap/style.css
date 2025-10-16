@@ -1,0 +1,11 @@
+#github-heatmap {
+  width: 100%;
+  overflow-x: scroll;
+
+  .react-activity-calendar {
+    max-width: none !important;
+    .react-activity-calendar__scroll-container {
+      width: 40rem;
+    }
+  }
+}
