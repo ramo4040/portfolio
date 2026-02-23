@@ -1,6 +1,7 @@
 import '@/public/styles/tokens.css'
 import '@/public/styles/variables.css'
 import '@/public/styles/index.css'
+import { siteConfig } from '@/lib/config'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
@@ -32,59 +33,37 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://www.yassir-rouane.me'),
+	metadataBase: new URL(siteConfig.url),
 	title: {
-		default: 'Yassir Rouane — Full Stack Developer in Casablanca, Morocco',
-		template: '%s | Yassir Rouane',
+		default: siteConfig.title,
+		template: siteConfig.titleTemplate,
 	},
-	description:
-		'Full stack developer building scalable web applications with React, Next.js, Node.js, and TypeScript. Based in Casablanca, Morocco. Available for freelance projects.',
-	keywords: [
-		'Yassir Rouane',
-		'full stack developer',
-		'web developer Morocco',
-		'React developer',
-		'Next.js developer',
-		'TypeScript developer',
-		'Node.js developer',
-		'freelance developer Casablanca',
-		'full-stack web developer',
-		'Laravel developer',
-		'MongoDB developer',
-	],
-	authors: [{ name: 'Yassir Rouane', url: 'https://www.yassir-rouane.me' }],
-	creator: 'Yassir Rouane',
+	description: siteConfig.description,
+	keywords: [...siteConfig.keywords],
+	authors: [{ name: siteConfig.author.name, url: siteConfig.author.url }],
+	creator: siteConfig.author.name,
 	category: 'technology',
 
 	openGraph: {
 		type: 'website',
-		locale: 'en_US',
-		url: 'https://www.yassir-rouane.me',
-		title: 'Yassir Rouane — Full Stack Developer',
-		description:
-			'Full stack developer building scalable web applications with React, Next.js, Node.js, and TypeScript. Available for freelance projects.',
-		siteName: 'Yassir Rouane',
-		images: [
-			{
-				url: '/images/me/opengraph-image.png',
-				width: 1200,
-				height: 630,
-				alt: 'Yassir Rouane — Full Stack Developer Portfolio',
-				type: 'image/png',
-			},
-		],
+		locale: siteConfig.locale,
+		url: siteConfig.url,
+		title: `${siteConfig.author.name} — Full Stack Developer`,
+		description: siteConfig.description,
+		siteName: siteConfig.name,
+		images: [{ ...siteConfig.ogImage }],
 	},
 
 	twitter: {
 		card: 'summary_large_image',
-		site: '@yassir_rouane',
-		creator: '@yassir_rouane',
-		title: 'Yassir Rouane — Full Stack Developer',
+		site: siteConfig.twitterHandle,
+		creator: siteConfig.twitterHandle,
+		title: `${siteConfig.author.name} — Full Stack Developer`,
 		description:
 			'Full stack developer building scalable web apps with React, Next.js, and TypeScript. Available for projects.',
 		images: {
-			url: '/images/me/opengraph-image.png',
-			alt: 'Yassir Rouane Portfolio Preview',
+			url: siteConfig.ogImage.url,
+			alt: `${siteConfig.author.name} Portfolio Preview`,
 		},
 	},
 
@@ -105,20 +84,20 @@ export const metadata: Metadata = {
 	},
 
 	other: {
-		'application-name': 'Yassir Rouane',
+		'application-name': siteConfig.name,
 		'mobile-web-app-capable': 'yes',
 		'apple-mobile-web-app-capable': 'yes',
-		'apple-mobile-web-app-title': 'Yassir Rouane',
+		'apple-mobile-web-app-title': siteConfig.name,
 	},
 
 	icons: {
 		icon: [
-			{ url: '/images/favicon-16.png', sizes: '16x16', type: 'image/png' },
-			{ url: '/images/favicon-32.png', sizes: '32x32', type: 'image/png' },
-			{ url: '/images/favicon-96.png', sizes: '96x96', type: 'image/png' },
+			{ ...siteConfig.favicon.sm },
+			{ ...siteConfig.favicon.md },
+			{ ...siteConfig.favicon.lg },
 		],
 		apple: [
-			{ url: '/images/favicon-96.png', sizes: '180x180', type: 'image/png' },
+			{ url: siteConfig.favicon.lg.url, sizes: '180x180', type: 'image/png' },
 		],
 	},
 }
@@ -191,7 +170,7 @@ export default function RootLayout({
 					suppressHydrationWarning
 				>
 					{children}
-					<GoogleAnalytics gaId='G-WYQJ9WHY5X' />
+					<GoogleAnalytics gaId={siteConfig.gaId} />
 				</body>
 			</html>
 		</ViewTransitions>

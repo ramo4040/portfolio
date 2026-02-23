@@ -1,5 +1,7 @@
 import { listProject } from '@/data/projects-list'
 import './style.css'
+import { siteConfig } from '@/lib/config'
+import { type Metadata, createPageMetadata } from '@/lib/metadata'
 import { getAllProjectSlugs, getProjectBySlug } from '@/utils/mdx'
 import { ProjectCard } from '@/widgets/cards'
 import {
@@ -7,7 +9,6 @@ import {
 	ProjectHeaderPreview,
 } from '@/widgets/projects-page-details'
 import { X } from 'lucide-react'
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { type FC, use } from 'react'
@@ -42,33 +43,13 @@ export async function generateMetadata({
 
 	if (!meta) return {}
 
-	return {
+	return createPageMetadata({
 		title: meta.title,
 		description: meta.description,
-		openGraph: {
-			title: meta.title,
-			description: meta.description,
-			url: `https://www.yassir-rouane.me/projects/${slug}`,
-			type: 'article',
-			images: [
-				{
-					url: meta.image,
-					width: 1200,
-					height: 630,
-					alt: meta.title,
-				},
-			],
-		},
-		twitter: {
-			card: 'summary_large_image',
-			title: meta.title,
-			description: meta.description,
-			images: [meta.image],
-		},
-		alternates: {
-			canonical: `/projects/${slug}`,
-		},
-	}
+		path: `/projects/${slug}`,
+		ogType: 'article',
+		ogImage: { ...siteConfig.ogImage, url: meta.image, alt: meta.title },
+	})
 }
 
 export async function generateStaticParams() {

@@ -8,6 +8,7 @@ import {
 import { certificates } from '@/data/certificates'
 import { socialAccounts } from '@/data/social-account'
 import { stackList } from '@/data/stack-list'
+import { createPageMetadata } from '@/lib/metadata'
 import { LocationCard } from '@/widgets/cards'
 import { GithubHeatmap } from '@/widgets/cards/github-heatmap'
 import { CertificatesList } from '@/widgets/certificates-list'
@@ -15,31 +16,14 @@ import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
 import { Resume } from '@/widgets/resume'
 import { ArrowUpRight } from 'lucide-react'
-import type { Metadata } from 'next'
 import Image from 'next/image'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
 	title: 'About',
 	description:
 		'Learn about Yassir Rouane — a full stack developer in Casablanca, Morocco. Skills in React, Next.js, TypeScript, Node.js, Laravel. View certifications, tech stack, and resume.',
-	openGraph: {
-		title: 'About Yassir Rouane — Full Stack Developer',
-		description:
-			'Full stack developer in Casablanca, Morocco. React, Next.js, TypeScript, Node.js, Laravel.',
-		url: 'https://www.yassir-rouane.me/about',
-		images: [
-			{
-				url: '/images/me/opengraph-image.png',
-				width: 1200,
-				height: 630,
-				alt: 'About Yassir Rouane',
-			},
-		],
-	},
-	alternates: {
-		canonical: '/about',
-	},
-}
+	path: '/about',
+})
 
 export default function AboutPage() {
 	return (

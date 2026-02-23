@@ -1,25 +1,17 @@
 import './style.css'
 import { listProject } from '@/data/projects-list'
+import { createPageMetadata } from '@/lib/metadata'
 import { AudioConversation } from '@/widgets/ai'
 import { ProjectCard } from '@/widgets/cards'
 import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
-import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
 	title: 'Projects & Work',
 	description:
 		'Explore web development projects by Yassir Rouane — full stack applications built with React, Next.js, Node.js, and TypeScript. Based in Casablanca, Morocco.',
-	openGraph: {
-		title: 'Yassir Rouane — Full Stack Developer Projects',
-		description:
-			'Explore web development projects built with React, Next.js, Node.js, and TypeScript.',
-		url: 'https://www.yassir-rouane.me',
-	},
-	alternates: {
-		canonical: '/',
-	},
-}
+	path: '/',
+})
 
 export default function Home() {
 	return (
