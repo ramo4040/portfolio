@@ -26,7 +26,8 @@ export const ProjectMedia: FC<Props> = ({ data }) => {
 								src={src}
 								alt={alt}
 								fill
-								sizes='100%'
+								sizes='(max-width: 768px) 100vw, 80vw'
+								loading='lazy'
 								style={{ objectFit: 'cover' }}
 							/>
 						)}

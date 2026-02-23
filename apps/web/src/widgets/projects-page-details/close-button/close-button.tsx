@@ -17,6 +17,7 @@ export const ProjectCloseButton = () => {
 				router.push('/', { onTransitionReady: pageAnimation })
 			}}
 			id='project-close-button'
+			aria-label='Close project and return to homepage'
 		>
 			<X />
 		</Link>

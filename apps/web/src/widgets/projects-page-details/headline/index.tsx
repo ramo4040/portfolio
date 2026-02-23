@@ -8,7 +8,7 @@ type ProjectHeadlineProps = ComponentProps<'div'> & {
 export const ProjectHeadline: FC<ProjectHeadlineProps> = ({ title }) => {
 	return (
 		<div id='project-headline'>
-			<h1>{title}</h1>
+			<h2>{title}</h2>
 		</div>
 	)
 }

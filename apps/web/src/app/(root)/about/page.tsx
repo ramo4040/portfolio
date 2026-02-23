@@ -15,7 +15,31 @@ import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
 import { Resume } from '@/widgets/resume'
 import { ArrowUpRight } from 'lucide-react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+	title: 'About',
+	description:
+		'Learn about Yassir Rouane — a full stack developer in Casablanca, Morocco. Skills in React, Next.js, TypeScript, Node.js, Laravel. View certifications, tech stack, and resume.',
+	openGraph: {
+		title: 'About Yassir Rouane — Full Stack Developer',
+		description:
+			'Full stack developer in Casablanca, Morocco. React, Next.js, TypeScript, Node.js, Laravel.',
+		url: 'https://www.yassir-rouane.me/about',
+		images: [
+			{
+				url: '/images/me/opengraph-image.png',
+				width: 1200,
+				height: 630,
+				alt: 'About Yassir Rouane',
+			},
+		],
+	},
+	alternates: {
+		canonical: '/about',
+	},
+}
 
 export default function AboutPage() {
 	return (
@@ -28,14 +52,15 @@ export default function AboutPage() {
 				<figure className='my-picture'>
 					<Image
 						src={'/images/me/3.jpg'}
-						alt='yassir'
+						alt='Yassir Rouane, full stack developer based in Casablanca, Morocco'
 						fill
+						priority
 						style={{ objectFit: 'cover' }}
 					/>
 				</figure>
 
 				<section className='__item description'>
-					<h3 className='section-title'>Yassir Rouane</h3>
+					<h2 className='section-title'>Yassir Rouane</h2>
 					<p>
 						I’m a full stack developer who loves creating thoughtful, useful
 						experiences on the web. I care about building things that people
@@ -46,18 +71,18 @@ export default function AboutPage() {
 				</section>
 
 				<section className='__item'>
-					<h3 className='section-title'>Days I Code</h3>
+					<h2 className='section-title'>Days I Code</h2>
 					<GithubHeatmap />
 				</section>
 
 				<section className='__item location'>
-					<h3>Where</h3>
+					<h2>Where</h2>
 					<LocationCard />
 				</section>
 
 				<section className='__item online'>
-					<h3>Online</h3>
-					<nav className='socials-container'>
+					<h2>Online</h2>
+					<nav aria-label='Social media profiles' className='socials-container'>
 						{socialAccounts.map((account) => {
 							return (
 								<Link
@@ -79,7 +104,7 @@ export default function AboutPage() {
 				</section>
 
 				<section className='__item stack'>
-					<h3>Stack</h3>
+					<h2>Stack</h2>
 					<div className='stack-container'>
 						{stackList.map((e) => {
 							return (
@@ -97,7 +122,7 @@ export default function AboutPage() {
 				</section>
 
 				<section className='__item principles-guidelines'>
-					<h3>Principles & Guidelines</h3>
+					<h2>Principles & Guidelines</h2>
 					<ul>
 						<li>
 							<div>
@@ -144,14 +169,14 @@ export default function AboutPage() {
 				</section>
 
 				<section className='__item certifications'>
-					<h3>
+					<h2>
 						Certifications <sup>({certificates.length})</sup>
-					</h3>
+					</h2>
 					<CertificatesList data={certificates} />
 				</section>
 
 				<section className='__item resume'>
-					<h3>Resume</h3>
+					<h2>Resume</h2>
 					<Resume />
 				</section>
 			</section>

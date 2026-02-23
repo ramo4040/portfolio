@@ -2,7 +2,7 @@ import '@/public/styles/tokens.css'
 import '@/public/styles/variables.css'
 import '@/public/styles/index.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Nunito } from 'next/font/google'
 import localFont from 'next/font/local'
@@ -20,73 +20,77 @@ const nunito = Nunito({
 	variable: '--font-nunito',
 })
 
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+	maximumScale: 5,
+	userScalable: true,
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: '#ffffff' },
+		{ media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+	],
+}
+
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.yassir-rouane.me'),
-	title: 'Yassir Rouane - Full Stack Developer Portfolio',
+	title: {
+		default: 'Yassir Rouane — Full Stack Developer in Casablanca, Morocco',
+		template: '%s | Yassir Rouane',
+	},
 	description:
-		'Explore my portfolio showcasing innovative web applications and full-stack development projects. Available for work.',
+		'Full stack developer building scalable web applications with React, Next.js, Node.js, and TypeScript. Based in Casablanca, Morocco. Available for freelance projects.',
 	keywords: [
 		'Yassir Rouane',
 		'full stack developer',
-		'full-stack web developer',
-		'MERN stack portfolio',
-		'React.js developer',
-		'TypeScript full-stack',
+		'web developer Morocco',
+		'React developer',
+		'Next.js developer',
+		'TypeScript developer',
 		'Node.js developer',
+		'freelance developer Casablanca',
+		'full-stack web developer',
 		'Laravel developer',
-		'responsive web design',
-		'web developer Casablanca',
-		'MERN stack developer portfolio examples',
-		'freelance full-stack developer available',
+		'MongoDB developer',
 	],
 	authors: [{ name: 'Yassir Rouane', url: 'https://www.yassir-rouane.me' }],
-	// Creator information
 	creator: 'Yassir Rouane',
-	// Language and content classification
 	category: 'technology',
 
-	// Open Graph tags for social media sharing
 	openGraph: {
 		type: 'website',
 		locale: 'en_US',
 		url: 'https://www.yassir-rouane.me',
-		title: 'Yassir Rouane - Full Stack Developer Portfolio',
+		title: 'Yassir Rouane — Full Stack Developer',
 		description:
-			'Explore my portfolio showcasing innovative web applications and full-stack development projects. Available for work.',
-		siteName: 'Yassir Rouane Portfolio',
+			'Full stack developer building scalable web applications with React, Next.js, Node.js, and TypeScript. Available for freelance projects.',
+		siteName: 'Yassir Rouane',
 		images: [
 			{
 				url: '/images/me/opengraph-image.png',
 				width: 1200,
 				height: 630,
-				alt: 'Yassir Rouane Portfolio - Full Stack Developer',
+				alt: 'Yassir Rouane — Full Stack Developer Portfolio',
 				type: 'image/png',
 			},
 		],
 	},
 
-	// Twitter Card optimization
 	twitter: {
 		card: 'summary_large_image',
 		site: '@yassir_rouane',
 		creator: '@yassir_rouane',
-		title: 'Yassir Rouane - Full Stack Developer Portfolio',
+		title: 'Yassir Rouane — Full Stack Developer',
 		description:
-			'Explore innovative web applications and modern designs. Available for projects.',
+			'Full stack developer building scalable web apps with React, Next.js, and TypeScript. Available for projects.',
 		images: {
 			url: '/images/me/opengraph-image.png',
 			alt: 'Yassir Rouane Portfolio Preview',
 		},
 	},
 
-	// Robots configuration for SEO
 	robots: {
 		index: true,
 		follow: true,
-		noarchive: false,
-		nosnippet: false,
-		noimageindex: false,
-		nocache: false,
 		googleBot: {
 			index: true,
 			follow: true,
@@ -96,17 +100,15 @@ export const metadata: Metadata = {
 		},
 	},
 
-	// Canonical URL to prevent duplicate content
 	alternates: {
-		canonical: 'https://www.yassir-rouane.me',
+		canonical: '/',
 	},
 
-	// Structured data for rich snippets
 	other: {
-		'application-name': 'Yassir Rouane Portfolio',
+		'application-name': 'Yassir Rouane',
 		'mobile-web-app-capable': 'yes',
 		'apple-mobile-web-app-capable': 'yes',
-		'apple-mobile-web-app-title': 'Yassir Rouane Portfolio',
+		'apple-mobile-web-app-title': 'Yassir Rouane',
 	},
 
 	icons: {
@@ -130,22 +132,56 @@ export default function RootLayout({
 		<ViewTransitions>
 			<html lang='en' suppressHydrationWarning>
 				<head>
-					{/* Additional structured data */}
 					<script
 						type='application/ld+json'
-						// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+						// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data for SEO
 						dangerouslySetInnerHTML={{
 							__html: JSON.stringify({
 								'@context': 'https://schema.org',
-								'@type': 'Person',
-								name: 'Yassir Rouane',
-								jobTitle: 'Full Stack Developer',
-								url: 'https://www.yassir-rouane.me',
-								sameAs: [
-									'https://github.com/ramo4040',
-									'https://www.linkedin.com/in/yassir-rouane',
+								'@graph': [
+									{
+										'@type': 'WebSite',
+										'@id': 'https://www.yassir-rouane.me/#website',
+										url: 'https://www.yassir-rouane.me',
+										name: 'Yassir Rouane',
+										description:
+											'Full stack developer building scalable web applications with React, Next.js, Node.js, and TypeScript.',
+										inLanguage: 'en-US',
+										publisher: {
+											'@id': 'https://www.yassir-rouane.me/#person',
+										},
+									},
+									{
+										'@type': 'Person',
+										'@id': 'https://www.yassir-rouane.me/#person',
+										name: 'Yassir Rouane',
+										jobTitle: 'Full Stack Developer',
+										url: 'https://www.yassir-rouane.me',
+										image: 'https://www.yassir-rouane.me/images/me/3.jpg',
+										description:
+											'Full stack developer based in Casablanca, Morocco. Specializes in React, Next.js, Node.js, TypeScript, and Laravel.',
+										address: {
+											'@type': 'PostalAddress',
+											addressLocality: 'Casablanca',
+											addressCountry: 'MA',
+										},
+										sameAs: [
+											'https://github.com/ramo4040',
+											'https://www.linkedin.com/in/yassir-rouane',
+											'https://app.daily.dev/yassir_rouane',
+										],
+										knowsAbout: [
+											'React',
+											'Next.js',
+											'TypeScript',
+											'Node.js',
+											'Laravel',
+											'MongoDB',
+											'Full Stack Development',
+											'Web Development',
+										],
+									},
 								],
-								knowsAbout: ['Web Development', 'Full Stack Development'],
 							}),
 						}}
 					/>
@@ -155,8 +191,8 @@ export default function RootLayout({
 					suppressHydrationWarning
 				>
 					{children}
+					<GoogleAnalytics gaId='G-WYQJ9WHY5X' />
 				</body>
-				<GoogleAnalytics gaId='G-WYQJ9WHY5X' />
 			</html>
 		</ViewTransitions>
 	)

@@ -26,7 +26,7 @@ export const Footer: FC<FooterProps> = ({
 							<span className='pulse' />
 							Available for work
 						</Badge>
-						<h1>Let's build something incredible together!</h1>
+						<h2>Let's build something incredible together!</h2>
 						<a
 							href={`mailto:${process.env.NEXT_PUBLIC_MY_EMAIL}`}
 							rel='noreferrer'

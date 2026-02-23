@@ -5,7 +5,7 @@ import Image from 'next/image'
 export const Logo = () => {
 	return (
 		<div id='logo'>
-			<Image src={logoSvg} alt='Logo' width={100} height={60} />
+			<Image src={logoSvg} alt='Yassir Rouane - Home' width={100} height={60} />
 		</div>
 	)
 }

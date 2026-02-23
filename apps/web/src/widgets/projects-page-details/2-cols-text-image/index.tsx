@@ -32,7 +32,8 @@ export const Project2ColsTextImage: FC<Props> = ({ data, reverse = false }) => {
 				<Image
 					src={data.image.src}
 					fill
-					sizes='100%'
+					sizes='(max-width: 768px) 100vw, 50vw'
+					loading='lazy'
 					alt={data.image.alt}
 					style={{ objectFit: 'cover' }}
 				/>

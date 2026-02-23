@@ -24,6 +24,10 @@
 			line-height: 1.2;
 			margin-bottom: var(--spacing-8);
 		}
+
+		.sub-headline {
+			display: block;
+		}
 	}
 
 	.description {

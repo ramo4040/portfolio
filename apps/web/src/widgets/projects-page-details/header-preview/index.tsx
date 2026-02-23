@@ -32,7 +32,7 @@ export const ProjectHeaderPreview: FC<HeaderPreviewProps> = ({
 					src={src}
 					alt={alt}
 					fill
-					sizes='100%'
+					sizes='100vw'
 					priority
 					style={{
 						objectFit: 'cover',
