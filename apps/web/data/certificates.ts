@@ -1,5 +1,12 @@
 export const certificates = [
 	{
+		title: 'Oracle Certified Professional: Java SE 21 Developer',
+		issuer: 'Oracle',
+		date: '01.28.2026',
+		image: '/images/certificates/oracle-logo.svg',
+		url: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=5145A3418E6C89EBA8A6445516EB039D94659A247B8CAC0EDCBA1AF3CCE806EB',
+	},
+	{
 		title: 'Next.js SEO Fundamentals',
 		image: '/images/certificates/vercel_logo.jpg',
 		issuer: 'Vercel',

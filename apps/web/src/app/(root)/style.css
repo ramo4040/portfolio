@@ -40,25 +40,11 @@
 		width: 80vw;
 		margin-inline: auto;
 		margin-bottom: var(--spacing-128);
-		display: grid;
-		grid-template-columns: repeat(
-				auto-fit,
-				minmax(clamp(150px, 80vw, 350px), 1fr)
-			);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 		gap: var(--spacing-20);
-
-		> * {
-			aspect-ratio: 1;
-		}
-
-		@media (max-width: 768px) {
-			grid-auto-rows: 550px;
-
-			> * {
-				height: 100%;
-				aspect-ratio: unset;
-			}
-		}
 	}
 }
 

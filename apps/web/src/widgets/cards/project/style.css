@@ -1,12 +1,12 @@
 #project-card {
 	--badgeColor: var(--black-20);
-	width: 100%;
-	height: 100%;
+	width: clamp(150px, 80vw, 600px);
 	overflow: hidden;
 	position: relative;
 	padding: var(--spacing-18);
 	border-radius: var(--radius-xxl);
 	user-select: none;
+	aspect-ratio: 1;
 
 	&:hover figure {
 		height: 60%;

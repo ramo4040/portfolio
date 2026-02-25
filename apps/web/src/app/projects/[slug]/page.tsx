@@ -7,8 +7,8 @@ import { ProjectCard } from '@/widgets/cards'
 import {
 	ProjectCloseButton,
 	ProjectHeaderPreview,
+	ProjectNavbar,
 } from '@/widgets/projects-page-details'
-import { X } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { type FC, use } from 'react'
@@ -100,6 +100,11 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				/>
 			)}
+
+			<ProjectNavbar
+				web={project.meta.links.web}
+				github={project.meta.links.github}
+			/>
 
 			<ProjectCloseButton />
 
