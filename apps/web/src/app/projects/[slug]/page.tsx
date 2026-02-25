@@ -101,10 +101,12 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 				/>
 			)}
 
-			<ProjectNavbar
-				web={project.meta.links.web}
-				github={project.meta.links.github}
-			/>
+			{project.meta.links && (
+				<ProjectNavbar
+					web={project.meta.links.web}
+					github={project.meta.links.github}
+				/>
+			)}
 
 			<ProjectCloseButton />
 

@@ -14,7 +14,7 @@ export type ProjectMeta = {
 	slug: string
 	headerPreview: string
 	headline: string
-	links: { web: string; github: string }
+	links?: { web: string; github: string }
 }
 
 export async function getProjectBySlug(slug: string) {
