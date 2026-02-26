@@ -1,26 +1,37 @@
 #project-card {
 	--badgeColor: var(--black-20);
-	width: clamp(150px, 80vw, 600px);
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
 	padding: var(--spacing-18);
 	border-radius: var(--radius-xxl);
 	user-select: none;
+	flex: 1 1 clamp(150px, 80vw, 600px);
+	max-width: 600px;
 	aspect-ratio: 1;
 
-	&:hover figure {
-		height: 60%;
-		margin: var(--spacing-18);
+	@media (max-width: 768px) {
+		height: 600px;
+		aspect-ratio: unset;
 	}
 
-	&:hover header .description {
-		opacity: 1;
-		transform: translateX(0);
-		pointer-events: auto;
-	}
+	&:hover {
+		figure {
+			height: 60%;
+			margin: var(--spacing-18);
+		}
 
-	&:hover header .icon {
-		scale: 0.8;
+		header {
+			.description {
+				opacity: 1;
+				transform: translateX(0);
+				pointer-events: auto;
+			}
+			.icon {
+				scale: 0.8;
+			}
+		}
 	}
 }
 

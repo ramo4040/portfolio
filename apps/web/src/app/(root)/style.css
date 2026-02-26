@@ -43,11 +43,9 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		align-items: center;
 		gap: var(--spacing-20);
 	}
 }
-
 @keyframes ping {
 	75%,
 	100% {
