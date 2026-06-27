@@ -5,8 +5,8 @@ import {
 	Git,
 	JavaScript,
 	Laravel,
-	MongoDB,
-	MySQL,
+	MongoDBLight,
+	MySQLLight,
 	Nextjs,
 	Nodejs,
 	PhpLight,
@@ -70,11 +70,11 @@ export const stackList = [
 	// Databases
 	{
 		title: 'MySQL',
-		icon: MySQL,
+		icon: MySQLLight,
 	},
 	{
 		title: 'MongoDB',
-		icon: MongoDB,
+		icon: MongoDBLight,
 	},
 	{
 		title: 'Redis',
