@@ -1,5 +1,5 @@
-import '@/public/styles/tokens.css'
 import '@/public/styles/variables.css'
+import '@/public/styles/tokens.css'
 import '@/public/styles/index.css'
 import { siteConfig } from '@/lib/config'
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -109,7 +109,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<ViewTransitions>
-			<html lang='en' suppressHydrationWarning>
+			<html
+				lang='en'
+				className={`${cabinet.variable} ${nunito.variable}`}
+				suppressHydrationWarning
+			>
 				<head>
 					<script
 						type='application/ld+json'
@@ -165,10 +169,7 @@ export default function RootLayout({
 						}}
 					/>
 				</head>
-				<body
-					className={`${cabinet.variable} ${nunito.variable}`}
-					suppressHydrationWarning
-				>
+				<body suppressHydrationWarning>
 					{children}
 					<GoogleAnalytics gaId={siteConfig.gaId} />
 				</body>

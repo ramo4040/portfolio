@@ -1,4 +1,4 @@
-export { Badge } from './badge/badge'
+export { Badge } from './badge-legacy/badge'
 export {
 	Button,
 	type ButtonProps,

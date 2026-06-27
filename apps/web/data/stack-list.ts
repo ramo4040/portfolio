@@ -1,12 +1,17 @@
+import { title } from 'node:process'
 import {
+	Angular,
 	Bun,
 	Docker,
 	Figma,
 	Git,
+	GitLab,
+	Java,
 	JavaScript,
 	Laravel,
 	MongoDBLight,
 	MySQLLight,
+	NestJS,
 	Nextjs,
 	Nodejs,
 	PhpLight,
@@ -32,6 +37,10 @@ export const stackList = [
 		title: 'PHP',
 		icon: PhpLight,
 	},
+	{
+		title: 'Java',
+		icon: Java,
+	},
 	// Frontend Frameworks & Libraries
 	{
 		title: 'React',
@@ -40,6 +49,10 @@ export const stackList = [
 	{
 		title: 'Next.js',
 		icon: Nextjs,
+	},
+	{
+		title: 'Angular',
+		icon: Angular,
 	},
 	{
 		title: 'Redux',
@@ -58,6 +71,10 @@ export const stackList = [
 	{
 		title: 'Node.js',
 		icon: Nodejs,
+	},
+	{
+		title: 'NestJS',
+		icon: NestJS,
 	},
 	{
 		title: 'Bun',
@@ -88,6 +105,10 @@ export const stackList = [
 	{
 		title: 'Git',
 		icon: Git,
+	},
+	{
+		title: 'Gitlab',
+		icon: GitLab,
 	},
 	// Design
 	{

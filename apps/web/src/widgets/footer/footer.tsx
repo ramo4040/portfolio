@@ -1,5 +1,5 @@
 import './style.css'
-import { Badge } from '@/components/badge/badge'
+import { Badge } from '@/components/badge-legacy/badge'
 import { cn } from '@sglara/cn'
 import type { FC } from 'react'
 

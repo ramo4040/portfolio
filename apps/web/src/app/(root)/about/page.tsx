@@ -6,12 +6,14 @@ import {
 	TooltipTrigger,
 } from '@/components/tooltip/tooltip'
 import { certificates } from '@/data/certificates'
+import { experiences } from '@/data/experience'
 import { socialAccounts } from '@/data/social-account'
 import { stackList } from '@/data/stack-list'
 import { createPageMetadata } from '@/lib/metadata'
 import { LocationCard } from '@/widgets/cards'
 import { GithubHeatmap } from '@/widgets/cards/github-heatmap'
 import { CertificatesList } from '@/widgets/certificates-list'
+import { ExperienceList } from '@/widgets/experience-list'
 import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
 import { Resume } from '@/widgets/resume'
@@ -157,6 +159,14 @@ export default function AboutPage() {
 						Certifications <sup>({certificates.length})</sup>
 					</h2>
 					<CertificatesList data={certificates} />
+				</section>
+
+				<section className='__item experience'>
+					<h2>
+						Experience <sup>({experiences.length})</sup>
+					</h2>
+
+					<ExperienceList />
 				</section>
 
 				<section className='__item resume'>

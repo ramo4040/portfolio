@@ -1,3 +1,4 @@
+import type { LucideIcon } from 'lucide-react'
 import type { ComponentType } from 'react'
 
 export type Project = {
@@ -79,4 +80,31 @@ export type GitHubApiResponse = {
 export type HeatmapDataPoint = {
 	date: string
 	contributions: number
+}
+
+export type PositionType = {
+	role: {
+		icon: LucideIcon
+		title: string
+		type: 'full-time' | 'part-time' | 'contract' | 'freelance' | 'internship'
+	}
+	period: {
+		startDate: string
+		endDate: string | null
+	}
+	techTags: string[]
+	achievements: string[]
+}
+
+export type ExperienceType = {
+	company: {
+		logo: string
+		name: string
+	}
+	at: {
+		country: string
+		city: string
+	}
+	mode: 'hybrid' | 'remote' | 'office'
+	positions: PositionType[]
 }
