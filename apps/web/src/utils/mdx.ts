@@ -32,6 +32,7 @@ export async function getProjectBySlug(slug: string) {
 			},
 			options: {
 				parseFrontmatter: true,
+				blockJS: false,
 			},
 		})
 
