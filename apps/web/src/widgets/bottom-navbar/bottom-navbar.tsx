@@ -73,17 +73,19 @@ export const BottomNavbar = () => {
 }
 
 export const pageAnimation = () => {
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		return
+	}
+
 	document.documentElement.animate(
 		[
 			{
 				opacity: 1,
-				scale: 1,
-				transform: 'translateY(0)',
+				transform: 'translateY(0) scale(1)',
 			},
 			{
 				opacity: 0.5,
-				scale: 0.9,
-				transform: 'translateY(-200px)',
+				transform: 'translateY(-200px) scale(0.9)',
 			},
 		],
 		{

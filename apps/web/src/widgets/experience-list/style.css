@@ -113,13 +113,22 @@
 					border-radius: var(--radius-sm);
 					cursor: pointer;
 					list-style: none;
+					transition: background-color
+						var(--transition-standard-default-effects), transform
+						var(--transition-standard-fast-effects);
 
 					&::-webkit-details-marker {
 						display: none;
 					}
 
-					&:hover {
-						background-color: var(--card-bg-hover);
+					&:active {
+						transform: scale(0.99);
+					}
+
+					@media (hover: hover) and (pointer: fine) {
+						&:hover {
+							background-color: var(--card-bg-hover);
+						}
 					}
 
 					> div {
@@ -212,6 +221,20 @@
 					background-color: var(--color-surface);
 				}
 			}
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-ui="experience-list"] .item .experience-details .accordion {
+		.trigger,
+		.trigger svg,
+		.accordion-body {
+			transition: background-color var(--transition-standard-fast-effects);
+		}
+
+		.trigger:active {
+			transform: none;
 		}
 	}
 }

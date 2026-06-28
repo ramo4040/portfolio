@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import './style.css'
-import { pageAnimation } from '@/widgets/bottom-navbar/bottom-navbar'
 import { X } from 'lucide-react'
 import { useTransitionRouter } from 'next-view-transitions'
 
@@ -14,7 +13,7 @@ export const ProjectCloseButton = () => {
 			href='/'
 			onClick={(e) => {
 				e.preventDefault()
-				router.push('/', { onTransitionReady: pageAnimation })
+				router.push('/')
 			}}
 			id='project-close-button'
 			aria-label='Close project and return to homepage'

@@ -6,7 +6,7 @@
 	z-index: 9999;
 	aspect-ratio: 1;
 	border-radius: var(--radius-rounded);
-	background: color-mix(
+	background-color: color-mix(
 		in oklch,
 		var(--color-surface-container-lowest) 28%,
 		transparent
@@ -17,17 +17,34 @@
 
 	display: grid;
 	place-content: center;
-	transition: var(--transition-standard-default-effects);
+	transition: background-color var(--transition-standard-default-effects),
+		transform var(--transition-standard-fast-effects);
 
 	svg {
 		color: var(--color-surface-container-lowest);
 	}
 
-	&:hover {
-		background: color-mix(
-			in oklch,
-			var(--color-surface-container-lowest) 53%,
-			transparent
-		);
+	&:active {
+		transform: scale(0.97);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			background-color: color-mix(
+				in oklch,
+				var(--color-surface-container-lowest) 53%,
+				transparent
+			);
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#project-close-button {
+		transition: background-color var(--transition-standard-fast-effects);
+	}
+
+	#project-close-button:active {
+		transform: none;
 	}
 }

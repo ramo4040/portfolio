@@ -2,11 +2,8 @@
 
 import './style.css'
 import { Button } from '@/components'
-import { pageAnimation } from '@/widgets/bottom-navbar/bottom-navbar'
 import { Logo } from '@/widgets/logo/logo'
-import { ArrowLeft, Home } from 'lucide-react'
 import { useTransitionRouter } from 'next-view-transitions'
-import Link from 'next/link'
 
 export default function NotFound() {
 	const router = useTransitionRouter()
@@ -29,9 +26,7 @@ export default function NotFound() {
 						className='btn-full'
 						onClick={(e) => {
 							e.preventDefault()
-							router.push('/', {
-								onTransitionReady: pageAnimation,
-							})
+							router.push('/')
 						}}
 					>
 						Back

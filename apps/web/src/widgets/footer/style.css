@@ -18,15 +18,18 @@
 			background: var(--color-success);
 			border-radius: var(--radius-rounded);
 			margin-right: 1rem;
+			position: relative;
 
 			&::after {
 				content: "";
-				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
 				background: inherit;
 				width: 100%;
 				height: 100%;
 				border-radius: inherit;
-				animation: ping 1.5s infinite;
+				animation: pulse 1.5s linear infinite;
 			}
 		}
 	}
@@ -57,6 +60,12 @@
 		&.is-contact-page {
 			margin-top: 0;
 		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.page-footer #badge .pulse::after {
+		animation: none;
 	}
 }
 

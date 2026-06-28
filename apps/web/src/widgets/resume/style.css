@@ -16,14 +16,32 @@
 		background: none;
 		padding: 0;
 
-		&:hover svg {
-			scale: 1.2;
+		&:active svg {
+			transform: scale(0.97);
 		}
 
 		svg {
 			z-index: 99;
 			color: var(--color-on-surface-variant);
-			transition: var(--transition-standard-default-spatial);
+			transition: color var(--transition-standard-default-effects), transform
+				var(--transition-standard-fast-effects);
 		}
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover svg {
+				transform: scale(1.2);
+			}
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.resume-container .resume-image svg {
+		transition: color var(--transition-standard-fast-effects);
+	}
+
+	.resume-container .resume-image:active svg,
+	.resume-container .resume-image:hover svg {
+		transform: none;
 	}
 }

@@ -1,7 +1,6 @@
-import { AnimatePresence, type HTMLMotionProps, motion } from 'motion/react'
-import type { FC } from 'react'
+import type { ComponentProps, FC } from 'react'
 
-type SideButtonProps = HTMLMotionProps<'button'> & {
+type SideButtonProps = ComponentProps<'button'> & {
 	isVisible: boolean
 	isLeft?: boolean
 }
@@ -11,25 +10,16 @@ export const SideButtonHOC: FC<SideButtonProps> = ({
 	isLeft = false,
 	...props
 }) => {
-	const xPosition = isLeft ? -50 : 50
-
 	return (
-		<AnimatePresence>
-			{isVisible && (
-				<motion.button
-					animate={{ opacity: 1, x: 0 }}
-					exit={{ scale: 0, x: xPosition }}
-					transition={{
-						type: 'spring',
-						stiffness: 100,
-						damping: 10,
-						mass: 0.8,
-					}}
-					{...props}
-				>
-					{children}
-				</motion.button>
-			)}
-		</AnimatePresence>
+		<button
+			{...props}
+			aria-hidden={!isVisible}
+			data-side={isLeft ? 'left' : 'right'}
+			data-visible={isVisible}
+			tabIndex={isVisible ? props.tabIndex : -1}
+			type='button'
+		>
+			{children}
+		</button>
 	)
 }

@@ -11,13 +11,15 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: var(--spacing-16);
 	padding-inline: var(--spacing-16);
 	max-width: 100%;
 }
 
 #audio-chat-input-wrapper {
 	--h: calc(3rem);
+	--play-button-width: 240px;
+	--play-button-playing-width: 320px;
+	--play-button-chat-width: 500px;
 	--clr-1: hsla(186, 81%, 10%, 0.17);
 	--clr-2: hsla(185, 78%, 12%, 0.17);
 	--clr-3: hsla(187, 100%, 50%, 0.17);
@@ -46,12 +48,32 @@
 		place-content: center;
 		cursor: pointer;
 		flex-shrink: 0;
+		opacity: 0;
+		pointer-events: none;
+		transform: translateX(50%) scale(0.95);
+		transition: opacity var(--transition-standard-default-effects), transform
+			var(--transition-standard-fast-spatial);
+
+		&[data-side="left"] {
+			transform: translateX(-50%) scale(0.95);
+		}
+
+		&[data-visible="true"] {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translateX(0) scale(1);
+		}
+
+		&:active {
+			transform: translateX(0) scale(0.97);
+		}
 	}
 
 	.play-button {
-		flex: 1;
 		position: relative;
 		height: var(--h);
+		width: var(--play-button-width);
+		max-width: 100%;
 		background: var(--color-surface-container-lowest);
 		cursor: pointer;
 		border-radius: var(--radius-rounded);
@@ -60,8 +82,26 @@
 		align-items: center;
 		justify-content: center;
 		min-width: 0;
+		transition: width var(--transition-expressive-default-spatial), transform
+			var(--transition-standard-fast-effects);
+
+		&[data-playing="true"] {
+			width: var(--play-button-playing-width);
+			cursor: default;
+		}
+
+		&[data-chat-open="true"] {
+			width: var(--play-button-chat-width);
+			cursor: default;
+		}
+
+		&:active:not([data-playing="true"]):not([data-chat-open="true"]) {
+			transform: scale(0.97);
+		}
 
 		.details {
+			position: absolute;
+			inset: 0;
 			color: var(--color-on-surface);
 			display: flex;
 			align-items: center;
@@ -69,6 +109,19 @@
 			gap: var(--spacing-8);
 			white-space: nowrap;
 			overflow: hidden;
+			opacity: 1;
+			filter: blur(0);
+			transform: scale(1);
+			transition: opacity var(--transition-standard-default-effects), filter
+				var(--transition-standard-default-effects), transform
+				var(--transition-standard-fast-effects);
+		}
+
+		&[data-chat-open="true"] .details {
+			opacity: 0;
+			filter: blur(4px);
+			transform: scale(0.97);
+			pointer-events: none;
 		}
 
 		span {
@@ -104,11 +157,26 @@
 		}
 
 		.chat-input {
-			width: 100%;
+			position: absolute;
+			inset: var(--spacing-8) var(--spacing-16);
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			gap: var(--spacing-8);
+			opacity: 0;
+			filter: blur(4px);
+			transform: scale(0.97);
+			pointer-events: none;
+			transition: opacity var(--transition-standard-default-effects), filter
+				var(--transition-standard-default-effects), transform
+				var(--transition-standard-fast-effects);
+
+			&[aria-hidden="false"] {
+				opacity: 1;
+				filter: blur(0);
+				transform: scale(1);
+				pointer-events: auto;
+			}
 
 			input {
 				border: none;
@@ -120,11 +188,13 @@
 
 			svg {
 				color: var(--color-surface-variant);
-				transition: var(--transition-standard-default-spatial);
+				transition: color var(--transition-standard-default-effects);
 				cursor: pointer;
 				flex-shrink: 0;
+			}
 
-				&:hover {
+			@media (hover: hover) and (pointer: fine) {
+				svg:hover {
 					color: var(--color-on-surface);
 				}
 			}
@@ -134,6 +204,9 @@
 	/* Mobile responsive styles */
 	@media (max-width: 640px) {
 		--h: calc(2.75rem);
+		--play-button-width: 200px;
+		--play-button-playing-width: 280px;
+		--play-button-chat-width: 400px;
 		gap: var(--spacing-6);
 
 		.circle-btn {
@@ -143,6 +216,10 @@
 		.play-button {
 			height: var(--h);
 			padding: var(--spacing-6) var(--spacing-12);
+
+			.chat-input {
+				inset: var(--spacing-6) var(--spacing-12);
+			}
 
 			.details {
 				gap: var(--spacing-6);
@@ -156,10 +233,17 @@
 
 	@media (max-width: 480px) {
 		--h: calc(2.5rem);
+		--play-button-width: 180px;
+		--play-button-playing-width: 240px;
+		--play-button-chat-width: 300px;
 		gap: var(--spacing-4);
 
 		.play-button {
 			padding: var(--spacing-4) var(--spacing-8);
+
+			.chat-input {
+				inset: var(--spacing-4) var(--spacing-8);
+			}
 
 			.details {
 				gap: var(--spacing-4);
@@ -168,6 +252,25 @@
 			span {
 				font-size: 11px;
 			}
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#audio-chat-input-wrapper {
+		.circle-btn,
+		.play-button,
+		.play-button .details,
+		.play-button .chat-input {
+			transition: opacity var(--transition-standard-fast-effects), color
+				var(--transition-standard-fast-effects);
+			transform: none;
+			filter: none;
+		}
+
+		.play-button::before,
+		.play-button::after {
+			animation: none;
 		}
 	}
 }

@@ -4,10 +4,18 @@
 	display: inline-block;
 
 	/* hover and focus animations */
-	[y-tooltip-trigger]:hover + [role="tooltip"],
 	[y-tooltip-trigger]:focus + [role="tooltip"] {
 		opacity: 1;
 		visibility: visible;
+		transform: translateY(0) scale(1);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		[y-tooltip-trigger]:hover + [role="tooltip"] {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0) scale(1);
+		}
 	}
 
 	[role="tooltip"] {
@@ -32,7 +40,19 @@
 		color: var(--color-surface);
 		border-radius: 4px;
 		white-space: nowrap;
-		transition: var(--transition-standard-slow-effects);
+		transform: translateY(var(--spacing-4)) scale(0.97);
+		transform-origin: top center;
+		transition: opacity var(--transition-standard-fast-effects), transform
+			var(--transition-standard-fast-effects), visibility
+			var(--transition-standard-fast-effects);
 		pointer-events: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[y-tooltip] [role="tooltip"] {
+		transform: none;
+		transition: opacity var(--transition-standard-fast-effects), visibility
+			var(--transition-standard-fast-effects);
 	}
 }

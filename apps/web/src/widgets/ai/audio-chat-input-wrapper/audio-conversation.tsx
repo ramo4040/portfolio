@@ -1,7 +1,6 @@
 'use client'
 
 import { MessageCircle, Pause, PlayIcon, Send, X } from 'lucide-react'
-import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import './style.css'
 import { AIConversationProvider } from '../ai-conversation-context'
@@ -13,39 +12,6 @@ export const AudioConversation = () => {
 	const [isPlaying, setIsPlaying] = useState(false)
 	const [isChatOpen, setIsChatOpen] = useState(false)
 	const audioRef = useRef<HTMLAudioElement | null>(null)
-
-	// Get responsive widths based on screen size
-	const getResponsiveWidths = () => {
-		if (typeof window === 'undefined') {
-			// Return default values for SSR
-			return { initial: 240, playing: 320, chat: 500 }
-		}
-
-		const width = window.innerWidth
-
-		if (width <= 480) {
-			return { initial: 180, playing: 240, chat: 300 }
-		}
-		if (width <= 640) {
-			return { initial: 200, playing: 280, chat: 400 }
-		}
-
-		return { initial: 240, playing: 320, chat: 500 }
-	}
-
-	const [widths, setWidths] = useState(() => getResponsiveWidths())
-
-	// Update widths on resize
-	useEffect(() => {
-		if (typeof window === 'undefined') return
-
-		const handleResize = () => {
-			setWidths(getResponsiveWidths())
-		}
-
-		window.addEventListener('resize', handleResize)
-		return () => window.removeEventListener('resize', handleResize)
-	}, [])
 
 	// Initialize audio only once
 	useEffect(() => {
@@ -97,57 +63,30 @@ export const AudioConversation = () => {
 						<Pause size={14} fill='currentColor' />
 					</SideButtonHOC>
 
-					<motion.button
+					<button
 						type='button'
 						className='play-button'
+						data-chat-open={isChatOpen}
+						data-playing={isPlaying}
 						onClick={isPlaying || isChatOpen ? () => false : handlePlayAudio}
-						initial={{ width: widths.initial }}
-						animate={{
-							width:
-								isPlaying && isChatOpen
-									? widths.chat
-									: isPlaying
-										? widths.playing
-										: widths.initial,
-							cursor: isPlaying || isChatOpen ? 'default' : 'pointer',
-						}}
-						transition={{
-							delay: !isChatOpen ? 0.2 : 0,
-							type: 'spring',
-							stiffness: 100,
-							damping: 10,
-							mass: 0.8,
-						}}
 					>
-						<AnimatePresence mode='wait'>
-							{!isChatOpen && (
-								<motion.div
-									initial={{ filter: 'blur(4px)', opacity: 0 }}
-									animate={{ filter: 'blur(0px)', opacity: 1 }}
-									exit={{ filter: 'blur(4px)', opacity: 0 }}
-									transition={{ duration: 0.2 }}
-									className='details'
-								>
-									{!isPlaying && <PlayIcon size={14} fill='currentColor' />}
-									<span>
-										{isPlaying ? 'Ask the host now...' : 'Start Listening'}
-									</span>
-									{!isPlaying && (
-										<>
-											<span>・</span>
-											<span>2 mins</span>
-										</>
-									)}
-								</motion.div>
+						<div className='details' aria-hidden={isChatOpen}>
+							{!isPlaying && <PlayIcon size={14} fill='currentColor' />}
+							<span>
+								{isPlaying ? 'Ask the host now...' : 'Start Listening'}
+							</span>
+							{!isPlaying && (
+								<>
+									<span>・</span>
+									<span>2 mins</span>
+								</>
 							)}
+						</div>
 
-							{isChatOpen && (
-								<motion.div className='chat-input'>
-									<AiConversationInput />
-								</motion.div>
-							)}
-						</AnimatePresence>
-					</motion.button>
+						<div className='chat-input' aria-hidden={!isChatOpen}>
+							<AiConversationInput />
+						</div>
+					</button>
 
 					<SideButtonHOC
 						isLeft

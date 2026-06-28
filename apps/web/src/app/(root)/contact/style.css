@@ -45,11 +45,13 @@
 					width: 100%;
 					height: var(--spacing-56);
 					padding: var(--spacing-16) var(--spacing-20);
-					transition: var(--transition-standard-default-spatial);
+					transition: background-color
+						var(--transition-standard-default-effects), border-color
+						var(--transition-standard-default-effects);
 					outline: 0;
 
 					&:focus {
-						border: 1px solid var(--color-info);
+						border-color: var(--color-info);
 					}
 				}
 

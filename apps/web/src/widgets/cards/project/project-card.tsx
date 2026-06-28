@@ -3,7 +3,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import './style.css'
 import type { Project } from '@/types'
-import { pageAnimation } from '@/widgets/bottom-navbar/bottom-navbar'
 import { cn } from '@sglara/cn'
 import { useTransitionRouter } from 'next-view-transitions'
 import Image from 'next/image'
@@ -34,9 +33,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 				href={href}
 				onClick={(e) => {
 					e.preventDefault()
-					router.push(href, {
-						onTransitionReady: pageAnimation,
-					})
+					router.push(href)
 				}}
 				id='project-card-link'
 				aria-label={`View ${title} project details`}

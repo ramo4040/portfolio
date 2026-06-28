@@ -16,20 +16,22 @@
 		aspect-ratio: unset;
 	}
 
-	&:hover {
-		figure {
-			height: 60%;
-			margin: var(--spacing-18);
-		}
-
-		header {
-			.description {
-				opacity: 1;
-				transform: translateX(0);
-				pointer-events: auto;
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			figure {
+				height: 60%;
+				margin: var(--spacing-18);
 			}
-			.icon {
-				scale: 0.8;
+
+			header {
+				.description {
+					opacity: 1;
+					transform: translateX(0);
+					pointer-events: auto;
+				}
+				.icon {
+					transform: scale(0.8);
+				}
 			}
 		}
 	}
@@ -60,7 +62,8 @@
 			border-radius: 100vmin;
 			opacity: 0;
 			transform: translateX(-15px);
-			transition: var(--transition-standard-default-spatial);
+			transition: opacity var(--transition-standard-default-effects), transform
+				var(--transition-standard-default-spatial);
 			color: inherit;
 			pointer-events: none;
 		}
@@ -72,7 +75,7 @@
 			border-radius: var(--radius-rounded);
 			width: 3rem;
 			height: 3rem;
-			transition: var(--transition-standard-default-spatial);
+			transition: transform var(--transition-standard-default-spatial);
 		}
 	}
 
@@ -81,7 +84,8 @@
 		position: absolute;
 		inset: 0;
 		height: 100%;
-		transition: var(--transition-standard-slow-spatial);
+		transition: height var(--transition-standard-slow-spatial), margin
+			var(--transition-standard-slow-spatial);
 
 		img {
 			border-radius: var(--spacing-32);
@@ -127,5 +131,13 @@
 		opacity: 1;
 		transform: translateX(0);
 		pointer-events: auto;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#project-card-link header .description,
+	#project-card-link header .icon,
+	#project-card-link figure {
+		transition: opacity var(--transition-standard-fast-effects);
 	}
 }

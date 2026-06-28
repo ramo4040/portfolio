@@ -1,5 +1,4 @@
 'use client'
-import { AnimatePresence, motion } from 'motion/react'
 import './style.css'
 import { cn } from '@sglara/cn'
 import { type FC, use, useEffect, useRef } from 'react'
@@ -21,37 +20,31 @@ export const ConversationContainer: FC<ConversationContainerProps> = ({
 	}, [messages])
 
 	return (
-		<AnimatePresence mode='wait'>
-			{isVisible && (
-				<motion.div
-					ref={containerRef}
-					id='conversation-container'
-					initial={{ filter: 'blur(4px)', opacity: 0, y: 100, height: 0 }}
-					animate={{ filter: 'blur(0px)', opacity: 1, y: 0, height: 'auto' }}
-					exit={{ filter: 'blur(4px)', opacity: 0, y: 100, height: 0 }}
-					transition={{ duration: 0.3 }}
-				>
-					{messages.map(({ content, id, sender }) => {
-						return (
-							<div
-								className={cn(
-									'chat-message',
-									sender === 'user' ? 'user-message' : 'ai-message',
-								)}
-								key={id}
-							>
-								{sender === 'user' ? (
-									content
-								) : (
-									<ReactMarkdown>{content}</ReactMarkdown>
-								)}
-							</div>
-						)
-					})}
+		<div
+			aria-hidden={!isVisible}
+			data-visible={isVisible}
+			ref={containerRef}
+			id='conversation-container'
+		>
+			{messages.map(({ content, id, sender }) => {
+				return (
+					<div
+						className={cn(
+							'chat-message',
+							sender === 'user' ? 'user-message' : 'ai-message',
+						)}
+						key={id}
+					>
+						{sender === 'user' ? (
+							content
+						) : (
+							<ReactMarkdown>{content}</ReactMarkdown>
+						)}
+					</div>
+				)
+			})}
 
-					{isLoading && <div className='ai-message loader' />}
-				</motion.div>
-			)}
-		</AnimatePresence>
+			{isLoading && <div className='ai-message loader' />}
+		</div>
 	)
 }

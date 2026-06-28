@@ -39,7 +39,7 @@
 			width: var(--li-width);
 			height: var(--li-height);
 			border-radius: var(--radius-rounded);
-			transition: transform var(--transition-expressive-slow-spatial, 0.3s ease);
+			transition: transform var(--transition-expressive-slow-spatial);
 			z-index: 1;
 		}
 
@@ -58,8 +58,24 @@
 				text-decoration: none;
 				color: var(--color-on-surface);
 				font: var(--font-body-lg);
-				transition: color 0.2s ease;
+				transition: color var(--transition-standard-default-effects), transform
+					var(--transition-standard-fast-effects);
+
+				&:active {
+					transform: scale(0.97);
+				}
 			}
 		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#bottom-navbar ul::before,
+	#bottom-navbar ul li a {
+		transition: color var(--transition-standard-fast-effects);
+	}
+
+	#bottom-navbar ul li a:active {
+		transform: none;
 	}
 }
