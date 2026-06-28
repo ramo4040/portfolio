@@ -1,6 +1,7 @@
 'use client'
 
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import './style.css'
 import type { Project } from '@/types'
 import { cn } from '@sglara/cn'
@@ -43,7 +44,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 						Open Project
 					</span>
 					<div className='icon' aria-hidden='true'>
-						<ArrowUpRight size='30px' />
+						<HugeiconsIcon icon={ArrowUpRight01Icon} size='30px' />
 					</div>
 				</header>
 

@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react'
+import type { IconSvgElement } from '@hugeicons/react'
 import type { ComponentType } from 'react'
 
 export type Project = {
@@ -84,7 +84,7 @@ export type HeatmapDataPoint = {
 
 export type PositionType = {
 	role: {
-		icon: LucideIcon
+		icon: IconSvgElement
 		title: string
 		type: 'full-time' | 'part-time' | 'contract' | 'freelance' | 'internship'
 	}

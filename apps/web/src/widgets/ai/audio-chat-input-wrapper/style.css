@@ -187,7 +187,6 @@
 			}
 
 			svg {
-				color: var(--color-surface-variant);
 				transition: color var(--transition-standard-default-effects);
 				cursor: pointer;
 				flex-shrink: 0;

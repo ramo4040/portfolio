@@ -1,4 +1,5 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import './style.css'
 
 import Link from 'next/link'
@@ -17,7 +18,7 @@ export const ProjectNavbar: FC<Props> = ({ web, github }) => {
 					<Link href={web} target='_blank'>
 						<span className='pulse-dot' />
 						View Live Project
-						<ArrowUpRight size={16} />
+						<HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
 					</Link>
 				</li>
 				<li className='icon-btn'>

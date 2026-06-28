@@ -1,7 +1,8 @@
+import { ChevronDownIcon, Infinity01Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import Image from 'next/image'
 import { experiences } from '../../../data/experience'
 import './style.css'
-import { ChevronsUpDown, InfinityIcon } from 'lucide-react'
 
 const formatType = (type: string) =>
 	type
@@ -56,13 +57,15 @@ export const ExperienceList = () => {
 
 						<div className='positions-container'>
 							{experience.positions.map((e) => {
-								const RoleIcon = e.role.icon
-
 								return (
 									<div className='experience-details' key={e.role.title}>
 										<div className='left-side'>
 											<div className='icon-container'>
-												<RoleIcon size={24} className='icon' />
+												<HugeiconsIcon
+													icon={e.role.icon}
+													size={24}
+													className='icon'
+												/>
 											</div>
 										</div>
 
@@ -77,7 +80,8 @@ export const ExperienceList = () => {
 															{e.period.endDate ? (
 																formatMonthYear(e.period.endDate)
 															) : (
-																<InfinityIcon
+																<HugeiconsIcon
+																	icon={Infinity01Icon}
 																	className='infinity-icon'
 																	size={14}
 																/>
@@ -90,7 +94,11 @@ export const ExperienceList = () => {
 														</p>
 													</div>
 
-													<ChevronsUpDown size={18} className='trigger-icon' />
+													<HugeiconsIcon
+														icon={ChevronDownIcon}
+														size={18}
+														className='trigger-icon'
+													/>
 												</summary>
 
 												<div className='accordion-body'>

@@ -17,7 +17,8 @@ import { ExperienceList } from '@/widgets/experience-list'
 import { Footer } from '@/widgets/footer/footer'
 import { Logo } from '@/widgets/logo/logo'
 import { Resume } from '@/widgets/resume'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import Image from 'next/image'
 
 export const metadata = createPageMetadata({
@@ -82,7 +83,7 @@ export default function AboutPage() {
 										<h4>{account.name}</h4>
 										<p>{account.id}</p>
 									</div>
-									<ArrowUpRight size={20} />
+									<HugeiconsIcon icon={ArrowUpRight01Icon} size={20} />
 								</Link>
 							)
 						})}
@@ -105,6 +106,21 @@ export default function AboutPage() {
 							)
 						})}
 					</div>
+				</section>
+
+				<section className='__item experience'>
+					<h2>
+						Experience <sup>({experiences.length})</sup>
+					</h2>
+
+					<ExperienceList />
+				</section>
+
+				<section className='__item certifications'>
+					<h2>
+						Certifications <sup>({certificates.length})</sup>
+					</h2>
+					<CertificatesList data={certificates} />
 				</section>
 
 				<section className='__item principles-guidelines'>
@@ -152,21 +168,6 @@ export default function AboutPage() {
 							</div>
 						</li>
 					</ul>
-				</section>
-
-				<section className='__item certifications'>
-					<h2>
-						Certifications <sup>({certificates.length})</sup>
-					</h2>
-					<CertificatesList data={certificates} />
-				</section>
-
-				<section className='__item experience'>
-					<h2>
-						Experience <sup>({experiences.length})</sup>
-					</h2>
-
-					<ExperienceList />
 				</section>
 
 				<section className='__item resume'>

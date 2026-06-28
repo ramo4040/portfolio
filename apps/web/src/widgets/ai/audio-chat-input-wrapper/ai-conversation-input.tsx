@@ -1,7 +1,8 @@
 'use client'
 
 import { useKeyPress } from '@/hooks/useKeyPress'
-import { Send } from 'lucide-react'
+import { SentIcon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import { use, useRef } from 'react'
 import { aiConversationContext } from '../ai-conversation-context'
 
@@ -52,12 +53,7 @@ export const AiConversationInput = () => {
 	return (
 		<>
 			<input type='text' ref={inputRef} />
-			<Send
-				size={14}
-				fill='currentColor'
-				stroke='currentColor'
-				onClick={handleSendMessage}
-			/>
+			<HugeiconsIcon icon={SentIcon} size={18} onClick={handleSendMessage} />
 		</>
 	)
 }

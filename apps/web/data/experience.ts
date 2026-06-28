@@ -1,5 +1,5 @@
 import type { ExperienceType } from '@/types'
-import { CodeXml } from 'lucide-react'
+import { CodeXmlIcon } from '@hugeicons/core-free-icons'
 
 export const experiences: ExperienceType[] = [
 	{
@@ -15,13 +15,13 @@ export const experiences: ExperienceType[] = [
 		positions: [
 			{
 				role: {
-					icon: CodeXml,
+					icon: CodeXmlIcon,
 					title: 'Full-Stack Developer',
 					type: 'internship',
 				},
 				period: {
-					startDate: '2026-04-01',
-					endDate: null,
+					startDate: '2026-04-14',
+					endDate: '2026-06-27',
 				},
 				techTags: [
 					'TypeScript',

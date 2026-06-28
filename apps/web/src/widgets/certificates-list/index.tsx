@@ -4,7 +4,12 @@ import { type ComponentProps, type FC, useState } from 'react'
 import './style.css'
 import { Button } from '@/components'
 import type { certificates } from '@/data/certificates'
-import { ArrowDown, ArrowUp, ArrowUpRight } from 'lucide-react'
+import {
+	ArrowDown01Icon,
+	ArrowUp01Icon,
+	ArrowUpRight01Icon,
+} from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -41,7 +46,7 @@ export const CertificatesList: FC<Props> = ({ data, ...props }) => {
 									<small className='date'>{e.date}</small>
 								</div>
 							</div>
-							<ArrowUpRight size={20} />
+							<HugeiconsIcon icon={ArrowUpRight01Icon} size={20} />
 						</Link>
 					)
 				})}
@@ -57,11 +62,11 @@ export const CertificatesList: FC<Props> = ({ data, ...props }) => {
 				>
 					{isMaxReached ? (
 						<>
-							Show less <ArrowUp size={14} />
+							Show less <HugeiconsIcon icon={ArrowUp01Icon} size={14} />
 						</>
 					) : (
 						<>
-							Show more <ArrowDown size={14} />
+							Show more <HugeiconsIcon icon={ArrowDown01Icon} size={14} />
 						</>
 					)}
 				</Button>

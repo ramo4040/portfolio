@@ -1,6 +1,7 @@
 'use client'
 
-import { Download } from 'lucide-react'
+import { Download01Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import Image from 'next/image'
 import './style.css'
 
@@ -35,7 +36,7 @@ export function Resume() {
 					fill
 					style={{ objectFit: 'cover' }}
 				/>
-				<Download />
+				<HugeiconsIcon icon={Download01Icon} />
 			</button>
 		</div>
 	)

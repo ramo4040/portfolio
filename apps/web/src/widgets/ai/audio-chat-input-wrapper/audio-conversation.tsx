@@ -1,6 +1,12 @@
 'use client'
 
-import { MessageCircle, Pause, PlayIcon, Send, X } from 'lucide-react'
+import {
+	BubbleChatIcon,
+	Cancel01Icon,
+	PauseIcon,
+	PlayIcon,
+} from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 import { useEffect, useRef, useState } from 'react'
 import './style.css'
 import { AIConversationProvider } from '../ai-conversation-context'
@@ -60,7 +66,7 @@ export const AudioConversation = () => {
 						onClick={handleStopAudio}
 						className='circle-btn'
 					>
-						<Pause size={14} fill='currentColor' />
+						<HugeiconsIcon icon={PauseIcon} size={18} />
 					</SideButtonHOC>
 
 					<button
@@ -71,7 +77,7 @@ export const AudioConversation = () => {
 						onClick={isPlaying || isChatOpen ? () => false : handlePlayAudio}
 					>
 						<div className='details' aria-hidden={isChatOpen}>
-							{!isPlaying && <PlayIcon size={14} fill='currentColor' />}
+							{!isPlaying && <HugeiconsIcon icon={PlayIcon} size={18} />}
 							<span>
 								{isPlaying ? 'Ask the host now...' : 'Start Listening'}
 							</span>
@@ -95,9 +101,9 @@ export const AudioConversation = () => {
 						className='circle-btn'
 					>
 						{!isChatOpen ? (
-							<MessageCircle size={14} fill='currentColor' />
+							<HugeiconsIcon icon={BubbleChatIcon} size={18} />
 						) : (
-							<X size={18} />
+							<HugeiconsIcon icon={Cancel01Icon} size={18} />
 						)}
 					</SideButtonHOC>
 				</div>

@@ -23,6 +23,13 @@ Email: contact@yassir-rouane.me
 **DevOps & Tools:** Docker, Git  
 **Design:** Figma
 
+## Experience
+
+### EMSI — Full-Stack Developer Intern
+Casablanca, Morocco — Hybrid — April 2026 to Jun 2026
+
+Built an automatic timetable generation workflow covering data preparation, solver execution, diagnostics, history tracking, and validation. Modeled institutional constraints for groups, courses, rooms, teachers, availability, campuses, sessions, and time slots. Applied constraint programming and local search techniques such as Hill Climbing, Great Deluge, neighbor selection, and conflict-based decision logic to improve scheduling reliability.
+
 ## Certifications
 
 - MongoDB Node.js Developer Path — MongoDB — 15 May 2025
@@ -35,6 +42,9 @@ Email: contact@yassir-rouane.me
 - Next.js App Router Fundamentals — Vercel — 07 July 2025
 
 ## Projects
+
+### Olyx UI
+An open-source React component library built on Base UI. It provides 50+ accessible, composable components styled with CSS custom properties. Olyx is built as a copy-paste component library, giving developers source-level ownership instead of a black-box package. It includes design tokens, an HCT-based color system, WCAG AA accessible palettes, and Material Design 3-inspired theming.
 
 ### RH Car Rental
 A custom fleet management and booking system. It replaced RH CAR’s manual, error-prone process with a web app. Customers book online. Staff manage vehicles, reservations, and maintenance efficiently.
