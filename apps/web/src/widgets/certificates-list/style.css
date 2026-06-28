@@ -36,7 +36,7 @@
 				display: flex;
 				align-items: center;
 				flex-wrap: wrap;
-				color: #71717b;
+				color: var(--color-on-surface-variant);
 				gap: var(--spacing-10);
 
 				hr {
@@ -51,7 +51,7 @@
 
 		svg {
 			min-width: 20px;
-			color: #71717b;
+			color: var(--color-on-surface-variant);
 		}
 	}
 

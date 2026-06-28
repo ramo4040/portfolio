@@ -22,7 +22,7 @@
 
 		svg {
 			z-index: 99;
-			color: #464646;
+			color: var(--color-on-surface-variant);
 			transition: var(--transition-standard-default-spatial);
 		}
 	}

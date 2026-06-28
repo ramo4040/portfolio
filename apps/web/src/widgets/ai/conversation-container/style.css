@@ -17,17 +17,30 @@
 
 	.user-message {
 		align-self: flex-end;
-		background: #ffffffb8;
+		background: color-mix(
+			in oklch,
+			var(--color-surface-container-lowest) 72%,
+			transparent
+		);
 	}
 
 	.ai-message {
 		align-self: flex-start;
-		background: #d7d7d747;
+		background: color-mix(
+			in oklch,
+			var(--color-surface-container-high) 28%,
+			transparent
+		);
 
 		&.loader {
 			width: 20px;
 			aspect-ratio: 2;
-			--_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+			--_g: no-repeat
+				radial-gradient(
+					circle closest-side,
+					var(--color-on-surface) 90%,
+					transparent
+				);
 			background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
 			background-size: calc(100% / 3) 50%;
 			animation: l3 1s infinite linear;

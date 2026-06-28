@@ -1,8 +1,13 @@
 #about-page-container {
 	.sections-container {
-		--card-bg: #ffffff96;
-		--card-bg-hover: #f5f5f5;
-		--card-border-color: #cececece;
+		--card-bg: var(--color-surface-container-lowest);
+		--card-bg-hover: var(--color-surface-container-low);
+		--card-border-color: color-mix(
+			in oklch,
+			var(--color-surface-variant) 81%,
+			transparent
+		);
+
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-36);
@@ -18,9 +23,10 @@
 			margin-inline: auto;
 			width: min(100%, 280px);
 			height: 400px;
-			border: var(--spacing-10) solid #fff;
+			border: var(--spacing-10) solid var(--color-surface-container-lowest);
 			position: relative;
-			box-shadow: 0 0 var(--spacing-20) 0 #00000014;
+			box-shadow: 0 0 var(--spacing-20) 0
+				color-mix(in oklch, var(--color-on-surface) 6%, transparent);
 			transform: rotate(-3deg);
 		}
 
@@ -46,10 +52,10 @@
 					.__details {
 						flex: 1;
 						h4 {
-							color: #000;
+							color: var(--color-on-surface);
 						}
 						p {
-							color: #71717b;
+							color: var(--color-on-surface-variant);
 						}
 					}
 
@@ -59,7 +65,7 @@
 					}
 
 					& :last-child {
-						color: #71717b;
+						color: var(--color-on-surface-variant);
 					}
 
 					&:hover {
@@ -74,7 +80,7 @@
 			background: var(--card-bg);
 			background-image: radial-gradient(
 				circle at 1px 1px,
-				rgba(0, 0, 0, 0.1) 1px,
+				color-mix(in oklch, var(--color-on-surface) 10%, transparent) 1px,
 				transparent 0
 			);
 			background-size: 10px 10px;

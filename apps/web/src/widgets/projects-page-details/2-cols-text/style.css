@@ -1,5 +1,5 @@
 #project-2-cols-text {
-	color: #fff;
+	color: var(--color-surface-container-lowest);
 	margin-inline: auto;
 	width: 100%;
 	max-width: 60rem;

@@ -94,7 +94,7 @@ export const AudioConversation = () => {
 						onClick={handleStopAudio}
 						className='circle-btn'
 					>
-						<Pause size={14} fill='black' />
+						<Pause size={14} fill='currentColor' />
 					</SideButtonHOC>
 
 					<motion.button
@@ -128,7 +128,7 @@ export const AudioConversation = () => {
 									transition={{ duration: 0.2 }}
 									className='details'
 								>
-									{!isPlaying && <PlayIcon size={14} fill='black' />}
+									{!isPlaying && <PlayIcon size={14} fill='currentColor' />}
 									<span>
 										{isPlaying ? 'Ask the host now...' : 'Start Listening'}
 									</span>
@@ -156,7 +156,7 @@ export const AudioConversation = () => {
 						className='circle-btn'
 					>
 						{!isChatOpen ? (
-							<MessageCircle size={14} fill='black' />
+							<MessageCircle size={14} fill='currentColor' />
 						) : (
 							<X size={18} />
 						)}

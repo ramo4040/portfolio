@@ -15,7 +15,7 @@
 	overflow: hidden;
 
 	&:focus-visible {
-		outline: 2px solid rgb(24, 163, 255);
+		outline: 2px solid var(--color-info);
 		outline-offset: 2px;
 	}
 
@@ -30,22 +30,30 @@
 }
 
 .btn-primary {
-	color: #000;
-	background-color: #fff;
-	box-shadow: 0 1px 2px #1018280f, 0 1px 3px #1018281a;
+	color: var(--color-on-surface);
+	background-color: var(--color-surface-container-lowest);
+	box-shadow: 0 1px 2px
+		color-mix(in oklch, var(--color-on-surface) 6%, transparent), 0 1px 3px
+		color-mix(in oklch, var(--color-on-surface) 10%, transparent);
 
 	&:hover:not(.btn-disabled):not(.btn-loading) {
-		background-color: #f8f8f8;
+		background-color: var(--color-surface);
 	}
 
 	&:active:not(.btn-disabled):not(.btn-loading) {
 		transform: translateY(0);
-		box-shadow: 0 1px 2px #1018280f, 0 1px 3px #1018281a;
+		box-shadow: 0 1px 2px
+			color-mix(in oklch, var(--color-on-surface) 6%, transparent), 0 1px 3px
+			color-mix(in oklch, var(--color-on-surface) 10%, transparent);
 	}
 
 	&.btn-disabled {
-		background-color: #f0f0f0;
-		color: #a0a0a0;
+		background-color: var(--color-surface-container-low);
+		color: color-mix(
+			in oklch,
+			var(--color-on-surface-variant) 60%,
+			var(--color-surface)
+		);
 	}
 }
 

@@ -12,7 +12,13 @@ export const GithubHeatmap = () => {
 				showTotalCount={false}
 				showColorLegend={false}
 				theme={{
-					dark: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+					dark: [
+						'var(--color-surface-variant)',
+						'color-mix(in oklch, var(--color-success) 10%, var(--color-success-container))',
+						'color-mix(in oklch, var(--color-success) 55%, var(--color-success-container))',
+						'color-mix(in oklch, var(--color-success) 75%, var(--color-success-container))',
+						'color-mix(in oklch, var(--color-success) 90%, var(--color-success-container))',
+					],
 				}}
 			/>
 		</div>

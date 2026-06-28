@@ -54,8 +54,8 @@ export const AiConversationInput = () => {
 			<input type='text' ref={inputRef} />
 			<Send
 				size={14}
-				fill='#cecece'
-				stroke='#cecece'
+				fill='currentColor'
+				stroke='currentColor'
 				onClick={handleSendMessage}
 			/>
 		</>

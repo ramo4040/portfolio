@@ -1,16 +1,219 @@
-@layer colors {
-	:root {
-		--bg-primary: #0f0f0f;
-		--default-card-bg: #f3f3f3;
-		--primary-text-color: #fff;
-		--secondary-text-color: #000;
-		--badge-bg: #dfdfdf;
+:root {
+	/* Base — OKLCH values
+     L: Lightness [0 - 1]
+     C: Chroma [0 | 0.4]
+     H: Hue [0 - 360] */
+	--base-lightness: 0.5;
+	--base-chroma: 0.18;
+	--base-hue: 200;
 
-		--black-70: rgba(0, 0, 0, 0.7);
-		--black-60: rgba(0, 0, 0, 0.6);
-		--black-50: rgba(0, 0, 0, 0.5);
-		--black-40: rgba(0, 0, 0, 0.4);
-		--black-30: rgba(0, 0, 0, 0.3);
-		--black-20: rgba(0, 0, 0, 0.2);
+	/* Harmony offsets (°) */
+	&[data-harmony="complementary"] {
+		--secondary-offset: 180;
+		--tertiary-offset: 150;
 	}
+	&[data-harmony="triadic"] {
+		--secondary-offset: 120;
+		--tertiary-offset: 240;
+	}
+	&[data-harmony="analogous"] {
+		--secondary-offset: 30;
+		--tertiary-offset: -30;
+	}
+
+	/* Hue */
+	--primary-h: var(--base-hue);
+	--secondary-h: calc(var(--base-hue) + var(--secondary-offset, 0));
+	--tertiary-h: calc(var(--base-hue) + var(--tertiary-offset, 0));
+	--neutral-h: var(--base-hue);
+	--error-h: 25;
+	--success-h: 150;
+	--info-h: 260;
+	--warning-h: 48;
+
+	/* Chroma */
+	--neutral-c: 0;
+	--primary-c: clamp(0.01, var(--base-chroma), 0.32);
+	--secondary-c: clamp(0.01, calc(var(--base-chroma) * 0.9), 0.3);
+	--tertiary-c: clamp(0.01, calc(var(--base-chroma) * 0.85), 0.28);
+	--success-c: 0.19;
+	--error-c: 0.21;
+	--info-c: 0.19;
+	--warning-c: 0.19;
+
+	&[data-harmony="monochromatic"] {
+		--secondary-c: clamp(0.01, calc(var(--base-chroma) * 0.6), 0.28);
+		--tertiary-c: clamp(0.01, calc(var(--base-chroma) * 0.3), 0.24);
+	}
+
+	/* Chroma + Hue */
+	--primary-ch: var(--primary-c) var(--primary-h);
+	--secondary-ch: var(--secondary-c) var(--secondary-h);
+	--tertiary-ch: var(--tertiary-c) var(--tertiary-h);
+	--neutral-ch: var(--neutral-c) var(--neutral-h);
+	--error-ch: var(--error-c) var(--error-h);
+	--success-ch: var(--success-c) var(--success-h);
+	--info-ch: var(--info-c) var(--info-h);
+	--warning-ch: var(--warning-c) var(--warning-h);
+
+	/* Lightness */
+	--_l-max: clamp(0.25, calc(var(--base-lightness) - var(--_c) * 0.5), 0.55);
+	--_c: var(--primary-c);
+	--primary-l-max: var(--_l-max);
+	--_c: var(--secondary-c);
+	--secondary-l-max: var(--_l-max);
+	--_c: var(--tertiary-c);
+	--tertiary-l-max: var(--_l-max);
+	--_c: var(--error-c);
+	--error-l-max: var(--_l-max);
+	--_c: var(--success-c);
+	--success-l-max: var(--_l-max);
+	--_c: var(--info-c);
+	--info-l-max: var(--_l-max);
+	--_c: var(--warning-c);
+	--warning-l-max: var(--_l-max);
+
+	/* Roles */
+	--color-primary: oklch(var(--primary-l-max) var(--primary-ch));
+	--color-secondary: oklch(var(--secondary-l-max) var(--secondary-ch));
+	--color-tertiary: oklch(var(--tertiary-l-max) var(--tertiary-ch));
+	--color-error: oklch(var(--error-l-max) var(--error-ch));
+	--color-success: oklch(var(--success-l-max) var(--success-ch));
+	--color-info: oklch(var(--info-l-max) var(--info-ch));
+	--color-warning: oklch(var(--warning-l-max) var(--warning-ch));
+
+	--_on: oklch(1 0 0); /* on-(role) */
+
+	--color-on-primary: var(--_on);
+	--color-on-secondary: var(--_on);
+	--color-on-tertiary: var(--_on);
+	--color-on-error: var(--_on);
+	--color-on-success: var(--_on);
+	--color-on-info: var(--_on);
+	--color-on-warning: var(--_on);
+
+	/* Containers */
+	--_cl: 0.93; /* container lightness */
+	--_cs: 0.55; /* chroma scale */
+
+	--color-primary-container: oklch(
+		var(--_cl) calc(var(--primary-c) * var(--_cs)) var(--primary-h)
+	);
+	--color-secondary-container: oklch(
+		var(--_cl) calc(var(--secondary-c) * var(--_cs)) var(--secondary-h)
+	);
+	--color-tertiary-container: oklch(
+		var(--_cl) calc(var(--tertiary-c) * var(--_cs)) var(--tertiary-h)
+	);
+	--color-error-container: oklch(
+		var(--_cl) calc(var(--error-c) * var(--_cs)) var(--error-h)
+	);
+	--color-success-container: oklch(
+		var(--_cl) calc(var(--success-c) * var(--_cs)) var(--success-h)
+	);
+	--color-info-container: oklch(
+		var(--_cl) calc(var(--info-c) * var(--_cs)) var(--info-h)
+	);
+	--color-warning-container: oklch(
+		var(--_cl) calc(var(--warning-c) * var(--_cs)) var(--warning-h)
+	);
+
+	--_ocl: 0.18; /* on-container lightness */
+
+	--color-on-primary-container: oklch(var(--_ocl) var(--primary-ch));
+	--color-on-secondary-container: oklch(var(--_ocl) var(--secondary-ch));
+	--color-on-tertiary-container: oklch(var(--_ocl) var(--tertiary-ch));
+	--color-on-error-container: oklch(var(--_ocl) var(--error-ch));
+	--color-on-success-container: oklch(var(--_ocl) var(--success-ch));
+	--color-on-info-container: oklch(var(--_ocl) var(--info-ch));
+	--color-on-warning-container: oklch(var(--_ocl) var(--warning-ch));
+
+	/* Surface */
+	--color-surface: oklch(0.98 var(--neutral-ch));
+	--color-on-surface: oklch(0.18 var(--neutral-ch));
+	--color-surface-container-lowest: oklch(1 var(--neutral-ch));
+	--color-surface-container-low: oklch(0.965 var(--neutral-ch));
+	--color-surface-container: oklch(0.945 var(--neutral-ch));
+	--color-surface-container-high: oklch(0.925 var(--neutral-ch));
+	--color-surface-container-highest: oklch(0.905 var(--neutral-ch));
+	--color-surface-variant: oklch(0.91 var(--neutral-ch));
+	--color-on-surface-variant: oklch(0.38 var(--neutral-ch));
+}
+
+[data-theme="dark"] {
+	/* Chroma */
+	--primary-c: clamp(0.01, calc(var(--base-chroma) * 0.95), 0.36);
+	--secondary-c: clamp(0.01, calc(var(--base-chroma) * 0.9), 0.34);
+	--tertiary-c: clamp(0.01, calc(var(--base-chroma) * 0.85), 0.32);
+
+	&[data-harmony="monochromatic"] {
+		--secondary-c: clamp(0.01, calc(var(--base-chroma) * 0.6), 0.32);
+		--tertiary-c: clamp(0.01, calc(var(--base-chroma) * 0.3), 0.28);
+	}
+
+	/* Lightness */
+	--_l-min: calc(1 - var(--base-lightness) + var(--_c) * 0.4);
+	--_c: var(--primary-c);
+	--primary-l-min: var(--_l-min);
+	--_c: var(--secondary-c);
+	--secondary-l-min: var(--_l-min);
+	--_c: var(--tertiary-c);
+	--tertiary-l-min: var(--_l-min);
+	--_c: var(--error-c);
+	--error-l-min: var(--_l-min);
+	--_c: var(--success-c);
+	--success-l-min: var(--_l-min);
+	--_c: var(--info-c);
+	--info-l-min: var(--_l-min);
+	--_c: var(--warning-c);
+	--warning-l-min: var(--_l-min);
+
+	/* Roles */
+	--_l-clamp: 0.88, 0.95; /* clamp bounds */
+
+	--color-primary: oklch(
+		clamp(var(--primary-l-min), var(--_l-clamp)) var(--primary-ch)
+	);
+	--color-secondary: oklch(
+		clamp(var(--secondary-l-min), var(--_l-clamp)) var(--secondary-ch)
+	);
+	--color-tertiary: oklch(
+		clamp(var(--tertiary-l-min), var(--_l-clamp)) var(--tertiary-ch)
+	);
+	--color-error: oklch(
+		clamp(var(--error-l-min), var(--_l-clamp)) var(--error-ch)
+	);
+	--color-success: oklch(
+		clamp(var(--success-l-min), var(--_l-clamp)) var(--success-ch)
+	);
+	--color-info: oklch(clamp(var(--info-l-min), var(--_l-clamp)) var(--info-ch));
+	--color-warning: oklch(
+		clamp(var(--warning-l-min), var(--_l-clamp)) var(--warning-ch)
+	);
+
+	--_on-l: 0.22; /* on lightness */
+
+	--color-on-primary: oklch(var(--_on-l) var(--primary-ch));
+	--color-on-secondary: oklch(var(--_on-l) var(--secondary-ch));
+	--color-on-tertiary: oklch(var(--_on-l) var(--tertiary-ch));
+	--color-on-error: oklch(var(--_on-l) var(--error-ch));
+	--color-on-success: oklch(var(--_on-l) var(--success-ch));
+	--color-on-info: oklch(var(--_on-l) var(--info-ch));
+	--color-on-warning: oklch(var(--_on-l) var(--warning-ch));
+
+	/* Containers */
+	--_cl: 0.32; /* container lightness */
+	--_cs: 0.55; /* chroma scale */
+	--_ocl: 0.92; /* on-container lightness */
+
+	/* Surface */
+	--color-surface: oklch(0.15 var(--neutral-ch));
+	--color-on-surface: oklch(0.92 var(--neutral-ch));
+	--color-surface-container-lowest: oklch(0.1 var(--neutral-ch));
+	--color-surface-container-low: oklch(0.19 var(--neutral-ch));
+	--color-surface-container: oklch(0.22 var(--neutral-ch));
+	--color-surface-container-high: oklch(0.28 var(--neutral-ch));
+	--color-surface-container-highest: oklch(0.34 var(--neutral-ch));
+	--color-surface-variant: oklch(0.91 var(--neutral-c) var(--neutral-h) / 15%);
+	--color-on-surface-variant: oklch(0.81 var(--neutral-ch));
 }

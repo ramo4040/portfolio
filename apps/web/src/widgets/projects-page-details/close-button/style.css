@@ -6,7 +6,11 @@
 	z-index: 9999;
 	aspect-ratio: 1;
 	border-radius: var(--radius-rounded);
-	background: #ffffff47;
+	background: color-mix(
+		in oklch,
+		var(--color-surface-container-lowest) 28%,
+		transparent
+	);
 	backdrop-filter: blur(8px);
 	text-decoration: none;
 	mix-blend-mode: difference;
@@ -16,10 +20,14 @@
 	transition: var(--transition-standard-default-effects);
 
 	svg {
-		color: var(--primary-text-color);
+		color: var(--color-surface-container-lowest);
 	}
 
 	&:hover {
-		background: #ffffff87;
+		background: color-mix(
+			in oklch,
+			var(--color-surface-container-lowest) 53%,
+			transparent
+		);
 	}
 }

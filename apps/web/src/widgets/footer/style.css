@@ -6,12 +6,16 @@
 	gap: 1.5rem;
 
 	#badge {
-		background: #16a34a17;
+		background: color-mix(
+			in oklab,
+			var(--color-success-container) 50%,
+			var(--color-surface-container-low) 100%
+		);
 
 		.pulse {
 			width: 8px;
 			aspect-ratio: 1;
-			background: #16a34a;
+			background: var(--color-success);
 			border-radius: var(--radius-rounded);
 			margin-right: 1rem;
 
@@ -33,8 +37,12 @@
 	}
 
 	> a {
-		background: #0072ff0a;
-		color: #000;
+		background: color-mix(
+			in oklab,
+			var(--color-info-container) 30%,
+			var(--color-surface-container-low) 100%
+		);
+		color: var(--color-on-surface);
 		font-size: clamp(1rem, 4vw, var(--aSize));
 	}
 
@@ -43,7 +51,7 @@
 		font-size: 14px;
 
 		a {
-			color: #000;
+			color: var(--color-on-surface);
 		}
 
 		&.is-contact-page {
@@ -54,7 +62,7 @@
 
 .footer-gradient-bg {
 	filter: blur(200px);
-	background: #7dcfff;
+	background: var(--color-info);
 	width: 100%;
 	height: 5rem;
 	position: absolute;

@@ -19,8 +19,12 @@
 }
 
 body {
-	color: var(--primary-text-color);
-	background: linear-gradient(180deg, #f0f2f5 0%, #ffffff 100%) no-repeat;
+	color: var(--color-surface-container-lowest);
+	background: color-mix(
+		in oklab,
+		var(--color-surface-container-low) 50%,
+		#fff 30%
+	);
 	width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
@@ -34,14 +38,14 @@ body {
 
 ::view-transition-group(root) {
 	z-index: auto !important;
-	background: black;
+	background: var(--color-on-surface);
 }
 
 ::view-transition-image-pair(root) {
 	isolation: isolate;
 	will-change: transform, opacity, scale;
 	z-index: 1;
-	background: black;
+	background: var(--color-on-surface);
 }
 
 ::view-transition-new(root) {
@@ -150,7 +154,7 @@ h6 {
 	padding-bottom: var(--spacing-128);
 	padding-inline: var(--spacing-20);
 	gap: var(--spacing-96);
-	color: #000;
+	color: var(--color-on-surface);
 	flex-direction: column;
 	margin: 0 auto;
 	display: flex;
@@ -165,19 +169,19 @@ h6 {
 
 /* Style the scrollbar track */
 ::-webkit-scrollbar-track {
-	background: #f1f1f1;
+	background: var(--color-surface-container-low);
 	border-radius: 5px;
 }
 
 /* Style the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-	background: #888;
+	background: color-mix(in oklch, var(--color-on-surface) 50%, transparent);
 	border-radius: 5px;
 }
 
 /* Style the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #555;
+	background: color-mix(in oklch, var(--color-on-surface) 65%, transparent);
 }
 
 /* Visually hidden but accessible to screen readers */

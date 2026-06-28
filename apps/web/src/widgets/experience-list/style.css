@@ -1,5 +1,5 @@
 [data-ui="experience-list"] {
-	background-color: #fff;
+	background-color: var(--color-surface-container-lowest);
 	border-radius: var(--radius-md);
 	overflow: hidden;
 	border: 1px solid var(--card-border-color);
@@ -43,7 +43,7 @@
 
 			.at-details p {
 				font: var(--font-label-lg);
-				color: #71717b;
+				color: var(--color-on-surface-variant);
 				text-align: right;
 			}
 		}
@@ -128,7 +128,7 @@
 
 						p {
 							font: var(--font-label-lg);
-							color: #71717b;
+							color: var(--color-on-surface-variant);
 							display: flex;
 							align-items: center;
 							gap: var(--spacing-4);
@@ -160,12 +160,16 @@
 						gap: var(--spacing-8);
 						padding: var(--spacing-4) var(--spacing-8) var(--spacing-8)
 							var(--spacing-24);
-						color: #52525b;
+						color: var(--color-on-surface-variant);
 						font: var(--font-body-md);
 					}
 
 					li::marker {
-						color: #a1a1aa;
+						color: color-mix(
+							in oklch,
+							var(--color-on-surface-variant) 60%,
+							var(--color-surface)
+						);
 					}
 				}
 
@@ -200,12 +204,12 @@
 					padding-inline: var(--spacing-8);
 					border: 1px solid;
 					border-radius: calc(var(--radius-sm) - var(--spacing-2));
-					color: hsl(250 15% 30%);
+					color: var(--color-on-surface-variant);
 					font: var(--font-body-sm);
 					gap: var(--spacing-8);
 					user-select: none;
-					border-color: hsl(250 15% 90%);
-					background-color: #fafafa;
+					border-color: var(--color-surface-variant);
+					background-color: var(--color-surface);
 				}
 			}
 		}

@@ -16,12 +16,12 @@
 			padding: var(--spacing-8) var(--spacing-12);
 
 			&.success {
-				background-color: #f0fdf4;
-				color: #16a34a;
+				background-color: var(--color-success-container);
+				color: var(--color-success);
 			}
 			&.error {
-				background-color: #fee2e2;
-				color: #dc2626;
+				background-color: var(--color-error-container);
+				color: var(--color-error);
 			}
 		}
 
@@ -35,8 +35,12 @@
 
 				.input {
 					backdrop-filter: blur(4.5px);
-					background-color: #ffffff75;
-					border: 1px solid #fff;
+					background-color: color-mix(
+						in oklch,
+						var(--color-surface-container-lowest) 46%,
+						transparent
+					);
+					border: 1px solid var(--color-surface-container-lowest);
 					border-radius: var(--radius-md);
 					width: 100%;
 					height: var(--spacing-56);
@@ -45,7 +49,7 @@
 					outline: 0;
 
 					&:focus {
-						border: 1px solid rgb(24, 163, 255);
+						border: 1px solid var(--color-info);
 					}
 				}
 
@@ -56,7 +60,7 @@
 
 			.error-text {
 				font-size: 14px;
-				color: rgb(255, 71, 71);
+				color: var(--color-error);
 			}
 		}
 	}

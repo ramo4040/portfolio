@@ -3,7 +3,7 @@
 	display: grid;
 	place-content: center;
 	text-align: center;
-	color: #000;
+	color: var(--color-on-surface);
 	gap: var(--spacing-32);
 
 	.error-code {
@@ -16,7 +16,7 @@
 	}
 	.error-description {
 		font-size: clamp(1rem, 3vw, 1.25rem);
-		color: #666;
+		color: var(--color-on-surface-variant);
 	}
 
 	.content {

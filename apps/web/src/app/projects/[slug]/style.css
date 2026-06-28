@@ -1,5 +1,5 @@
 #project-details-container {
-	background: #000;
+	background: var(--color-on-surface);
 	width: 100%;
 	user-select: none;
 
@@ -12,11 +12,15 @@
 		padding-bottom: var(--spacing-128);
 
 		.see-more {
-			color: var(--primary-text-color);
+			color: var(--color-surface-container-lowest);
 			text-decoration: none;
 			font-size: var(--font-body-sm);
 			font-weight: 500;
-			background: #ffffff47;
+			background: color-mix(
+				in oklch,
+				var(--color-surface-container-lowest) 28%,
+				transparent
+			);
 			border-radius: var(--radius-rounded);
 			padding: var(--spacing-12) var(--spacing-36);
 		}
