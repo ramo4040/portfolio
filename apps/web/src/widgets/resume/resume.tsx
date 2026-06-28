@@ -10,14 +10,14 @@ export function Resume() {
 		// Download English resume
 		const linkEn = document.createElement('a')
 		linkEn.href = '/pdfs/resume-english.pdf'
-		linkEn.download = 'resume-english.pdf'
+		linkEn.download = 'yassir-rouane-resume-english.pdf'
 		linkEn.click()
 
 		// Download French resume with a slight delay
 		setTimeout(() => {
 			const linkFr = document.createElement('a')
 			linkFr.href = '/pdfs/resume-french.pdf'
-			linkFr.download = 'resume-french.pdf'
+			linkFr.download = 'yassir-rouane-resume-french.pdf'
 			linkFr.click()
 		}, 100)
 	}
