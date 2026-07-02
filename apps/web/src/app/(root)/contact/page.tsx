@@ -88,6 +88,11 @@ const ContactPage = () => {
 						)}
 					</div>
 					<SubmitButton />
+					<p className='privacy-note'>
+						Your name, email, and message are used only to respond to your
+						inquiry. They are sent by email and are not sold or used for
+						marketing. To request deletion, email contact@yassir-rouane.me.
+					</p>
 				</form>
 
 				<Footer isContactPage />

@@ -135,12 +135,27 @@ export default function RootLayout({
 										},
 									},
 									{
+										'@type': 'ProfilePage',
+										'@id': 'https://www.yassir-rouane.me/#profilepage',
+										url: 'https://www.yassir-rouane.me',
+										name: 'Yassir Rouane portfolio',
+										description:
+											'Portfolio and project archive for Yassir Rouane, a full stack developer in Casablanca, Morocco.',
+										inLanguage: 'en-US',
+										mainEntity: {
+											'@id': 'https://www.yassir-rouane.me/#person',
+										},
+										isPartOf: {
+											'@id': 'https://www.yassir-rouane.me/#website',
+										},
+									},
+									{
 										'@type': 'Person',
 										'@id': 'https://www.yassir-rouane.me/#person',
 										name: 'Yassir Rouane',
 										jobTitle: 'Full Stack Developer',
 										url: 'https://www.yassir-rouane.me',
-										image: 'https://www.yassir-rouane.me/images/me/3.jpg',
+										image: 'https://www.yassir-rouane.me/images/me/3.webp',
 										description:
 											'Full stack developer based in Casablanca, Morocco. Specializes in React, Next.js, Node.js, TypeScript, and Laravel.',
 										address: {

@@ -39,7 +39,7 @@
 	.projects-container {
 		width: 80vw;
 		margin-inline: auto;
-		margin-bottom: var(--spacing-128);
+		margin-bottom: var(--spacing-80);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;

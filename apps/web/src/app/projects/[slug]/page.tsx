@@ -21,17 +21,23 @@ const projectMetaMap: Record<
 	string,
 	{ title: string; description: string; image: string }
 > = {
+	'olyx-ui': {
+		title: 'Olyx UI - Open-Source React Component Library',
+		description:
+			'Open-source React component library built on Base UI with 50+ accessible, composable components, CSS custom properties, HCT color, and design tokens.',
+		image: '/images/projects/olyx-ui/og.png',
+	},
 	'rh-car-rental': {
 		title: 'RH Car Rental — Fleet Management & Booking System',
 		description:
 			'Custom fleet management and online booking system for RH CAR. Built with real-time vehicle tracking, reservation management, and admin dashboards.',
-		image: '/images/projects/car-rental/car-rental-bg.png',
+		image: '/images/projects/car-rental/car-rental-bg.webp',
 	},
 	mindsprint: {
 		title: 'MindSprint — AI-Powered Learning Platform for Developers',
 		description:
 			'AI-powered learning platform with personalized paths, interactive quizzes, real-time AI assistance, and collaborative tools for developers.',
-		image: '/images/projects/mindsprint/mindsprint-bg.png',
+		image: '/images/projects/mindsprint/mindsprint-bg.webp',
 	},
 }
 
@@ -78,16 +84,37 @@ const ProjectPage: FC<ProjectPageProps> = ({ params }) => {
 	const jsonLd = meta
 		? {
 				'@context': 'https://schema.org',
-				'@type': 'CreativeWork',
-				name: meta.title,
-				description: meta.description,
-				url: `https://www.yassir-rouane.me/projects/${slug}`,
-				image: `https://www.yassir-rouane.me${meta.image}`,
-				author: {
-					'@type': 'Person',
-					name: 'Yassir Rouane',
-					url: 'https://www.yassir-rouane.me',
-				},
+				'@graph': [
+					{
+						'@type': 'CreativeWork',
+						'@id': `https://www.yassir-rouane.me/projects/${slug}#creativework`,
+						name: meta.title,
+						description: meta.description,
+						url: `https://www.yassir-rouane.me/projects/${slug}`,
+						image: `https://www.yassir-rouane.me${meta.image}`,
+						author: {
+							'@id': 'https://www.yassir-rouane.me/#person',
+						},
+					},
+					{
+						'@type': 'BreadcrumbList',
+						'@id': `https://www.yassir-rouane.me/projects/${slug}#breadcrumb`,
+						itemListElement: [
+							{
+								'@type': 'ListItem',
+								position: 1,
+								name: 'Home',
+								item: 'https://www.yassir-rouane.me/',
+							},
+							{
+								'@type': 'ListItem',
+								position: 2,
+								name: meta.title,
+								item: `https://www.yassir-rouane.me/projects/${slug}`,
+							},
+						],
+					},
+				],
 			}
 		: null
 

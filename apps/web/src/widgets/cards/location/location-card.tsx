@@ -49,7 +49,7 @@ export const LocationCard: FC<DefaultCardProps> = async ({
 			/>
 
 			<Image
-				src='/images/me/cloud.png'
+				src='/images/me/cloud.webp'
 				width={150}
 				height={150}
 				alt='Location cloud'

@@ -21,7 +21,7 @@ export const siteConfig = {
 		name: 'Yassir Rouane',
 		url: 'https://www.yassir-rouane.me',
 		jobTitle: 'Full Stack Developer',
-		avatar: '/images/me/3.jpg',
+		avatar: '/images/me/3.webp',
 		location: {
 			city: 'Casablanca',
 			countryCode: 'MA',

@@ -36,8 +36,12 @@ export default function Home() {
 			<AudioConversation />
 
 			<section aria-label='Featured projects' className='projects-container'>
-				{listProject.map((project) => (
-					<ProjectCard key={project.id} project={project} />
+				{listProject.map((project, index) => (
+					<ProjectCard
+						key={project.id}
+						project={project}
+						priority={index === 0}
+					/>
 				))}
 			</section>
 

@@ -12,10 +12,12 @@ import type { ComponentProps, FC } from 'react'
 
 type ProjectCardProps = ComponentProps<'div'> & {
 	project: Project
+	priority?: boolean
 }
 
 export const ProjectCard: FC<ProjectCardProps> = ({
 	project,
+	priority = false,
 	className,
 	style,
 	...props
@@ -49,7 +51,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 				</header>
 
 				<figure role='img' aria-label={imageAlt}>
-					<Image src={imageSrc} alt={imageAlt} fill priority sizes='100vw' />
+					<Image
+						src={imageSrc}
+						alt={imageAlt}
+						fill
+						priority={priority}
+						sizes='(max-width: 768px) 100vw, 33vw'
+					/>
 				</figure>
 
 				<section>

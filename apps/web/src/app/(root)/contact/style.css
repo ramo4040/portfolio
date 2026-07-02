@@ -64,6 +64,12 @@
 				font-size: 14px;
 				color: var(--color-error);
 			}
+
+			.privacy-note {
+				color: var(--color-on-surface-variant);
+				font-size: 14px;
+				line-height: 1.6;
+			}
 		}
 	}
 }

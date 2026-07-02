@@ -2,6 +2,17 @@
 
 I’m Yassir Rouane, a full stack developer in Casablanca, Morocco. I create thoughtful, useful web experiences. I care about building things people enjoy and that make a difference, no matter how small. Outside of work, I keep learning and exploring to grow as a developer and as a person.
 
+Last updated: 2026-07-02
+
+## Key URLs
+
+- Homepage: https://www.yassir-rouane.me/
+- About: https://www.yassir-rouane.me/about
+- Contact: https://www.yassir-rouane.me/contact
+- Olyx UI: https://www.yassir-rouane.me/projects/olyx-ui
+- RH Car Rental: https://www.yassir-rouane.me/projects/rh-car-rental
+- MindSprint: https://www.yassir-rouane.me/projects/mindsprint
+
 ## Contact
 
 Email: contact@yassir-rouane.me
@@ -50,4 +61,4 @@ An open-source React component library built on Base UI. It provides 50+ accessi
 A custom fleet management and booking system. It replaced RH CAR’s manual, error-prone process with a web app. Customers book online. Staff manage vehicles, reservations, and maintenance efficiently.
 
 ### MindSprint
-An AI-powered learning platform for developers.It offers personalized learning paths, interactive quizzes, real-time AI help, and collaborative tools to make skill development engaging and structured. For details, images, and full features, visit my portfolio’s project pages.
+An AI-powered learning platform for developers. It offers personalized learning paths, interactive quizzes, real-time AI help, and collaborative tools to make skill development engaging and structured. For details, images, and full features, visit my portfolio’s project pages.

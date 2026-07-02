@@ -38,7 +38,7 @@ export default function AboutPage() {
 
 				<figure className='my-picture'>
 					<Image
-						src={'/images/me/3.jpg'}
+						src={'/images/me/3.webp'}
 						alt='Yassir Rouane, full stack developer based in Casablanca, Morocco'
 						fill
 						priority
